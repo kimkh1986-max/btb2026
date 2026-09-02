@@ -266,6 +266,17 @@
   @media print{ .ck{border:none;padding:0 2px;margin:0;background:none;} }
   @media print{.speakbar,button.spk{display:none!important;}}
   .mrow b.ml{display:inline-block;min-width:34px;color:var(--sub);font-size:12px;font-weight:700;}
+  .pk{display:inline-block;min-width:58px;padding:1px 7px;margin:1px 0;border-bottom:1.5px dashed var(--sub);cursor:pointer;color:var(--navy2);font-weight:600;border-radius:4px 4px 0 0;line-height:1.5;}
+  .pk:empty::before{content:"______";color:var(--faint);font-weight:400;}
+  .pk:hover{background:var(--gold-bg);}
+  .pk.filled{border-bottom-style:solid;border-color:var(--gold);background:var(--gold-bg);color:var(--navy);}
+  .pkpop{position:fixed;z-index:999;background:#fff;border:1px solid var(--line);border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,.18);padding:6px;max-height:min(360px,70vh);overflow-y:auto;min-width:172px;}
+  .pkpop .pkhead{font-size:11px;color:var(--sub);padding:4px 8px 6px;font-weight:700;}
+  .pkpop button{display:block;width:100%;text-align:left;padding:7px 10px;border:none;background:none;font-size:13.5px;border-radius:6px;cursor:pointer;color:var(--ink);font-family:inherit;line-height:1.4;}
+  .pkpop button:hover,.pkpop button:active{background:var(--bg);}
+  .pkpop button.pksel{color:var(--navy2);}
+  .pkpop button.pkclear{color:var(--red);border-top:1px solid var(--line);margin-top:4px;padding-top:8px;}
+  @media print{ .pk{border-bottom:1px solid var(--sub);} }
   a.map{
     display:inline-block;font-size:11px;font-weight:700;color:var(--blue);
     background:var(--blue-bg);border:1px solid var(--blue-line);border-radius:999px;
@@ -1161,7 +1172,7 @@
       <div class="name">Forest Lodge Cottages <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Forest+Lodge+Cottages+Libanus+Brecon+LD3+8NW">📍 내비</a> <a class="map" href="https://www.airbnb.co.kr/rooms/46672629" target="_blank" rel="noopener">🏠 에어비앤비 페이지</a></div>
       <div class="addr">Libanus, Brecon LD3 8NW · 웨일스 브레콘 비콘스 국립공원</div>
       <div class="note">호스트 Anna Elizabeth (에어비앤비 앱 메시지로 연락) · 체크아웃 오전 10시까지 · Pen y Fan 10분 · 9인승 렌터카 2대로 이동</div>
-      <div class="note" style="display:block;margin-top:8px;">🛏 <b>방 구성 — 침실 6개 · 침대 21개 · 욕실 3.5 · 최대 24인</b> (에어비앤비 예약 페이지 기준 · 18명 여유)<span class="mrow">· 방1 싱글×6 — 이름: ______ · ______ · ______ · ______ · ______ · ______</span><span class="mrow">· 방2 싱글×6 — 이름: ______ · ______ · ______ · ______ · ______ · ______</span><span class="mrow">· 방3 더블×1 — 이름: ______ · ______</span><span class="mrow">· 방4 더블×1 — 이름: ______ · ______</span><span class="mrow">· 방5 싱글×5 — 이름: ______ · ______ · ______ · ______ · ______</span><span class="mrow">· 방6 킹×1 + 싱글×1 — 이름: ______ · ______ · ______</span><span class="mrow">· 방 배정은 출발 전 확정 권장 (담당: ____)</span></div>
+      <div class="note" style="display:block;margin-top:8px;">🛏 <b>방 구성 — 침실 6개 · 침대 21개 · 욕실 3.5 · 최대 24인</b> (에어비앤비 예약 페이지 기준 · 18명 여유)<span class="mrow">· 방1 싱글×6 — 이름: <span class="pk" data-pid="w1_1"></span> · <span class="pk" data-pid="w1_2"></span> · <span class="pk" data-pid="w1_3"></span> · <span class="pk" data-pid="w1_4"></span> · <span class="pk" data-pid="w1_5"></span> · <span class="pk" data-pid="w1_6"></span></span><span class="mrow">· 방2 싱글×6 — 이름: <span class="pk" data-pid="w2_1"></span> · <span class="pk" data-pid="w2_2"></span> · <span class="pk" data-pid="w2_3"></span> · <span class="pk" data-pid="w2_4"></span> · <span class="pk" data-pid="w2_5"></span> · <span class="pk" data-pid="w2_6"></span></span><span class="mrow">· 방3 더블×1 — 이름: <span class="pk" data-pid="w3_1"></span> · <span class="pk" data-pid="w3_2"></span></span><span class="mrow">· 방4 더블×1 — 이름: <span class="pk" data-pid="w4_1"></span> · <span class="pk" data-pid="w4_2"></span></span><span class="mrow">· 방5 싱글×5 — 이름: <span class="pk" data-pid="w5_1"></span> · <span class="pk" data-pid="w5_2"></span> · <span class="pk" data-pid="w5_3"></span> · <span class="pk" data-pid="w5_4"></span> · <span class="pk" data-pid="w5_5"></span></span><span class="mrow">· 방6 킹×1 + 싱글×1 — 이름: <span class="pk" data-pid="w6_1"></span> · <span class="pk" data-pid="w6_2"></span> · <span class="pk" data-pid="w6_3"></span></span><span class="mrow">· 방 배정은 출발 전 확정 권장 (담당: ____)</span></div>
     </div>
     <div class="stay">
       <div class="period">🧭 <b>가이드(팀) 숙소 · 웨일즈</b> · 같은 기간</div>
@@ -1174,14 +1185,14 @@
       <div class="name">런던 숙소 (모던) <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Seddon+Road+Morden+SM4+6ED">📍 내비</a> <a class="map" href="https://www.airbnb.co.kr/rooms/1365216491051996982" target="_blank" rel="noopener">🏠 에어비앤비 페이지</a></div>
       <div class="addr">Seddon Rd, Morden SM4 6ED · 런던 남서부 (상세 호수는 예약 내역 확인) · 호스트 Syed (에어비앤비 앱 메시지로 연락)</div>
       <div class="note">세미나 장소(서튼) 차 15분 · 모던역(런던 지하철 노던라인의 종점역) → 시내 약 40분 · 히드로 차 약 55분 · 체크인·체크아웃 시간과 9인승 2대 주차 가능 여부는 예약 내역·호스트에게 확인 필요</div>
-      <div class="note" style="display:block;margin-top:8px;">🛏 <b>방 구성 — 침실 6개 · 침대 13개 · 욕실 3.5 · 최대 16인</b> (에어비앤비 예약 페이지 기준 · 14명 배정)<span class="mrow">· 방1 싱글×3 — 이름: ______ · ______ · ______</span><span class="mrow">· 방2 더블×1 + 싱글×1 — 이름: ______ · ______ · ______</span><span class="mrow">· 방3 더블×1 + 싱글×1 — 이름: ______ · ______ · ______</span><span class="mrow">· 방4 싱글×2 — 이름: ______ · ______</span><span class="mrow">· 방5 싱글×1 — 이름: ______</span><span class="mrow">· 방6 더블×1 + 싱글×2 — 이름: ______ · ______ · ______ · ______</span><span class="mrow">· 방 배정은 출발 전 확정 권장 (담당: ____)</span></div>
+      <div class="note" style="display:block;margin-top:8px;">🛏 <b>방 구성 — 침실 6개 · 침대 13개 · 욕실 3.5 · 최대 16인</b> (에어비앤비 예약 페이지 기준 · 14명 배정)<span class="mrow">· 방1 싱글×3 — 이름: <span class="pk" data-pid="l11_1"></span> · <span class="pk" data-pid="l11_2"></span> · <span class="pk" data-pid="l11_3"></span></span><span class="mrow">· 방2 더블×1 + 싱글×1 — 이름: <span class="pk" data-pid="l12_1"></span> · <span class="pk" data-pid="l12_2"></span> · <span class="pk" data-pid="l12_3"></span></span><span class="mrow">· 방3 더블×1 + 싱글×1 — 이름: <span class="pk" data-pid="l13_1"></span> · <span class="pk" data-pid="l13_2"></span> · <span class="pk" data-pid="l13_3"></span></span><span class="mrow">· 방4 싱글×2 — 이름: <span class="pk" data-pid="l14_1"></span> · <span class="pk" data-pid="l14_2"></span></span><span class="mrow">· 방5 싱글×1 — 이름: <span class="pk" data-pid="l15_1"></span></span><span class="mrow">· 방6 더블×1 + 싱글×2 — 이름: <span class="pk" data-pid="l16_1"></span> · <span class="pk" data-pid="l16_2"></span> · <span class="pk" data-pid="l16_3"></span> · <span class="pk" data-pid="l16_4"></span></span><span class="mrow">· 방 배정은 출발 전 확정 권장 (담당: ____)</span></div>
     </div>
     <div class="stay">
       <div class="period">🏙 <b>런던 메인 숙소 ②</b> · 10/4(일) 16:00 — 10/8(목) 11:00 · 4박 · 4명</div>
       <div class="name">Katolondonhaus <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=18+Morton+Road+Morden+SM4+6EF">📍 내비</a> <a class="map" href="https://www.agoda.com/katolondonhaus/hotel/london-gb.html" target="_blank" rel="noopener">🏠 아고다 페이지</a></div>
       <div class="addr">18 Morton Rd, Morden SM4 6EF · 숙소①(Seddon Rd)과 같은 모던 동네 — 도보 수 분 거리</div>
       <div class="note"><b>체크인 10/4(일) 16:00 · 체크아웃 10/8(목) 11:00 확정</b> (아고다 예약 확정 · 객실 2개)</div>
-      <div class="note" style="display:block;margin-top:8px;">🛏 <b>방 구성 — 확정</b><span class="mrow">· 방1: 디럭스 킹룸 — 킹 더블 ×1 (2명) — 이름: ______ · ______</span><span class="mrow">· 방2: 더블룸 — 더블 ×1 (2명) — 이름: ______ · ______</span><span class="mrow">· 인원 배정(누가 ②로 갈지)은 담당 ____ 확정 ☐</span></div>
+      <div class="note" style="display:block;margin-top:8px;">🛏 <b>방 구성 — 확정</b><span class="mrow">· 방1: 디럭스 킹룸 — 킹 더블 ×1 (2명) — 이름: <span class="pk" data-pid="l21_1"></span> · <span class="pk" data-pid="l21_2"></span></span><span class="mrow">· 방2: 더블룸 — 더블 ×1 (2명) — 이름: <span class="pk" data-pid="l22_1"></span> · <span class="pk" data-pid="l22_2"></span></span><span class="mrow">· 인원 배정(누가 ②로 갈지)은 담당 ____ 확정 ☐</span></div>
     </div>
     <div class="stay">
       <div class="period">🧭 <b>가이드(팀) 숙소 · 런던</b> · 같은 기간</div>
@@ -1971,6 +1982,134 @@ window.OVBG = {"1": {"z": 8, "ox": 31840.46471111111, "oy": 21410.491475625484, 
     bar.children[sel].classList.add('on');
     render();
   })();
+})();
+</script>
+<script>
+(function(){
+  var BTB_PEOPLE = [
+    {n:'김성오', t:''},
+    {n:'최인석', t:'목사'},
+    {n:'김윤섭', t:'목사'},
+    {n:'김인수', t:'목사'},
+    {n:'김신자', t:''},
+    {n:'김영순', t:''},
+    {n:'김희정', t:''},
+    {n:'엄성윤', t:''},
+    {n:'오용인', t:'장로'},
+    {n:'우에스더', t:''},
+    {n:'이상은', t:'목사'},
+    {n:'이상훈', t:'목사'},
+    {n:'장서희', t:''},
+    {n:'최경애', t:''},
+    {n:'최용희', t:'사모'},
+    {n:'권인숙', t:'목사'},
+    {n:'김휘정', t:'목사'},
+    {n:'이영철', t:'목사'}
+  ];
+  function label(p){ return p.t ? (p.n + ' ' + p.t) : p.n; }
+
+  var pks = Array.prototype.slice.call(document.querySelectorAll('.pk'));
+  if(!pks.length) return;
+
+  var STORE_KEY = 'btb_room_v1';
+  var store = {};
+  try { store = JSON.parse(localStorage.getItem(STORE_KEY) || '{}'); } catch(e) { store = {}; }
+
+  function paintEl(el){
+    var pid = el.getAttribute('data-pid');
+    var v = store[pid];
+    if(v){ el.textContent = v; el.classList.add('filled'); }
+    else { el.textContent = ''; el.classList.remove('filled'); }
+  }
+  pks.forEach(paintEl);
+
+  function saveStore(){
+    try { localStorage.setItem(STORE_KEY, JSON.stringify(store)); } catch(e) {}
+  }
+
+  function countDup(name){
+    var n = 0;
+    pks.forEach(function(el){ if(el.textContent === name) n++; });
+    return n;
+  }
+
+  var pop = null;
+  function closePop(){
+    if(pop && pop.parentNode) pop.parentNode.removeChild(pop);
+    pop = null;
+    document.removeEventListener('click', onDocClick, true);
+    document.removeEventListener('keydown', onKeyDown, true);
+  }
+  function onDocClick(e){
+    if(pop && !pop.contains(e.target) && e.target.getAttribute('data-pid')===null){ closePop(); }
+  }
+  function onKeyDown(e){ if(e.key==='Escape') closePop(); }
+
+  function openPop(el){
+    closePop();
+    pop = document.createElement('div');
+    pop.className = 'pkpop';
+    var head = document.createElement('div');
+    head.className = 'pkhead';
+    head.textContent = '탭하여 이름 선택';
+    pop.appendChild(head);
+    BTB_PEOPLE.forEach(function(p){
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'pksel';
+      b.textContent = label(p);
+      b.addEventListener('click', function(ev){
+        ev.stopPropagation();
+        var pid = el.getAttribute('data-pid');
+        var nm = label(p);
+        store[pid] = nm;
+        saveStore();
+        paintEl(el);
+        closePop();
+        var dup = countDup(nm);
+        if(window.btbToast) window.btbToast(dup>1 ? ('저장됨 — "'+nm+'" 이(가) '+dup+'곳에 배정돼 있어요') : '이름 저장됨 — 이 기기에만 저장돼요');
+      });
+      pop.appendChild(b);
+    });
+    var clearBtn = document.createElement('button');
+    clearBtn.type = 'button';
+    clearBtn.className = 'pkclear';
+    clearBtn.textContent = '🗑 비우기';
+    clearBtn.addEventListener('click', function(ev){
+      ev.stopPropagation();
+      var pid = el.getAttribute('data-pid');
+      delete store[pid];
+      saveStore();
+      paintEl(el);
+      closePop();
+      if(window.btbToast) window.btbToast('비웠어요');
+    });
+    pop.appendChild(clearBtn);
+    document.body.appendChild(pop);
+
+    var r = el.getBoundingClientRect();
+    var pw = pop.offsetWidth, ph = pop.offsetHeight;
+    var vw = window.innerWidth, vh = window.innerHeight;
+    var left = Math.min(Math.max(8, r.left), vw - pw - 8);
+    var top = r.bottom + 6;
+    if(top + ph > vh - 8) top = Math.max(8, r.top - ph - 6);
+    pop.style.left = left + 'px';
+    pop.style.top = top + 'px';
+
+    setTimeout(function(){
+      document.addEventListener('click', onDocClick, true);
+      document.addEventListener('keydown', onKeyDown, true);
+    }, 0);
+  }
+
+  pks.forEach(function(el){
+    el.addEventListener('click', function(ev){
+      ev.stopPropagation();
+      if(pop && pop.dataset.forPid === el.getAttribute('data-pid')){ closePop(); return; }
+      openPop(el);
+      if(pop) pop.dataset.forPid = el.getAttribute('data-pid');
+    });
+  });
 })();
 </script>
 </body>
