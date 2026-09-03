@@ -2019,6 +2019,26 @@ window.OVBG = {"1": {"z": 8, "ox": 31840.46471111111, "oy": 21410.491475625484, 
     try { localStorage.setItem(STORE_KEY, JSON.stringify(store)); } catch(e) {}
   }
 
+  // --- 다같이 보는 실시간 공유 저장소 (Firebase Realtime Database) ---
+  var FB_URL = 'https://btb2026-roster-default-rtdb.firebaseio.com/roomdata';
+  function applyRemote(remote){
+    store = (remote && typeof remote === 'object') ? remote : {};
+    saveStore();
+    pks.forEach(paintEl);
+  }
+  function fetchRemote(){
+    fetch(FB_URL + '.json').then(function(r){ return r.json(); }).then(applyRemote).catch(function(){ /* 오프라인: 이 기기에 저장된 값으로 유지 */ });
+  }
+  fetchRemote();
+  setInterval(fetchRemote, 8000);
+  function writeRemote(pid, value){
+    return fetch(FB_URL + '/' + encodeURIComponent(pid) + '.json', {
+      method: 'PUT',
+      headers: {'Content-Type':'application/json'},
+      body: JSON.stringify(value)
+    });
+  }
+
   function countDup(name){
     var n = 0;
     pks.forEach(function(el){ if(el.textContent === name) n++; });
@@ -2059,7 +2079,10 @@ window.OVBG = {"1": {"z": 8, "ox": 31840.46471111111, "oy": 21410.491475625484, 
         paintEl(el);
         closePop();
         var dup = countDup(nm);
-        if(window.btbToast) window.btbToast(dup>1 ? ('저장됨 — "'+nm+'" 이(가) '+dup+'곳에 배정돼 있어요') : '이름 저장됨 — 이 기기에만 저장돼요');
+        if(window.btbToast) window.btbToast(dup>1 ? ('저장됨 — "'+nm+'" 이(가) '+dup+'곳에 배정돼 있어요') : '이름 저장됨 — 모두에게 실시간 공유돼요');
+        writeRemote(pid, nm).catch(function(){
+          if(window.btbToast) window.btbToast('⚠ 공유 저장 실패 — 인터넷 연결을 확인해주세요 (이 기기에는 저장됨)');
+        });
       });
       pop.appendChild(b);
     });
@@ -2074,7 +2097,10 @@ window.OVBG = {"1": {"z": 8, "ox": 31840.46471111111, "oy": 21410.491475625484, 
       saveStore();
       paintEl(el);
       closePop();
-      if(window.btbToast) window.btbToast('비웠어요');
+      if(window.btbToast) window.btbToast('비웠어요 — 모두에게 반영돼요');
+      writeRemote(pid, null).catch(function(){
+        if(window.btbToast) window.btbToast('⚠ 공유 저장 실패 — 인터넷 연결을 확인해주세요');
+      });
     });
     pop.appendChild(clearBtn);
     document.body.appendChild(pop);
