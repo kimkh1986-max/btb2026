@@ -2026,11 +2026,29 @@ window.OVBG = {"1": {"z": 8, "ox": 31840.46471111111, "oy": 21410.491475625484, 
     saveStore();
     pks.forEach(paintEl);
   }
+  var offlineWarned = false;
   function fetchRemote(){
-    fetch(FB_URL + '.json').then(function(r){ return r.json(); }).then(applyRemote).catch(function(){ /* 오프라인: 이 기기에 저장된 값으로 유지 */ });
+    fetch(FB_URL + '.json').then(function(r){ return r.json(); }).then(function(remote){
+      applyRemote(remote);
+      offlineWarned = false;
+    }).catch(function(){
+      // 오프라인: 이 기기에 마지막으로 저장된 내용을 그대로 보여줌
+      if(!offlineWarned){
+        offlineWarned = true;
+        if(window.btbToast) window.btbToast('⚠ 공유 데이터를 불러오지 못했어요 — 마지막으로 저장된 내용을 보여드려요');
+      }
+    });
   }
   fetchRemote();
-  setInterval(fetchRemote, 8000);
+  // 탭이 보일 때만 20초마다 갱신 (해외 로밍/배터리 절약 — 백그라운드일 땐 멈췄다가 다시 보면 즉시 갱신)
+  var pollTimer = null;
+  function startPolling(){ if(!pollTimer) pollTimer = setInterval(fetchRemote, 20000); }
+  function stopPolling(){ if(pollTimer){ clearInterval(pollTimer); pollTimer = null; } }
+  if(document.visibilityState === 'visible') startPolling();
+  document.addEventListener('visibilitychange', function(){
+    if(document.visibilityState === 'visible'){ fetchRemote(); startPolling(); }
+    else { stopPolling(); }
+  });
   function writeRemote(pid, value){
     return fetch(FB_URL + '/' + encodeURIComponent(pid) + '.json', {
       method: 'PUT',
