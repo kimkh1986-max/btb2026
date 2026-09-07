@@ -267,6 +267,9 @@
   .ck.on::before{content:"☑ ";color:#1c6b3a;}
   @media print{ .ck{border:none;padding:0 2px;margin:0;background:none;} }
   @media print{.speakbar,button.spk{display:none!important;}}
+  #korstop{position:fixed;right:14px;bottom:18px;z-index:1200;display:none;font-family:inherit;font-size:13px;font-weight:800;color:#fff;background:var(--navy);border:0;border-radius:999px;padding:10px 16px;box-shadow:0 8px 22px rgba(22,35,63,.35);cursor:pointer;}
+  #korstop.show{display:inline-block;}
+  @media print{#korstop{display:none!important;}}
   .mrow b.ml{display:inline-block;min-width:34px;color:var(--sub);font-size:12px;font-weight:700;}
   .pk{display:inline-block;min-width:98px;padding:2px 10px;margin:1px 0;cursor:pointer;color:var(--navy2);font-weight:600;border-radius:4px;line-height:1.5;text-align:center;}
   .pk:empty::before{content:"______";color:var(--faint);font-weight:400;}
@@ -1331,7 +1334,7 @@
     <div class="slots">
       <div class="fx gold">🌉 <b>3분 브릿지 전도법</b> — 검은 글씨는 영어 원문, 🔊 파란 줄은 <b>영국식(RP) 발음</b>, 회색은 뜻 <span class="sm">(영국식 포인트: r을 굴리지 않음 "포-·하-트·요-" · t를 또렷하게 "워터" · a를 길게 "아-프터·안-서" · new는 "뉴-" · 하이픈(-)은 길게 끄는 소리)</span></div>
       <div class="slot"><span class="t">📴 오프라인 듣기 준비</span><span class="c">스피커 모드는 <b>기기에 내장된 음성엔진</b>을 쓰므로 파일(또는 링크로 연 페이지)만 저장돼 있으면 <b>인터넷 없이 재생</b>됩니다 — 단, 영어 음성이 기기에 설치돼 있어야 하니 출발 전 아래대로 준비:
-        <span class="desc">📱 <b>아이폰/아이패드</b> — 기본 내장이라 바로 됨 (더 좋은 목소리 원하면: 설정 → 손쉬운 사용 → 콘텐츠 말하기 → 음성 → English(UK)에서 원하는 음성 다운로드) · 🤖 <b>안드로이드</b> — 설정에서 <b>"텍스트 음성 변환"(TTS)</b> 검색 → 기본 엔진 'Google 음성 서비스(Speech Services by Google)' 옆 ⚙ → <b>음성 데이터 설치</b> → <b>English (United Kingdom)</b> 다운로드 (삼성폰은 삼성 TTS에서도 영어 추가 가능) · 💻 <b>윈도우 PC</b> — 설정 → 시간 및 언어 → 언어 → <b>English (United Kingdom)</b> 언어팩 추가(음성 포함) — 크롬이 오프라인일 땐 이 시스템 음성으로 재생됨 · ✅ <b>공통</b>: 설치 후 비행기모드 켜고 ▶ 전체 듣기 한 번 테스트 — 소리가 나면 현지에서도 상시 사용 가능</span></span></div>
+        <span class="desc">📱 <b>아이폰/아이패드</b> — 기본 내장이라 바로 됨 (더 좋은 목소리 원하면: 설정 → 손쉬운 사용 → 콘텐츠 말하기 → 음성 → English(UK)에서 원하는 음성 다운로드) · 🤖 <b>안드로이드</b> — 설정에서 <b>"텍스트 음성 변환"(TTS)</b> 검색 → 기본 엔진 'Google 음성 서비스(Speech Services by Google)' 옆 ⚙ → <b>음성 데이터 설치</b> → <b>English (United Kingdom)</b> 다운로드 (삼성폰은 삼성 TTS에서도 영어 추가 가능) · 💻 <b>윈도우 PC</b> — 설정 → 시간 및 언어 → 언어 → <b>English (United Kingdom)</b> 언어팩 추가(음성 포함) — 크롬이 오프라인일 땐 이 시스템 음성으로 재생됨 · ✅ <b>공통</b>: 설치 후 비행기모드 켜고 ▶ 전체 듣기 한 번 테스트 — 소리가 나면 현지에서도 상시 사용 가능 · 🇰🇷 <b>11~14 인물·관광지 자료의 "읽어주기"</b>는 한국어 음성을 쓰는데 한국 폰은 기본 내장(아이폰 유나 · 안드로이드 Google/삼성 TTS 한국어)이라 별도 설치 없이 바로 됨 — 안 나오면 같은 TTS 설정에서 "한국어" 음성 데이터 설치</span></span></div>
       <div class="slot"><span class="t">인사</span><span class="c">Hello. May I have a few minutes of your time? — Thank you.
         <span class="pron">🔊 헬로우. 메이 아이 해브 어 퓨- 미니츠 오브 요- 타임? — 쌩큐-.</span>
         <span class="desc">안녕하세요. 잠깐 시간 좀 내주실래요? — 감사합니다.</span></span></div>
@@ -1706,7 +1709,7 @@
   function clearHl(){ slots.forEach(function(x){ x.classList.remove('speaking'); }); }
   function speak(text,onend){
     var u=new SpeechSynthesisUtterance(text);
-    u.lang='en-GB'; if(enVoice) u.voice=enVoice;
+    u.lang='en-GB'; try{ if(enVoice) u.voice=enVoice; }catch(e){}
     u.rate=rate; if(onend) u.onend=onend;
     window.speechSynthesis.speak(u);
   }
@@ -1770,6 +1773,125 @@
 })();
 </script>
 <div id="toast" role="status" aria-live="polite"></div>
+<button type="button" id="korstop">⏹ 읽기 중지</button>
+<script>
+(function(){
+  /* ===== 11~14 한국어 읽어주기 (기기 내장 음성 · 인터넷 불필요) ===== */
+  if(!('speechSynthesis' in window)) return;
+  var synth = window.speechSynthesis;
+  var koVoice = null, rate = 1.0, playing = false, curSlot = null, queue = [];
+  var stopBtn = document.getElementById('korstop');
+  function loadVoice(){
+    var vs = synth.getVoices() || [];
+    koVoice = vs.filter(function(v){ return v.lang && v.lang.replace('_','-').toLowerCase().indexOf('ko') === 0; })[0] || null;
+  }
+  loadVoice();
+  try { synth.addEventListener('voiceschanged', loadVoice); } catch(e) { synth.onvoiceschanged = loadVoice; }
+
+  function cleanText(t){
+    return t
+      .replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B50}\u{2B55}\u{FE0F}\u{200D}]/gu, ' ')   /* 이모지 제거 */
+      .replace(/[·→←↔]/g, ', ')
+      .replace(/[—–]/g, ', ')
+      .replace(/\s*\/\s*/g, ', ')
+      .replace(/[「」『』〈〉《》【】]/g, ' ')
+      .replace(/\(\s*/g, ' (').replace(/\s+/g, ' ').trim();
+  }
+  function slotText(slot){
+    var t = slot.querySelector('.t'), c = slot.querySelector('.c');
+    if(!c) return '';
+    var clone = c.cloneNode(true);
+    ['a.map','button.spk','button.kspk'].forEach(function(sel){
+      Array.prototype.slice.call(clone.querySelectorAll(sel)).forEach(function(el){ el.parentNode.removeChild(el); });
+    });
+    var label = t ? cleanText(t.textContent) : '';
+    var body = cleanText(clone.textContent);
+    return (label ? label + '. ' : '') + body;
+  }
+  /* 긴 문장은 잘려서 멈추는 기기가 있어 문장 단위로 나눠 순서대로 재생 */
+  function chunk(text){
+    /* 구형 사파리 호환을 위해 lookbehind 없이 문장 경계에서 나눔 */
+    var parts = [], start = 0, i;
+    for(i = 0; i < text.length; i++){
+      var ch = text.charAt(i);
+      var boundary = /[.!?。]/.test(ch) || (ch === ',' && i - start > 120);
+      if(boundary && (i === text.length - 1 || text.charAt(i+1) === ' ')){ parts.push(text.slice(start, i+1).trim()); start = i+1; }
+    }
+    if(start < text.length) parts.push(text.slice(start).trim());
+    var out = [], buf = '';
+    parts.forEach(function(p){
+      if(!p) return;
+      if((buf + ' ' + p).length > 180 && buf){ out.push(buf.trim()); buf = p; } else { buf += ' ' + p; }
+    });
+    if(buf.trim()) out.push(buf.trim());
+    return out;
+  }
+  function speakChunks(chunks, onend){
+    var i = 0;
+    (function next(){
+      if(!playing || i >= chunks.length){ if(onend) onend(); return; }
+      var u = new SpeechSynthesisUtterance(chunks[i++]);
+      u.lang = 'ko-KR'; try { if(koVoice) u.voice = koVoice; } catch(e) {} u.rate = rate;
+      u.onend = next; u.onerror = next;
+      synth.speak(u);
+    })();
+  }
+  function clearHl(){ if(curSlot){ curSlot.classList.remove('speaking'); curSlot = null; } }
+  function setBars(){
+    Array.prototype.slice.call(document.querySelectorAll('.korbar [data-a=play]')).forEach(function(b){
+      b.textContent = (playing && b.__sec === playingSec) ? '⏹ 재생 중지' : '▶ 이 섹션 전체 듣기';
+    });
+    stopBtn.classList.toggle('show', playing);
+  }
+  var playingSec = null;
+  function stopAll(){ playing = false; playingSec = null; synth.cancel(); clearHl(); setBars(); }
+  function playList(slots, sec){
+    stopAll(); playing = true; playingSec = sec; setBars();
+    var j = 0;
+    (function next(){
+      if(!playing || j >= slots.length){ stopAll(); return; }
+      var slot = slots[j++]; var text = slotText(slot);
+      if(!text){ next(); return; }
+      clearHl(); curSlot = slot; slot.classList.add('speaking');
+      try { slot.scrollIntoView({block:'center', behavior:'smooth'}); } catch(e) {}
+      speakChunks(chunk(text), function(){ if(playing) next(); });
+    })();
+  }
+  stopBtn.addEventListener('click', stopAll);
+  document.addEventListener('visibilitychange', function(){ if(document.hidden && playing) stopAll(); });
+
+  ['s11','s12','s13','s14'].forEach(function(id){
+    var sec = document.getElementById(id); if(!sec) return;
+    var card = sec.nextElementSibling; if(!card) return;
+    var slots = Array.prototype.slice.call(card.querySelectorAll('.slot')).filter(function(sl){
+      var t = sl.querySelector('.t'); var lb = t ? t.textContent : '';
+      return !/공개 자료|도서|더 보기/.test(lb);   /* 링크 모음 줄은 읽지 않음 */
+    });
+    if(!slots.length) return;
+    slots.forEach(function(slot){
+      var c = slot.querySelector('.c'); if(!c) return;
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'spk kspk'; b.textContent = '🔊'; b.title = '이 칸 읽어주기';
+      b.addEventListener('click', function(ev){ ev.stopPropagation(); playList([slot], id + ':' + slots.indexOf(slot)); });
+      c.appendChild(b);
+    });
+    var bar = document.createElement('div');
+    bar.className = 'speakbar korbar';
+    bar.innerHTML = '<b>🔈 읽어주기</b>'
+      + '<button type="button" data-a="play">▶ 이 섹션 전체 듣기</button>'
+      + '<label>속도 <select><option value="0.85">천천히</option><option value="1" selected>보통</option><option value="1.2">빠르게</option></select></label>'
+      + '<span class="sm">각 칸의 🔊로 한 칸씩 · 기기 내장 한국어 음성 — 인터넷 불필요 · 화면을 끄면 멈춤</span>';
+    var fx = card.querySelector('.fx');
+    if(fx) fx.parentNode.insertBefore(bar, fx.nextSibling); else card.insertBefore(bar, card.firstChild);
+    var pb = bar.querySelector('[data-a=play]'); pb.__sec = id;
+    pb.addEventListener('click', function(){ if(playing && playingSec === id) stopAll(); else playList(slots, id); });
+    bar.querySelector('select').addEventListener('change', function(){ rate = parseFloat(this.value); });
+  });
+  if(!koVoice){
+    setTimeout(function(){ loadVoice(); }, 800);
+  }
+})();
+</script>
 <script>
 (function(){
   /* ===== 토스트 ===== */
