@@ -414,25 +414,6 @@
   .ovlist .ovrow.cur{font-weight:700;}
   .ovnote{font-size:10.5px;color:var(--faint);margin-top:8px;}
 
-  /* ===== 일정 A/B(우리안·가이드안) 변형 ===== */
-  .vtabs{display:flex;gap:4px;margin-top:9px;flex-wrap:wrap;}
-  .vtabs .vt{
-    font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px;
-    border:1px solid var(--line);background:#fff;color:var(--sub);cursor:pointer;
-  }
-  .vtabs .vt.on{background:var(--gold);border-color:var(--gold);color:#fff;}
-  .day.vb>.daycol{border-left:4px solid var(--gold);}
-  .day.vhide{display:none !important;}
-  .ovplan{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin:2px 0 8px;font-size:12px;color:var(--sub);}
-  .ovplan button{
-    font-size:11.5px;font-weight:700;padding:4px 11px;border-radius:999px;
-    border:1px solid var(--line);background:#fff;color:var(--sub);cursor:pointer;
-  }
-  .ovplan button.on{background:var(--gold);border-color:var(--gold);color:#fff;}
-  @media print{
-    .day.vhide{display:block !important;}
-    .vtabs{display:none !important;}
-  }
   @media print{
     .ovmap{display:none !important;}
     .daybar,#toast{display:none !important;}
@@ -538,7 +519,7 @@
 
   <!-- ===== 미정 ===== -->
   <div class="pending">
-    <div class="pline"><b>🔖 남은 확인</b> — ☐ 10/4 하노버 주일예배 후 점심 제공 여부 · ☐ 10/1·10/2·10/4 우리안/가이드안 확정 · ☐ 모리아 방문 신청 9/17까지 · ☐ 대영박물관·내셔널갤러리 단체 예약 · ☐ 렌터카·짐차·식당 예약 다수 (07 체크리스트 참조)</div>
+    <div class="pline"><b>🔖 남은 확인</b> — ☐ 10/4 하노버 주일예배 후 점심 제공 여부 · ☐ 모리아 방문 신청 9/17까지 · ☐ 대영박물관·내셔널갤러리 단체 예약 · ☐ 렌터카·짐차·식당 예약 다수 (07 체크리스트 참조)</div>
   </div>
 
   <!-- ===== 01 일자별 일정 ===== -->
@@ -575,7 +556,6 @@
   <!-- 오버뷰 동선 지도 -->
   <div class="card ovmap" id="ovmap">
     <div class="ovhead">🗺 <b>오버뷰 — 하루 동선 한눈에</b> <span class="sm">실제 지도 위 동선 · 인터넷 없이 작동</span></div>
-    <div class="ovplan"><span>일정 버전</span><button type="button" id="ovpA" class="on">A · 우리안</button><button type="button" id="ovpB">B · 가이드안</button><span class="sm">— 10/1 · 10/2 · 10/4 (·10/5 대기 ☐)만 두 버전, 나머지 날은 공통</span></div>
     <div class="ovdays" id="ovdays"></div>
     <svg id="ovsvg" viewBox="0 0 100 58" xmlns="http://www.w3.org/2000/svg"></svg>
     <div class="ovfoot">
@@ -636,75 +616,32 @@
       <div class="slot sMeal"><span class="t">11:30</span><span class="c">🍽 점심 (~12:30) — 🎁 길웬 세미나 제공 확정</span></div>
       <div class="slot"><span class="t">12:30</span><span class="c">K-복음전도 컨퍼런스 — <b>3분 브릿지 세미나</b> (~17:00)</span></div>
       <div class="slot sMove"><span class="t">17:00</span><span class="c">종료 → <b>저녁 외식 확정</b> — 복귀길 크릭하월로 이동 (약 15분) · 17:15~18:00은 마을 산책·호텔 바에서 대기 (<b>Bear의 저녁 서빙은 18:00부터</b> — 낮 메뉴는 14:15 마감)</span></div>
-      <div class="slot sMeal"><span class="t">18:00</span><span class="c">🍴 저녁 (~19:00) — <b>The Bear Hotel (크릭하월)</b> — 복귀길 A40 바로 위, 세미나장에서 차 15분 · 15세기 코칭 인의 펍 다이닝으로 이 구간 대표 맛집 · 식사 시간 12:00~14:15 / 18:00~21:00 (20명은 <b>당일 오전 전화 예약 01873 810408</b> · 안 되면 브레콘 시내 펍·레스토랑으로 대체 — 숙소 차 10분) <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=The+Bear+Hotel+Crickhowell">📍 지도</a></span></div>
+      <div class="slot sMeal"><span class="t">18:00</span><span class="c">🍴 저녁 (~19:00) — 크릭하월에서 외식 (복귀길 A40 바로 위, 세미나장에서 차 15분 · 20명은 <b>당일 오전 전화 예약</b> · 안 되면 브레콘 시내 펍·레스토랑으로 대체 — 숙소 차 10분) <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Crickhowell+town+centre">📍 지도</a></span></div>
       <div class="slot sMove"><span class="t">~19:40</span><span class="c">숙소 도착 (크릭하월에서 약 35분 · A40 브레콘 경유 19마일) · 휴식 · 일찍 취침
         <span class="desc">🛒 아침거리 등 장보기가 필요하면 브레콘 <b>Morrisons</b> — 차 10분 · <b>22:00까지 영업</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Morrisons+Brecon+Free+Street">📍 마트</a></span> — 내일은 빅 핏 + 이반 로버츠 풀코스, 08:30 출발에 운전 약 6시간의 가장 긴 하루</span></div>
     </div>
   </div>
 
 
-  <!-- DAY 3 (D3-1 우리안) -->
-  <div class="day tour" data-vd="3">
+  <!-- DAY 3 -->
+  <div class="day tour">
     <div class="daycol">
-      <div class="daynum">DAY 3-1</div>
+      <div class="daynum">DAY 3</div>
       <div class="daydate">10.1</div>
       <div class="dayweek">목요일</div>
-      <span class="type tour">우리안 · 성지 1일차</span>
-      <div class="drv">🚗 운전 약 6시간<br>(교대 3회 필수 · 최장일)</div>
-      <div class="wx">🌧 14°/8°<br>강수 65% · ~8mm<br>서해안 바람·비</div>
-      <div class="vtabs"><button type="button" class="vt on" data-go="a">D3-1 우리안</button><button type="button" class="vt" data-go="b">D3-2 가이드안</button></div>
-    </div>
-    <div class="slots">
-      <div class="fx green">⛪ 부흥 성지 1일차 — ⛏ <b>빅 핏 탄광</b>(광부 로버츠의 세계) → <b>이반 로버츠 풀코스</b>(발상지 모리아 · 오벨리스크 · 묘역 · 생가 · 피스가) → <b>블라이난네르흐 서원 채플</b> <span class="sm">(광부의 갱도 → 서원 → 부흥 → 안식까지 하루에 잇는 코스 · 발자취 외 정차는 제거 · 내일은 리즈 하월즈)</span></div>
-      <div class="slot sMeal"><span class="t">08:00</span><span class="c">🍽 아침 — 숙소 취사 · 08:20 집결 (저녁은 복귀길 외식 — 밑준비 불필요)</span></div>
-      <div class="slot sMove"><span class="t">08:30</span><span class="c">숙소 출발 → 블라이나본 빅 핏 (약 50분 · A40 아버가베니 방면)</span></div>
-      <div class="slot sVisit"><span class="t">09:20</span><span class="c">⛏ <b>빅 핏 국립 석탄박물관</b> 도착 · 단체 체크인 (10인+ 단체는 <b>사전 이메일 예약 필수</b> — 10:00 첫 회차로) <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Big+Pit+National+Coal+Museum+NP4+9RL">📍 지도</a> <a class="map bg" href="#bg-bigpit">📖 배경 14</a></span></div>
-      <div class="slot"><span class="t">10:00</span><span class="c">지하 갱도 투어 (~11:00) — 전직 광부의 안내로 헬멧·램프 착용, 지하 90m 실제 갱도로 <span class="pay">투어 1인 £8 (약 1.5만원 · 사전예약 요금 기준, 당일 현장은 £5) · 20명 £160 ≈ 31만원 (가이드측 인원 포함 추정) · 박물관 무료 · 주차 £5/대</span>
-        <span class="desc">유네스코 세계유산 블라이나본 — 1904 부흥이 폭발한 탄광 계곡의 세계를 몸으로 체험. 이반 로버츠가 바로 이런 갱도의 광부(러흐르 브로드 오크 탄광)였음 — 오늘 코스의 서막 · ⚠️ <b>휴대폰·카메라 등 배터리 기기는 지하 반입 금지 — 입갱 전 수거·보관</b> (08 준비물 참조) · ⏱ <b>출발 마지노선 11:15</b> (늦으면 모리아 체류 압축)</span></span></div>
-      <div class="slot sMove"><span class="t">11:10</span><span class="c">출발 → 러흐르 (약 1시간 15분 · A465→M4 서진) · <b>운전자 교대 ①</b></span></div>
-      <div class="slot"><span class="t">12:25</span><span class="c">모리아 채플 (러흐르) — 이반 로버츠 · 1904 웨일스 대부흥 발상지 (~13:25 · 홈페이지 Contact Us 양식으로 투어 신청 — <b>방문일 10/1(목) · 안내자 배정을 위해 2주 전 신청 권장 → 9/17까지</b>) <span class="free">무료 · 헌금 환영</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Moriah+Chapel+Loughor+SA4+6QD">📍 지도</a> <a class="map bg" href="#s13">📜 로버츠 13</a>
-        <span class="desc">26세 청년 이반 로버츠의 기도 모임에서 1904 웨일스 대부흥이 폭발한 예배당 — 이 부흥이 1907 평양 대부흥의 불씨가 됨 · 교회 앞 이반 로버츠 기념 오벨리스크와 묘역까지 함께</span></span></div>
-      <div class="slot sVisit"><span class="t">13:25</span><span class="c">이반 로버츠 흔적 미니 코스 (~13:50) — 생가 Island House (차 3분 · 외관·기념 표지) → 피스가 채플 (로버츠가 주일학교를 가르치며 부흥을 준비하던 작은 예배당 · 외관) <span class="free">무료</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Island+House+Bwlchymynydd+Loughor">📍 생가</a> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Pisgah+Chapel+Loughor">📍 피스가</a>
-        <span class="desc">모리아에서 반경 5분 안에 몰려 있는 이반 로버츠 순례 세트 — 발상지·생가·사역지를 한 번에</span></span></div>
-      <div class="slot sMove"><span class="t">13:50</span><span class="c">멈블스로 이동 (약 25분 · 스완지 만 남쪽 끝)</span></div>
-      <div class="slot sMeal"><span class="t">14:15</span><span class="c">🍽 멈블스에서 <b>늦은 점심</b> (~15:25) — ⚠️ 20명은 <b>사전 예약 필수</b> (당일 선택 불가)<span class="mrow">· <b>주안 먼저 예약 시도, 안 되면 예비로</b> — 예약 날짜 10/1(목) · 시간 14:15</span><span class="mrow">· 늦은 점심(14:15) 서빙 가능 여부를 예약 때 반드시 확인 — 주방 마감 걸리면 예비 Castellamare로</span>
-        <span class="desc">식후 10분 여유 있으면 멈블스 명물 Joe's Ice Cream (1922년부터 만든 웨일스 국민 아이스크림) · 오후 원거리 이동(15:30 출발 엄수)을 위해 예약 시 <b>단체 세트 메뉴 사전 협의</b> 권장</span></span></div>
-      <div class="slot sMeal"><span class="t">주안</span><span class="c"><b>Bistrot Pierre (프렌치 비스트로)</b> — 멈블스 해변 산책로 오이스터 워프 · <b>Tivoli 프라이빗룸 = 20명이 한 공간에</b><span class="mrow">· 목요일 12:00~22:00 연속 영업(확인)이라 14:15 늦은 점심 가능 · Tivoli룸 최대 26명 · 온라인 Submit a request 또는 gm_mumbles@pierre94.co.uk로 단체 예약 — <b>날짜 10/1(목)</b> · 2~3일 내 회신 없으면 전화 01792 824117</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Bistrot+Pierre+Mumbles">📍 지도</a> <a class="map" href="https://bistrotpierre.co.uk/">🍽 메뉴·예약</a> <a class="map bg" href="#bg-mumbles">📖 배경 14</a></span></div>
-      <div class="slot"><span class="t">예비</span><span class="c"><b>Castellamare (이탈리안)</b> — 브레이슬릿 베이 절벽 위 바다 전망 · 실내 140석이라 주안이 마감돼도 성사 확률 높음 (전화/홈페이지 예약 · 옆 유료 주차장 2시간 £4.50/대, 밴 가능) <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Castellamare+Bracelet+Bay+Mumbles">📍 지도</a></span></div>
-      <div class="slot"><span class="t">전환</span><span class="c">☔ 우천 시 오히려 유리한 날 — 빅 핏은 실내·지하라 무관, 블라이난네르흐도 예배당 중심. 폭우로 서부 원거리 이동이 부담스러우면 <b>블라이난네르흐 구간만 접고 15:30 곧장 복귀(16:40 도착)</b>하는 축소판으로 (예약 무관 · 아침 식탁에서 결정 가능)</span></div>
-      <div class="slot sMove"><span class="t">15:30</span><span class="c">블라이난네르흐로 출발 (약 1시간 50분 — 후반은 시골길이라 두 차는 각자 내비로 가서 채플 앞 합류) · <b>운전자 교대 ②</b> (점심 직후)</span></div>
-      <div class="slot sVisit"><span class="t">17:20</span><span class="c">⛪ <b>블라이난네르흐 채플 — "나를 굽히소서(Plyg fi, O Arglwydd)" 서원의 현장</b> (~17:40 · 30분: 예배당·기념 공간 + 단체 사진 + 짧은 기도회 10분) <span class="free">무료 · 헌금</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Blaenannerch+Chapel+Ceredigion">📍 채플</a> <a class="map bg" href="#s13">📜 로버츠 13</a>
-        <span class="desc">1904년 세스 조슈아의 집회에서 26세 이반 로버츠가 부르짖은 헌신의 서원 — 웨일스 대부흥의 도화선. 서원일은 <b>1904년 9월 29일 — 우리 출국일과 같은 날짜</b> · 내부 관람은 사전 연락 권장 — 채플 연락처 01239 811538 (웨일스 장로교회 소속 · 모리아와 별개 교회) · 채플 앞 주차 소규모 — 밴 2대는 도로변 정차 주의 · 화장실은 인근 아버포스에서 미리 · ⏱ <b>출발 마지노선 17:45</b> — 정체로 17:30 넘어 도착한 날은 관람을 20분으로 줄여 <b>늦어도 18:00 출발</b></span></span></div>
-      <div class="slot sMove"><span class="t">17:45</span><span class="c">복귀 출발 → 란도버리 (약 1시간 15분 · 46마일 · 람페터 A475 → A482 · 저녁 식사 지점까지 무정차) · <b>운전자 교대 ③</b> — 뉴캐슬 에믈린 정차는 발자취 정리 원칙에 따라 제외</span></div>
-      <div class="slot sMeal"><span class="t">19:00</span><span class="c">🍴 저녁 (~20:00) — <b>외식 확정</b> · 1순위 <b>The Castle Hotel (란도버리)</b> — 복귀길 A40 란도버리 시내 (Kings Rd SA20 0AP)<span class="mrow">· 저녁 서빙 월~토 17:30~21:00 (확인) · 호텔 레스토랑이라 단체 수용 여지 — <b>당일 전화 필수 01550 720343</b> · 저녁이 19시대로 늦어지는 점 감안 · 안 되면 정차 없이 브레콘 시내 펍·레스토랑으로 대체 (~19:35 도착)</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=The+Castle+Hotel+Llandovery+SA20+0AP">📍 지도</a></span></div>
-      <div class="slot sVisit"><span class="t">선택</span><span class="c">🏫 란도버리 저녁 전후 (약 19:00) — <b>란도버리 칼리지 외관 정차 5분</b>: 토머스 선교사가 12~15세에 다닌 학교 (A40 길가라 추가 우회 0분) <span class="free">무료 · 외관</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Llandovery+College+Wales">📍 지도</a>
-        <span class="desc">오늘의 이반 로버츠와 일요일의 토머스가 한 동선에서 만나는 지점 — 단, 일몰(18:55) 무렵이라 <b>어두우면 생략</b></span></span></div>
-      <div class="slot sMove"><span class="t">20:05</span><span class="c">란도버리 출발 → 숙소 (약 35분 · A40 세니브리지 19마일) → <b>20:40 숙소 도착</b> (마지노선 18:00 출발 시 ~20:55) — 야간 운전 구간 (속도 여유 · 앞차 간격 확보)</span></div>
-      <div class="slot sMeal"><span class="t">저녁</span><span class="c">🍽 저녁은 위 <b>복귀길 외식</b>으로 해결 — 귀가 후 바로 휴식. 오늘이 운전 약 6시간의 가장 긴 하루 · 내일부터 <b>사역 연속 구간</b>(금 세미나 → 토 2곳 → 일 예배·이동)이니 바로 취침</span></div>
-    </div>
-  </div>
-
-
-  <!-- DAY 3 (D3-2 가이드안) -->
-  <div class="day tour vb vhide" data-vd="3">
-    <div class="daycol">
-      <div class="daynum">DAY 3-2</div>
-      <div class="daydate">10.1</div>
-      <div class="dayweek">목요일</div>
-      <span class="type tour">가이드안 · 탐방 1</span>
+      <span class="type tour">성지 1일차</span>
       <div class="drv">🚗 운전 약 7시간<br>(가장 긴 원정 · 교대 3회)</div>
       <div class="wx">🌧 14°/8°<br>강수 65% · ~8mm<br>서해안 바람·비</div>
-      <div class="vtabs"><button type="button" class="vt" data-go="a">D3-1 우리안</button><button type="button" class="vt on" data-go="b">D3-2 가이드안</button></div>
     </div>
     <div class="slots">
-      <div class="fx gold">🧭 <b>가이드 목사님 제시안 — 탐방 1</b>: ⛏ 빅 핏 → ⛪ 블라이난네르흐("Bend me down") → 🙏 Ffald-y-Brenin 기도원(비밀정원) → ⛪ 모리아 교회(1904 부흥) <span class="sm">· 아래 시간은 예상치 — 출발 전 가이드님과 최종 협의 ☐</span></div>
+      <div class="fx green">⛪ 부흥 성지 1일차 — ⛏ <b>빅 핏 탄광</b>(광부의 세계) → <b>블라이난네르흐 서원 채플</b>("Bend me down") → 🙏 <b>Ffald-y-Brenin 기도원</b>(비밀정원) → <b>모리아 채플</b>(1904 대부흥 발상지) <span class="sm">(박진철 선교사님 안내 코스 · 아래 시간은 예상치 — 출발 전 최종 협의 ☐)</span></div>
       <div class="slot sMeal"><span class="t">08:00</span><span class="c">🍽 아침 — 숙소 취사 · 08:20 집결 (저녁은 복귀길 외식)</span></div>
       <div class="slot sMove"><span class="t">08:30</span><span class="c">숙소 출발 → 블라이나본 빅 핏 (약 50분 · A40 아버가베니 방면)</span></div>
-      <div class="slot sVisit"><span class="t">09:20</span><span class="c">⛏ <b>빅 핏 국립 석탄박물관</b> 도착 · 단체 체크인 — 지하 투어 10:00 회차 (10인+ 사전 이메일 예약 필수 · 우리안과 동일 예약) <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Big+Pit+National+Coal+Museum+NP4+9RL">📍 지도</a> <a class="map bg" href="#bg-bigpit">📖 배경 14</a></span></div>
+      <div class="slot sVisit"><span class="t">09:20</span><span class="c">⛏ <b>빅 핏 국립 석탄박물관</b> 도착 · 단체 체크인 — 지하 투어 10:00 회차 (10인+ 사전 이메일 예약 필수) <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Big+Pit+National+Coal+Museum+NP4+9RL">📍 지도</a> <a class="map bg" href="#bg-bigpit">📖 배경 14</a></span></div>
       <div class="slot"><span class="t">10:00</span><span class="c">지하 갱도 투어 (~11:00) <span class="pay">투어 1인 £8 · 20명 £160 ≈ 31만원 · 주차 £5/대</span>
         <span class="desc">⚠️ 휴대폰·카메라 등 배터리 기기 지하 반입 금지 — 입갱 전 수거·보관 · ⏱ 오늘은 서해안 원정이 있어 <b>출발 마지노선 11:10</b></span></span></div>
       <div class="slot sMove"><span class="t">11:10</span><span class="c">출발 → 블라이난네르흐 (약 2시간 20분 · A40 카마던 경유 → 서해안) · <b>운전자 교대 ①</b></span></div>
-      <div class="slot sMeal"><span class="t">12:30</span><span class="c">🍽 점심 (~13:20) — <b>식당 미정</b> · 가이드님이 동선(카마던 방면)에 맞는 곳으로 인도 ☐ (시간만 우선 배치)</span></div>
+      <div class="slot sMeal"><span class="t">12:30</span><span class="c">🍽 점심 (~13:20) — <b>외식 예정</b> · 카마던 방면에서 당일 결정 ☐ (시간만 우선 배치)</span></div>
       <div class="slot sVisit"><span class="t">13:40</span><span class="c">⛪ <b>블라이난네르흐 채플 — "Bend me down(나를 굽히소서)" 서원의 현장</b> (~14:20 · 예배당·기념 공간 + 기도회) <span class="free">무료 · 헌금</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Blaenannerch+Chapel+Ceredigion">📍 채플</a> <a class="map bg" href="#s13">📜 로버츠 13</a>
         <span class="desc">1904년 세스 조슈아의 집회에서 26세 이반 로버츠가 부르짖은 헌신의 서원 — 웨일스 대부흥의 도화선 · 서원일 1904년 9월 29일은 우리 출국일과 같은 날짜 · 내부 관람은 사전 연락 권장 ☐ (01239 811538)</span></span></div>
       <div class="slot sMove"><span class="t">14:25</span><span class="c">출발 → Ffald-y-Brenin (약 45분 · 귄 밸리(Cwm Gwaun) 좁은 시골길 — 9인승 서행·각자 내비)</span></div>
@@ -712,78 +649,41 @@
         <span class="desc">펨브록셔 귄 밸리 산비탈의 기도처 — 『The Grace Outpouring(은혜의 쏟아짐)』으로 세계에 알려진 축복기도의 집 · 낮 방문 가능하나 <b>5인 이상 단체는 사전 연락 필수 ☐</b> (01348 881419 · bookings@ffald-y-brenin.org)</span></span></div>
       <div class="slot sMove"><span class="t">16:15</span><span class="c">출발 → 러흐르 모리아 채플 (약 1시간 30분 · A40 카마던 경유) · <b>운전자 교대 ②</b></span></div>
       <div class="slot sVisit"><span class="t">17:45</span><span class="c">⛪ <b>모리아 채플 (러흐르) — 이반 로버츠 · 1904 웨일스 대부흥 발상지</b> (~18:15 · 교회 앞 오벨리스크·묘역 포함) <span class="free">무료 · 헌금</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Moriah+Chapel+Loughor+SA4+6QD">📍 지도</a> <a class="map bg" href="#s13">📜 로버츠 13</a>
-        <span class="desc">홈페이지 양식 사전 연락 — 가이드안 확정 시 방문 시각을 17:45로 기재 ☐ (우리안은 12:25)</span></span></div>
+        <span class="desc">홈페이지 양식 사전 연락 — 방문 시각 17:45로 기재 ☐</span></span></div>
       <div class="slot sMove"><span class="t">18:20</span><span class="c">숙소로 복귀 출발 (약 1시간 20분 · M4→A4067 or A48→A40) · <b>운전자 교대 ③</b></span></div>
-      <div class="slot sMeal"><span class="t">~19:30</span><span class="c">🍴 저녁 (~20:20) — <b>식당 미정 · 외식 예정</b>: 복귀길에서 가이드님이 알맞은 곳으로 인도 ☐ (시간만 우선 배치) → 식사 후 귀가</span></div>
-      <div class="slot sMove"><span class="t">~20:40</span><span class="c">숙소 도착 — 오늘이 두 안 통틀어 가장 긴 원정 · 바로 취침</span></div>
-      <div class="slot"><span class="t">비교</span><span class="c">우리안(D3-1)과 겹치는 곳: 빅 핏·블라이난네르흐·모리아 — 가이드안은 <b>Ffald-y-Brenin이 더해지고</b> 멈블스 정찬·생가(Island House)·피스가 코스가 빠짐 · <b>멈블스 Bistrot Pierre 예약은 D3-1 선택 시에만 진행</b> ☐</span></div>
+      <div class="slot sMeal"><span class="t">~19:30</span><span class="c">🍴 저녁 (~20:20) — <b>외식 예정</b> — 복귀길에서 당일 결정 ☐ (시간만 우선 배치) → 식사 후 귀가</span></div>
+      <div class="slot sMove"><span class="t">~20:40</span><span class="c">숙소 도착 — 오늘이 이 여행에서 가장 긴 원정 · 바로 취침</span></div>
     </div>
   </div>
 
-  <!-- DAY 4 (D4-1 우리안) -->
-  <div class="day mission" data-vd="4">
+  <!-- DAY 4 -->
+  <div class="day mission">
     <div class="daycol">
-      <div class="daynum">DAY 4-1</div>
+      <div class="daynum">DAY 4</div>
       <div class="daydate">10.2</div>
       <div class="dayweek">금요일</div>
-      <span class="type mission">우리안 · 성지 2일차 + 세미나</span>
-      <div class="drv">🚗 운전 약 2시간 50분<br>(세미나 왕복 포함)</div>
-      <div class="wx">🌦 15°/9°<br>강수 60% · ~6mm<br>소나기</div>
-      <div class="vtabs"><button type="button" class="vt on" data-go="a">D4-1 우리안</button><button type="button" class="vt" data-go="b">D4-2 가이드안</button></div>
-    </div>
-    <div class="slots">
-      <div class="fx green">⛪ 부흥 성지 2일차 — 리즈 하월즈 풀코스 <span class="sm">(BCW 헤리티지 센터 + 캠퍼스 트레일 + 묘소 — 어제 이반 로버츠 미니 코스와 짝 · BCW는 화~금만 개방 → 금요일)</span></div>
-      <div class="fx gold">📋 <b>K-복음전도 컨퍼런스 — 3분 브릿지 세미나</b> · 웨일스 2회차 · <b>저녁 19:00~21:00 · 사론 채플 (Saron Chapel, Crynant)</b> <span class="sm">(가이드님 안내 기준 · 최종 확인 ☐)</span> <span class="sm">(Main Rd, Crynant, Neath SA10 8NT — 니스 둘라이스 밸리의 옛 탄광 마을 · BCW·묘소와 같은 스완지 서부권이라 오후 동선이 그대로 이어짐)</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Saron+Chapel+Main+Road+Crynant+Neath+SA10+8NT">📍 지도</a></div>
-      <div class="slot sMeal"><span class="t">08:00</span><span class="c">🍽 아침 — 숙소 취사 · 08:30 집결</span></div>
-      <div class="slot sMove"><span class="t">08:45</span><span class="c">숙소 출발 → 스완지 BCW (약 1시간 25분 · A4067)</span></div>
-      <div class="slot"><span class="t">10:15</span><span class="c">웨일스 성경대학(BCW) 헤리티지 센터 — 리즈 하월즈 (10:10 도착 · 관람 10:15~12:00)<span class="mrow">· 개관 화~금 10:00~15:00 · 무료(확인) · 10인 이상 단체는 heritage@bcwales.org 사전 예약 필수 — <b>예약 시각은 10:15로</b> · 차량 3대(9인승 2 + 가이드 차) 주차 같이 문의</span> <span class="free">무료</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Bible+College+of+Wales+Derwen+Fawr+Swansea+SA2+8EB">📍 지도</a> <a class="map bg" href="#s12">📜 하월즈 12</a>
-        <span class="desc">『중보기도자』로 유명한 리즈 하월즈가 1924년 기도와 믿음으로 세운 성경대학 — 데르웬 파우르 하우스에 그의 삶과 사역 전시</span></span></div>
-      <div class="slot sVisit"><span class="t">12:00</span><span class="c">리즈 하월즈 캠퍼스 트레일 (~12:25) — 글린더웬 Glynderwen(1924년 문을 연 최초 캠퍼스 · 외관) → 스케티 이사프 Sketty Isaf(선교사 자녀들을 위해 1932년 매입 · 외관) — BCW 반경 차 5분 안 <span class="free">무료</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Glynderwen+Close+Sketty+Swansea">📍 글린더웬</a>
-        <span class="desc">월급 없이 기도와 믿음만으로 사들인 세 사유지 — 헤리티지 센터에서 들은 이야기의 현장을 눈으로 확인하는 짧은 코스</span></span></div>
-      <div class="slot sMeal"><span class="t">12:30</span><span class="c">🍽 점심 — 스완지에서 간단히 (~13:30 · BCW 인근 스케티/우플랜즈 방면 카페·샌드위치, 소그룹 분산 — 예약 불필요 · 어제 멈블스 정찬과 대비되는 가벼운 끼니)</span></div>
-      <div class="slot sVisit"><span class="t">13:30</span><span class="c">⛪ 펜레르가에르 St David's 교회 묘지 — <b>리즈 하월즈 묘소</b> (차 20분 · 7.6마일 · ~14:15) <span class="free">무료</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=St+Davids+Church+Penllergaer+Swansea">📍 묘소</a> <a class="map bg" href="#s12">📜 하월즈 12</a>
-        <span class="desc">만년에 유대인 난민 구호를 위해 사들인 펜레르가에르 사유지 곁 교회 묘역에 잠들어 있음 (1950 소천) — 어제의 이반 로버츠 묘역과 짝을 이루는 순례 포인트</span></span></div>
-      <div class="slot sVisit"><span class="t">선택</span><span class="c">🌳 펜레르가에르 밸리 우즈 산책 (~30분 · 묘소 바로 옆) — 하월즈가 매입했던 펜레르가에르 사유지 일대의 옛 정원·계곡, 현재 무료 컨트리파크 (폭포·호수) <span class="free">무료 · 주차비만</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Penllergare+Valley+Woods+Swansea">📍 지도</a>
-        <span class="desc">저녁 세미나가 19시고 사론이 같은 서부권이라 오후가 넉넉함 — 산책 후에도 숙소로 돌아가지 않고 서쪽에 머물다 니스로 이동 (숙소 복귀 없음: 세미나 자료는 아침에 챙겨서 출발)</span></span></div>
-      <div class="slot"><span class="t">~17:15</span><span class="c">여유 시간 — 밸리 우즈 느긋하게 or 차에서 휴식 (오늘 유일한 조절 밸브 · 밀리면 여기서 흡수)</span></div>
-      <div class="slot sMove"><span class="t">17:20</span><span class="c">니스(Neath) 시내로 이동 (약 25분 · M4→A465)</span></div>
-      <div class="slot sMeal"><span class="t">17:50</span><span class="c">🍽 니스 시내에서 이른 저녁 (~18:30 · 소그룹 분산 — 카페·펍·피시앤칩스, 예약 불필요) — <b>사론교회 저녁 제공 없음 확정 → 외식으로 확정</b> (소그룹 분산 외식)</span></div>
-      <div class="slot sMove"><span class="t">18:35</span><span class="c">사론 채플로 출발 (약 15분 · A4109 둘라이스 밸리 북상 7마일) → <b>18:50 도착 · 세미나 전 버퍼 10분</b></span></div>
-      <div class="slot sMin"><span class="t">19:00</span><span class="c">📋 <b>3분 브릿지 세미나 — 사론 채플 (~21:00)</b>
-        <span class="desc">웨일스 독립교회연합(Annibynwyr) 소속 채플 — 어제 빅 핏에서 본 광부들의 세계가 이 교회가 선 계곡의 배경</span></span></div>
-      <div class="slot sMove"><span class="t">21:05</span><span class="c">숙소로 복귀 출발 (약 50분 · A4067 크라이 경유 — 야간 산길: 속도 여유, 경로 계산 26마일) → <b>21:55 숙소 도착</b><span class="desc">21시 종료라 인근 식당은 주방 마감 — 외식은 세미나 전 니스 이른 저녁으로, 종료 후엔 귀가·야식</span> — 내일도 10:30 하노버 세미나: 바로 취침 · 일요일 캐리어는 낮 휴식 시간에 미리 싸두기</span></div>
-    </div>
-  </div>
-
-  <!-- DAY 4 (D4-2 가이드안) -->
-  <div class="day mission vb vhide" data-vd="4">
-    <div class="daycol">
-      <div class="daynum">DAY 4-2</div>
-      <div class="daydate">10.2</div>
-      <div class="dayweek">금요일</div>
-      <span class="type mission">가이드안 · 탐방 2 + 세미나</span>
+      <span class="type mission">성지 2일차 + 세미나</span>
       <div class="drv">🚗 운전 약 4시간<br>(고워 해안 왕복 포함)</div>
       <div class="wx">🌦 15°/9°<br>강수 60% · ~6mm<br>소나기</div>
-      <div class="vtabs"><button type="button" class="vt" data-go="a">D4-1 우리안</button><button type="button" class="vt on" data-go="b">D4-2 가이드안</button></div>
     </div>
     <div class="slots">
-      <div class="fx gold">🧭 <b>가이드 목사님 제시안 — 탐방 2 &amp; 세미나</b>: 🏖 고워 반도(해안 절경) → 📖 리즈 하월즈 BCW → 🌊 멈블스 비치 → 📋 사론 세미나 <b>19:00~21:00 (우리안과 동일 시간)</b> <span class="sm">· 아래 시간은 예상치 — 가이드님과 최종 협의 ☐</span></div>
+      <div class="fx green">⛪ 부흥 성지 2일차 — 🏖 <b>고워 반도</b>(해안 절경) → 📖 <b>리즈 하월즈 BCW</b> → 🌊 <b>멈블스 비치</b> <span class="sm">(박진철 선교사님 안내 코스 · 아래 시간은 예상치 — 최종 협의 ☐)</span></div>
+      <div class="fx gold">📋 <b>K-복음전도 컨퍼런스 — 3분 브릿지 세미나</b> · 웨일스 2회차 · <b>저녁 19:00~21:00 · 사론 채플 (Saron Chapel, Crynant)</b> <span class="sm">(Main Rd, Crynant, Neath SA10 8NT — 니스 둘라이스 밸리의 옛 탄광 마을)</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Saron+Chapel+Main+Road+Crynant+Neath+SA10+8NT">📍 지도</a></div>
       <div class="slot sMeal"><span class="t">08:00</span><span class="c">🍽 아침 — 숙소 취사 · 08:20 집결 (세미나 자료 챙겨서 출발 — 숙소 복귀 없음)</span></div>
       <div class="slot sMove"><span class="t">08:30</span><span class="c">숙소 출발 → 고워 반도 로실리 (약 1시간 50분 · A4067→스완지→고워 서쪽 끝)</span></div>
       <div class="slot sVisit"><span class="t">10:20</span><span class="c">🏖 <b>고워 반도 — 로실리 베이 &amp; 웜즈 헤드 전망</b> (~11:20 · 절벽 전망대 산책·단체 사진) <span class="free">무료 · 주차비만</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Rhossili+Bay+Gower">📍 지도</a> <a class="map bg" href="#bg-gower">📖 배경 14</a>
         <span class="desc">1956년 <b>영국 최초로 지정된 AONB</b>(빼어난 자연미 지역) — 3마일 백사장과 웜즈 헤드가 내려다보이는 웨일스 대표 해안 절경 · 바람 강한 날 절벽길 주의</span></span></div>
       <div class="slot sMove"><span class="t">11:30</span><span class="c">출발 → 스완지 BCW (약 45분)</span></div>
-      <div class="slot sMeal"><span class="t">12:20</span><span class="c">🍽 점심 (~13:10) — <b>식당 미정</b> · 가이드님이 스완지 방면에서 알맞은 곳으로 인도 ☐ (시간만 우선 배치)</span></div>
+      <div class="slot sMeal"><span class="t">12:20</span><span class="c">🍽 점심 (~13:10) — <b>외식 예정</b> — 스완지 방면에서 당일 결정 ☐ (시간만 우선 배치)</span></div>
       <div class="slot"><span class="t">13:15</span><span class="c">📖 <b>웨일스 성경대학(BCW) 헤리티지 센터 — 리즈 하월즈</b> (~15:00 · ⚠️ <b>15:00 폐관</b>이라 13:15 입장이 사실상 마지막 슬롯 — 고워에서 늦어지면 관람이 잘림) <span class="free">무료</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Bible+College+of+Wales+Derwen+Fawr+Swansea+SA2+8EB">📍 지도</a> <a class="map bg" href="#s12">📜 하월즈 12</a>
-        <span class="desc">10인+ 단체는 heritage@bcwales.org 사전 예약 필수 — ⚠️ <b>가이드안 확정 시 예약 시각을 13:15로</b> (우리안은 10:15 — 어느 안인지 정한 뒤 예약할 것 ☐)</span></span></div>
+        <span class="desc">10인+ 단체는 heritage@bcwales.org 사전 예약 필수 — ⚠️ <b>예약 시각은 13:15로</b> ☐</span></span></div>
       <div class="slot sMove"><span class="t">15:10</span><span class="c">출발 → 멈블스 (약 15분 · 스완지 만 남쪽)</span></div>
       <div class="slot sVisit"><span class="t">15:30</span><span class="c">🌊 <b>멈블스 비치</b> — 해변 산책로·부두 산책 + Joe's Ice Cream (1922년부터의 웨일스 국민 아이스크림) (~16:10) <span class="free">무료</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Mumbles+Pier+Swansea">📍 지도</a> <a class="map bg" href="#bg-mumbles">📖 배경 14</a></span></div>
       <div class="slot sMove"><span class="t">17:15</span><span class="c">니스(Neath)로 이동 (약 30분 · 세미나 방면으로 미리 접근)</span></div>
-      <div class="slot sMeal"><span class="t">17:50</span><span class="c">🍽 이른 저녁 (~18:30) — <b>식당 미정 · 외식 예정</b> (사론교회 저녁 제공 없음) · 니스 방면에서 가이드님 인도 ☐ (시간만 우선 배치)</span></div>
+      <div class="slot sMeal"><span class="t">17:50</span><span class="c">🍽 이른 저녁 (~18:30) — <b>외식 예정</b> (사론교회 저녁 제공 없음) · 니스 방면에서 당일 결정 ☐ (시간만 우선 배치)</span></div>
       <div class="slot sMove"><span class="t">18:35</span><span class="c">사론 채플로 출발 (약 15분 · A4109 둘라이스 밸리) → <b>18:50 도착 · 버퍼 10분</b></span></div>
-      <div class="slot sMin"><span class="t">19:00</span><span class="c">📋 <b>3분 브릿지 세미나 — 사론 채플 (~21:00 · 우리안과 동일 시간)</b> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Saron+Chapel+Main+Road+Crynant+Neath+SA10+8NT">📍 지도</a></span></div>
+      <div class="slot sMin"><span class="t">19:00</span><span class="c">📋 <b>3분 브릿지 세미나 — 사론 채플 (~21:00)</b></span></div>
       <div class="slot sMove"><span class="t">21:05</span><span class="c">숙소로 복귀 출발 (약 50분 · A4067 야간 산길 — 속도 여유) → <b>21:55 숙소 도착</b> · 내일 10:30 하노버 세미나 — 바로 취침</span></div>
-      <div class="slot"><span class="t">비교</span><span class="c">우리안(D4-1)과 차이: 하월즈 <b>묘소·캠퍼스 트레일 대신 고워 해안 + 멈블스 비치</b> · BCW 예약 시각이 오전(10:15) ↔ 오후(13:15)로 달라짐 — <b>BCW 이메일 예약 전에 어느 안인지 확정 필수</b> ☐</span></div>
     </div>
   </div>
 
@@ -815,89 +715,51 @@
     </div>
   </div>
 
-  <!-- DAY 6 (D6-1 우리안) -->
-  <div class="day mission weekend" data-vd="6">
+  <!-- DAY 6 -->
+  <div class="day mission weekend">
     <div class="daycol">
-      <div class="daynum">DAY 6-1</div>
+      <div class="daynum">DAY 6</div>
       <div class="daydate">10.4</div>
       <div class="dayweek">일요일</div>
-      <span class="type mission">우리안 · 예배 · 이동</span>
-      <div class="drv">🚗 운전 약 3시간 45분</div>
-      <div class="wx">🌦 15°/9°<br>강수 55% · ~5mm</div>
-      <div class="vtabs"><button type="button" class="vt on" data-go="a">D6-1 우리안</button><button type="button" class="vt" data-go="b">D6-2 가이드안</button></div>
-    </div>
-    <div class="slots">
-      <div class="slot sMeal"><span class="t">07:45</span><span class="c">🍽 아침 — 숙소 취사 (남은 식재료 소진 · 예배 후 이동이 기니 든든하게)</span></div>
-      <div class="slot sMove"><span class="t">08:30</span><span class="c">캐리어 18개+ 🚐 우버밴 적재 시작 (18명 짐 싣기는 20~30분 걸림 — 여유 있게)</span></div>
-      <div class="slot sMove"><span class="t">09:00</span><span class="c">Forest Lodge Cottages 체크아웃 완료 (규정상 10:00까지 퇴실 — 09:20 출발이면 여유) · 우버밴 일행 1명 동승</span></div>
-      <div class="slot"><span class="t">09:20</span><span class="c">🚗 렌터카 2대 + 🚐 우버밴 하노버 교회로 이동 (약 55분)</span></div>
-      <div class="slot sMove"><span class="t">10:10</span><span class="c">교회 도착 (현장 주차 가능) · 캐리어 내려놓고 우버밴 1차는 보냄 · 예배 준비</span></div>
-      <div class="fx gold">⛪ 웨일즈 하노버 교회 (Hanover Chapel, Llanover NP7 9EF) · <b>주일예배 11:00</b> · 설교 · 간증 · 찬양 <span class="sm">— 토머스 선교사 모교회</span> <span class="free">무료 · 헌금</span> <a class="map" href="https://maps.app.goo.gl/GrkfyeuSHhCDnbs3A">📍 지도</a> <a class="map bg" href="#s11">📜 토머스 11</a></div>
-      <div class="slot"><span class="t" style="visibility:hidden;">·</span><span class="c"><span class="desc">1744년 첫 예배당이 세워진 유서 깊은 회중교회(현 건물은 1839년) — 한국에 성경을 들고 온 최초의 개신교 선교사 로버트 저메인 토머스(1866 대동강 순교)를 파송한 교회. 현재 담임 유재연 목사(최초의 한국인 담임)</span></span></div>
-      <div class="slot sMin"><span class="t">11:00</span><span class="c">주일예배 (~12:30 예상 · 예배 + 설교 + 간증 + 찬양)</span></div>
-      <div class="slot sMeal"><span class="t">12:30</span><span class="c">🍽 점심 — 제공 여부 확인 ☐ (하노버 교회 측 · Llanover 주변 식당 없음) · 교제 (~13:40)</span></div>
-      <div class="slot sVisit"><span class="t">둘러보기</span><span class="c">⛪ 토머스 선교사 미니 코스 (교제 시간 중 15분 · 전부 교회 경내) <span class="free">무료</span><span class="mrow">· ① 예배당 안 — 벽에 걸린 <b>토머스 선교사 사진·자료들</b> + <b>아버지 로버트 토머스 목사(1810–1884) 부부 기념비</b> ("37년간 이 성전에서 복음을 전한" · 이곳에서 1863년 안수받고 파송됨)</span><span class="mrow">· ② 교회 바로 옆 <b>목사관(manse)</b> — 채플보다 오래된 건물, 토머스가 8살부터 소년기를 보낸 집 (외관)</span><span class="mrow">· ③ 교회 묘역 산책</span>
-        <span class="desc">이동 없이 예배 온 김에 다 보는 코스 — 토머스의 "집과 아버지의 강단"이 한 마당에 있음</span></span></div>
-      <div class="slot sMove"><span class="t">13:40</span><span class="c">🚐 우버밴 2차 도착 → 캐리어 적재 (시골 지역이라 즉시 호출이 안 됨 — <b>13:40 예약 호출</b>로 미리 잡아두기)</span></div>
-      <div class="slot sMove"><span class="t">14:00</span><span class="c">🚗 렌터카 + 🚐 우버밴 런던으로 출발 (약 3시간 40분 + 휴게소 15분 · M4→M25/A3)</span></div>
-      <div class="slot sMove"><span class="t">17:55</span><span class="c">런던 숙소(모던) <b>전원 도착</b> · 체크인 · 짐 정리
-        <span class="desc">숙소 ①(Seddon Rd) 14명 + 숙소 ②(Katolondonhaus · Morton Rd · <b>16:00부터 체크인 가능</b>) 4명으로 분산 — 두 집은 같은 모던 동네 도보권</span></span></div>
-      <div class="slot sMove"><span class="t">18:20</span><span class="c">전원 뉴몰든으로 출발 (차 10분)</span></div>
-      <div class="slot sMeal"><span class="t">18:35</span><span class="c">🍽 뉴몰든 한인타운 첫 저녁 (~19:30 · 대표 후보: <b>진고개 Jin Go Gae</b> — 일요일 17:00~23:00 영업(확인) · 단체 가능 당일 확인 ☐ · 20명 한 식당이면 <b>런던 이동 중 미리 전화 예약</b>, 아니면 2~3팀 분산) <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=New+Malden+Korean+restaurants">📍 뉴몰든</a>
-        <span class="desc">뉴몰든: 1970년대부터 형성된 유럽 최대 한인타운 — 한식당 수십 곳과 한인마트가 하이스트리트에 밀집, 런던 속의 작은 한국</span></span></div>
-      <div class="slot sMove"><span class="t">19:50</span><span class="c">귀가 · 휴식 (다음날은 런던 시내 데이)
-        <span class="desc">🛒 장보기가 필요하면 식당에서 도보 <b>Seoul Plaza</b> (하이스트리트 · <b>일요일 20:00까지</b>) — H Mart는 일요일 18:00 마감 · 본격 장보기는 화요일 저녁 H Mart(평일 21:00) <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Seoul+Plaza+New+Malden">📍 마트</a></span></span></div>
-    </div>
-  </div>
-
-  <!-- DAY 6 (D6-2 가이드안) -->
-  <div class="day mission weekend vb vhide" data-vd="6">
-    <div class="daycol">
-      <div class="daynum">DAY 6-2</div>
-      <div class="daydate">10.4</div>
-      <div class="dayweek">일요일</div>
-      <span class="type mission">가이드안 · 예배 · 브리스톨 · 이동</span>
+      <span class="type mission">예배 · 브리스톨 · 이동</span>
       <div class="drv">🚗 운전 약 4시간 40분<br>(브리스톨·스톤헨지 경유)</div>
       <div class="wx">🌦 15°/9°<br>강수 55% · ~5mm</div>
-      <div class="vtabs"><button type="button" class="vt" data-go="a">D6-1 우리안</button><button type="button" class="vt on" data-go="b">D6-2 가이드안</button></div>
     </div>
     <div class="slots">
-      <div class="fx gold">🧭 <b>가이드 목사님 제시안</b>: ⛪ 하노버 오전예배 → 🌉 브리스톨(클리프턴 현수교 → 가이드님 합류 → 조지 뮬러 고아원 → 야외 설교지) → 🗿 스톤헨지 조망 → 런던 <span class="sm">· 아래 시간은 예상치 — 가이드님과 최종 협의 ☐</span></div>
+      <div class="fx green">⛪ 예배 · 브리스톨 성지 · 런던 이동 — ⛪ <b>하노버 오전예배</b> → 🌉 <b>브리스톨</b>(클리프턴 현수교 → 조지 뮬러 고아원 → 야외 설교지) → 🗿 <b>스톤헨지 조망</b> → 런던 <span class="sm">(박진철 선교사님 안내 코스 · 아래 시간은 예상치 — 최종 협의 ☐)</span></div>
       <div class="slot sMeal"><span class="t">07:45</span><span class="c">🍽 아침 — 숙소 취사 (남은 식재료 소진)</span></div>
-      <div class="slot sMove"><span class="t">08:30</span><span class="c">캐리어 18개+ 🚐 우버밴 적재 · 09:00 체크아웃 (우리안과 동일)</span></div>
+      <div class="slot sMove"><span class="t">08:30</span><span class="c">캐리어 18개+ 🚐 우버밴 적재 · 09:00 체크아웃</span></div>
       <div class="slot"><span class="t">09:20</span><span class="c">🚗 렌터카 2대 + 🚐 우버밴 하노버 교회로 이동 (약 55분) → 10:10 도착</span></div>
       <div class="slot sMin"><span class="t">11:00</span><span class="c">⛪ 하노버 교회 주일예배 (~12:30 · 토머스 선교사 모교회) <a class="map" href="https://maps.app.goo.gl/GrkfyeuSHhCDnbs3A">📍 지도</a> <a class="map bg" href="#s11">📜 토머스 11</a></span></div>
       <div class="slot sMeal"><span class="t">12:35</span><span class="c">🍽 점심 — 제공 여부 확인 ☐ · 교제는 짧게 (오늘 브리스톨 경유라 이동이 김)</span></div>
       <div class="slot sMove"><span class="t">13:05</span><span class="c">브리스톨로 출발 (약 1시간 10분 · A4042→M4 세번교 → 클리프턴)</span></div>
       <div class="slot sVisit"><span class="t">14:15</span><span class="c">🌉 <b>클리프턴 현수교 (Clifton Suspension Bridge)</b> — 팀 먼저 자유 관광 (~15:10) <span class="free">도보 무료</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Clifton+Suspension+Bridge+Bristol">📍 지도</a> <a class="map bg" href="#bg-clifton">📖 배경 14</a>
-        <span class="desc">이삼바드 킹덤 브루넬 설계 · 1864년 완공 — 에이번 협곡 76m 위에 걸린 빅토리아 공학의 상징 · <b>가이드님은 한인교회 예배 인도(13:30~14:30)를 마치고 오심 — 현수교에서 합류하기로 확정</b></span></span></div>
-      <div class="slot sMove"><span class="t">15:15</span><span class="c">가이드님 합류 → 조지 뮬러 고아원(애슐리 다운)으로 이동 (차 약 15분 · 이후 가이드님 인도)</span></div>
+        <span class="desc">이삼바드 킹덤 브루넬 설계 · 1864년 완공 — 에이번 협곡 76m 위에 걸린 빅토리아 공학의 상징 · <b>박진철 선교사님은 한인교회 예배 인도(13:30~14:30)를 마치고 오심 — 현수교에서 합류하기로 확정</b></span></span></div>
+      <div class="slot sMove"><span class="t">15:15</span><span class="c">박진철 선교사님 합류 → 조지 뮬러 고아원(애슐리 다운)으로 이동 (차 약 15분 · 이후 박진철 선교사님 안내)</span></div>
       <div class="slot sVisit"><span class="t">15:30</span><span class="c">🏛 <b>조지 뮬러 고아원 — 애슐리 다운</b> (~16:20) <span class="free">무료</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Muller+House+College+Road+Bristol+BS7+9FG">📍 지도</a> <a class="map bg" href="#bg-muller">📖 배경 14</a>
-        <span class="desc">기도만으로 고아 1만 명을 먹인 조지 뮬러(1805–1898)의 고아원 단지 — ⚠️ <b>뮬러 박물관(College Rd)은 월~금만 개관 + 현재 임시 휴관</b>: 일요일 방문은 건물 외관·부지 중심, 세부 코스는 가이드님 안내 ☐</span></span></div>
-      <div class="slot sVisit"><span class="t">16:30</span><span class="c">⛪ <b>야외 설교지</b> (~17:10 · 가이드님 안내) <span class="free">무료</span> <a class="map bg" href="#bg-hanham">📖 배경 14</a>
-        <span class="desc">1739년 조지 휫필드가 킹스우드 광부들에게 시작하고 존 웨슬리가 이어받은 야외 설교의 현장 — 정확한 방문 지점은 가이드님 안내 ☐ (한햄 마운트로 추정)</span></span></div>
+        <span class="desc">기도만으로 고아 1만 명을 먹인 조지 뮬러(1805–1898)의 고아원 단지 — ⚠️ <b>뮬러 박물관(College Rd)은 월~금만 개관 + 현재 임시 휴관</b>: 일요일 방문은 건물 외관·부지 중심, 세부 코스는 박진철 선교사님 안내 ☐</span></span></div>
+      <div class="slot sVisit"><span class="t">16:30</span><span class="c">⛪ <b>야외 설교지</b> (~17:10 · 박진철 선교사님 안내) <span class="free">무료</span> <a class="map bg" href="#bg-hanham">📖 배경 14</a>
+        <span class="desc">1739년 조지 휫필드가 킹스우드 광부들에게 시작하고 존 웨슬리가 이어받은 야외 설교의 현장 — 정확한 방문 지점은 박진철 선교사님 안내 ☐ (한햄 마운트로 추정)</span></span></div>
       <div class="slot sMove"><span class="t">17:15</span><span class="c">런던으로 출발 (배스·워민스터 방면 A36 → A303 — 스톤헨지 경유 루트) · <b>운전자 교대</b></span></div>
       <div class="slot sVisit"><span class="t">~18:30</span><span class="c">🗿 <b>스톤헨지 조망</b> — A303 통과하며 차창 관람, 여유 되면 인근 안전한 지점에서 짧은 정차 (협의 ☐) <span class="free">무료 · 조망</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Stonehenge">📍 지도</a> <a class="map bg" href="#bg-stonehenge">📖 배경 14</a>
         <span class="desc">스톤헨지는 A303 도로에서 바로 보임 — 입장은 하지 않고 "조금 떨어진 곳에서 바라보고" 가는 코스 (일몰 18:35 무렵이라 실루엣 타이밍)</span></span></div>
       <div class="slot sMove"><span class="t">~20:30</span><span class="c">런던 숙소 도착 · 체크인 (숙소①/② 분산 · ②는 16:00부터 입실 가능이라 무관) → 짐 정리</span></div>
-      <div class="slot sMeal"><span class="t">20:45</span><span class="c">🍽 저녁 — <b>식당 미정 · 외식 예정</b>: 도착이 늦어 뉴몰든 이동 없이 숙소 인근에서 해결 — 구체 식당은 가이드님과 협의 ☐ (시간만 우선 배치)</span></div>
+      <div class="slot sMeal"><span class="t">20:45</span><span class="c">🍽 저녁 — <b>외식 예정</b> — 도착이 늦어 뉴몰든 이동 없이 숙소 인근에서 해결, 식당은 당일 결정 ☐ (시간만 우선 배치)</span></div>
       <div class="slot"><span class="t">⚠️ 짐차</span><span class="c">🚐 우버밴(캐리어)은 교회에서 13:40 적재 후 <b>런던 직행(약 17:30 도착)</b> — 팀은 20:30 도착이라 <b>시간차 약 3시간</b>: 숙소① 호스트에 짐 선수령 가능 여부 문의 ☐ · 안 되면 밴 예약을 늦은 출발(17:30 교회 출발)로 조정 ☐</span></div>
-      <div class="slot"><span class="t">비교</span><span class="c">우리안(D6-1)과 차이: 하노버 교제·토머스 미니 코스와 뉴몰든 첫 저녁이 빠지고 <b>브리스톨 성지(뮬러·야외 설교)와 스톤헨지 조망</b>이 들어감 · 런던 도착 17:55 → 20:30으로 늦어짐</span></div>
     </div>
   </div>
 
   <div class="part london"><span class="pill">PART 2 · 런던</span><span class="sub">10/4(일) — 10/9(금) · 모던 베이스</span></div>
 
-  <!-- DAY 7 (D7-1 우리안) -->
-  <div class="day city" data-vd="7">
+  <!-- DAY 7 -->
+  <div class="day city">
     <div class="daycol">
-      <div class="daynum">DAY 7-1</div>
+      <div class="daynum">DAY 7</div>
       <div class="daydate">10.5</div>
       <div class="dayweek">월요일</div>
-      <span class="type city">우리안 · 런던 시내</span>
+      <span class="type city">런던 시내</span>
       <div class="drv">🚇 지하철 데이<br>(운전 없음)</div>
       <div class="wx">⛅ 16°/9°<br>강수 40% · ~2mm<br>런던은 비 덜함</div>
-      <div class="vtabs"><button type="button" class="vt on" data-go="a">D7-1 우리안</button><button type="button" class="vt" data-go="b">D7-2 가이드안</button></div>
     </div>
     <div class="slots">
       <div class="fx">🏙 런던 시내 데이 <span class="sm">(차는 숙소에 두고 지하철 · 한인 가이드 투어 이용 시 이 날)</span></div>
@@ -907,10 +769,9 @@
       <div class="slot sVisit"><span class="t">10:00</span><span class="c">🏛 대영박물관 관람 (~12:30 · 개관 10:00~17:00) <span class="free">무료</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=British+Museum+WC1B+3DG">📍 지도</a> <a class="map bg" href="#bg-bm">📖 배경 14 · 성경 고고학 코스</a>
         <span class="desc">세계 최대급 박물관 — 로제타석, 이집트 미라, 파르테논 조각을 무료로 관람 · 한국어 오디오 앱 지원 · 한국관도 있음 · ⚠️ <b>10인 이상 단체는 최소 7일 전 온라인 단체 예약 필수(무료)</b> — britishmuseum.org 〉 Group visits ☐</span></span></div>
       <div class="slot sMeal"><span class="t">12:30</span><span class="c">🍽 점심 (~13:30) — 아래 1안·2안 중 선택 · ⚠️ 두 안은 성격이 다름: <b>1안만 20명 단체 예약 가능</b> → <b>출발 전까지 결정</b> (1안이면 온라인 단체 예약 필수 · 2안이면 예약 없이 가되 분산 착석 각오)</span></div>
-      <div class="slot"><span class="t">1안</span><span class="c"><b>Kimchee Holborn (한식)</b> — 71 High Holborn · 박물관에서 도보 8분 · 대형 매장이라 20명 단체 예약 가능 · 월 12:00~22:00(확인) · 020 3062 7600 <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Kimchee+71+High+Holborn+London">📍 지도</a> <a class="map" href="https://www.kimchee.uk.com/">🥢 메뉴·예약</a>
+      <div class="slot"><span class="t">1안</span><span class="c"><b>한식당</b> — 박물관 인근 도보권 · 대형 매장이면 20명 단체 예약 가능 (당일 오전까지 결정 후 예약)
         <span class="desc">비빔밥·불고기·찌개 — 여행 7일차, 한식이 그리울 타이밍</span></span></div>
-      <div class="slot"><span class="t">2안</span><span class="c"><b>Rock & Sole Plaice (피시앤칩스)</b> — 47 Endell St, 코벤트가든 · 박물관에서 도보 10분 · 1871년 문 연 런던 최고(最古) 피시앤칩스 명가 · 월 12:00~21:00(확인) · 020 7836 3785 <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Rock+and+Sole+Plaice+47+Endell+Street+London">📍 지도</a> <a class="map" href="https://www.rockandsoleplaice.com/">🐟 메뉴</a>
-        <span class="desc">단, 매장이 작아 20명은 야외 테이블 분산 각오 (10월 날씨 변수) — 테이크어웨이로 받아 광장에서 먹는 방법도 있음</span></span></div>
+      <div class="slot"><span class="t">2안</span><span class="c"><b>피시앤칩스 전문점</b> — 박물관 인근 도보권 · 예약 없이 가능하나 매장이 작으면 20명 분산 착석 각오 (10월 날씨 변수) — 테이크어웨이로 받아 광장에서 먹는 방법도 있음</span></div>
       <div class="slot sMove"><span class="t">13:45</span><span class="c">웨스트민스터로 이동 (지하철 약 15분)</span></div>
       <div class="slot sVisit"><span class="t">14:00</span><span class="c">웨스트민스터 사원(외관) · 국회의사당 · 빅벤 (~14:40) <span class="free">무료 · 외관</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Westminster+Abbey+London">📍 지도</a> <a class="map bg" href="#bg-abbey">📖 배경 14</a>
         <span class="desc">사원 앞 광장과 웨스트민스터 다리에서 빅벤 포토 스팟</span></span></div>
@@ -923,24 +784,6 @@
       <div class="slot sMeal"><span class="t">저녁</span><span class="c">🍽 이븐송 종료(17:45) 후 저녁 — 아래 1안·2안 중 선택 (네 끼 중 유일하게 <b>당일 컨디션 보고 결정해도 되는 끼니</b> — 단 점심때까지는 정해서, 1안이면 담당자가 바로 전화 예약) → 이후 자유 일정, 지하철 복귀 (약 45분)</span></div>
       <div class="slot"><span class="t">1안</span><span class="c">차이나타운 대형 중식당 (트라팔가 광장에서 도보 10분 · 20명 원형 테이블 단체 수용 잘 됨 — <b>당일 오전 전화 예약 권장</b>, 워크인이면 2~3테이블 분산) · 귀가 약 21:00 <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Chinatown+London">📍 지도</a> <a class="map bg" href="#bg-chinatown">📖 배경 14</a></span></div>
       <div class="slot"><span class="t">2안</span><span class="c">지하철로 복귀 후 뉴몰든 한식 (숙소 근처라 편안한 마무리 · <b>다음날 세미나를 고려하면 권장안</b>) — 모던역 도착 시각을 단톡방에 알리면 아침처럼 차 1대가 역으로 픽업</span></div>
-    </div>
-  </div>
-
-  <!-- DAY 7 (D7-2 가이드안 · 내용 대기) -->
-  <div class="day city vb vhide" data-vd="7">
-    <div class="daycol">
-      <div class="daynum">DAY 7-2</div>
-      <div class="daydate">10.5</div>
-      <div class="dayweek">월요일</div>
-      <span class="type city">가이드안 · 내용 대기 ☐</span>
-      <div class="drv">🚗 미정</div>
-      <div class="wx">⛅ 16°/9°<br>강수 40% · ~2mm<br>런던은 비 덜함</div>
-      <div class="vtabs"><button type="button" class="vt" data-go="a">D7-1 우리안</button><button type="button" class="vt on" data-go="b">D7-2 가이드안</button></div>
-    </div>
-    <div class="slots">
-      <div class="fx gold">🧭 <b>가이드 목사님 제시안 — 아직 미수신 ☐</b> <span class="sm">(목·금·일요일 안은 받았고, 월요일 안은 오시는 대로 이 칸에 채워 넣습니다)</span></div>
-      <div class="slot"><span class="t">현재</span><span class="c">이 날은 <b>우리안(D7-1: 대영박물관 → 웨스트민스터 → 트라팔가 코스)이 기본</b> — 가이드님이 월요일 일정을 제시하시면 여기(D7-2)에 기입하고 비교 후 선택</span></div>
-      <div class="slot"><span class="t">메모</span><span class="c">기입란: ________________________________________<span class="mrow">· ________________________________________</span><span class="mrow">· ________________________________________</span></span></div>
     </div>
   </div>
 
@@ -963,7 +806,7 @@
       <div class="slot sMin"><span class="t">10:30</span><span class="c">📋 3분 브릿지 세미나 (~15:00)</span></div>
       <div class="slot sMeal"><span class="t">점심</span><span class="c">🍽 점심 — 🎁 런던 세미나 제공 확정</span></div>
       <div class="slot sMin"><span class="t">15:00</span><span class="c">세미나 종료 — 오후는 <b>예비 시간</b> (호스트 안내에 따름 · 별도 관광은 계획하지 않음)</span></div>
-      <div class="slot sMeal"><span class="t">저녁</span><span class="c">자유 (휴식)<span class="mrow">· 🍽 <b>저녁 외식 확정</b>: <b>진고개 Jin Go Gae</b> — 뉴몰든 대표 한식·숯불구이 · 차 10분 · 화요일 17:30 오픈(확인) · 20명이면 당일 전화 예약 (복귀 시간 제각각이면 소그룹 분산 외식)</span><span class="mrow">· 🛒 장보기 필요 시 <b>H Mart</b> — 평일 21:00까지 · 남은 이틀치 아침·간식 (일요일에 못 산 것 여기서)</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=New+Malden+Korean+restaurants">📍 뉴몰든</a></span></div>
+      <div class="slot sMeal"><span class="t">저녁</span><span class="c">자유 (휴식)<span class="mrow">· 🍽 <b>저녁 외식 확정</b>: 뉴몰든 한식당 — 차 10분 · 화요일 저녁 오픈 시간 확인 후 20명이면 당일 전화 예약 (복귀 시간 제각각이면 소그룹 분산 외식)</span><span class="mrow">· 🛒 장보기 필요 시 <b>H Mart</b> — 평일 21:00까지 · 남은 이틀치 아침·간식 (일요일에 못 산 것 여기서)</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=New+Malden+Korean+restaurants">📍 뉴몰든</a></span></div>
     </div>
   </div>
 
@@ -985,7 +828,7 @@
       <div class="slot sMin"><span class="t">10:30</span><span class="c">📋 3분 브릿지 세미나 (~15:00)</span></div>
       <div class="slot sMeal"><span class="t">점심</span><span class="c">🍽 점심 — 🎁 런던 세미나 제공 확정</span></div>
       <div class="slot sMin"><span class="t">15:00</span><span class="c">세미나 종료 — 오후는 <b>예비 시간</b> (호스트 안내에 따름 · 별도 관광은 계획하지 않음 · 16:30까지 숙소 휴식 또는 H Mart 마지막 장보기)</span></div>
-      <div class="slot sMeal"><span class="t">17:00</span><span class="c">🍽 뉴몰든 <b>이른 한식 저녁</b> (~17:40 · 세미나 점심이 제공되니 이른 저녁으로 충분) — 후보 <b>Cah Chi 차치</b> (79-81 Kingston Rd · 020 8949 8880 · <b>수요일 저녁 17:00 오픈</b>(확인) · 프라이빗룸 있음) <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Cah+Chi+79-81+Kingston+Road+New+Malden">📍 지도</a><span class="mrow">· ⚠️ 진고개 등 뉴몰든 저녁 전용 한식당은 <b>17:30 오픈</b>이라 이 날은 불가 — 17:00 오픈 식당으로</span><span class="mrow">· ⏱ 40분 안에 20명 식사 — <b>당일 예약 + 메뉴 미리 정해 전화 선주문</b> 필수</span><span class="mrow">· 세미나 종료가 늦어지면 김밥·샌드위치 테이크아웃으로 전환 (크루즈 시간이 우선)</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=New+Malden+Korean+restaurants">📍 뉴몰든</a></span></div>
+      <div class="slot sMeal"><span class="t">17:00</span><span class="c">🍽 뉴몰든 <b>이른 한식 저녁</b> (~17:40 · 세미나 점심이 제공되니 이른 저녁으로 충분) — 뉴몰든 한식당 중 <b>17:00 오픈하는 곳</b>으로 (뉴몰든 저녁 전용 한식당 대부분은 17:30 오픈이라 이 날은 제외)<span class="mrow">· ⏱ 40분 안에 20명 식사 — <b>당일 예약 + 메뉴 미리 정해 전화 선주문</b> 필수</span><span class="mrow">· 세미나 종료가 늦어지면 김밥·샌드위치 테이크아웃으로 전환 (크루즈 시간이 우선)</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=New+Malden+Korean+restaurants">📍 뉴몰든</a></span></div>
       <div class="slot sMove"><span class="t">17:45</span><span class="c">차로 숙소 복귀 · 주차 → 모던역으로 (10분)</span></div>
       <div class="slot sVisit"><span class="t">17:55</span><span class="c">모던역 → 웨스트민스터역 지하철 (노던라인 약 45분) — <b>이 밤은 차 대신 지하철</b> (시내 주차장은 대부분 지하라 9인승 높이 제한)<span class="mrow">· <b>18:40 선착장 도착</b> → 19:00 승선 (출발 20분 전 승선 마감이 일반적) · 지하철 지연 대비 <b>버퍼 40분</b></span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Westminster+Pier+London">📍 선착장</a></span></div>
       <div class="slot sVisit"><span class="t">19:20</span><span class="c">🚢 템즈강 야경 크루즈 — <b>City Cruises 웨스트민스터 19:20 출항 (10월 시간표 마지막편)</b> → 런던아이 → 타워 피어 하선 약 20:00 (약 40분) <span class="pay">유료 · 1인 약 £20~25 (약 3.8~4.8만원) · 20명 £400~500 ≈ 76~96만원 · 공식 사이트 from £12 · 20인 이상 단체 요금 문의</span><span class="mrow">· 10월 시간표(9/7~10/25): 웨스트민스터 출항 10:00~19:20 · 40분 간격 — <b>20시 이후 정규편 없음</b>, 19:20을 놓치면 우버보트(수상버스 RB1)로 대체</span><span class="mrow">· 일몰 18:28 — 19:20이면 완전한 야경 · 20:00 타워 피어 하선 → 타워힐역에서 지하철 복귀 (약 50분 · 모던역 도착 시각 단톡방 공유 → 차 1대 픽업) · 귀가 약 21:00 후 짐 정리</span>
@@ -1035,7 +878,7 @@
 
   <div class="card rows narrow">
     <div class="slots">
-      <div class="fx">🍽 범례 — ✈️ 기내식 · 🏠 숙소 취사 · 🍴 외식(자체 부담) · 🎁 세미나·교회 제공 · ❓ 확인 ☐ <span class="sm">(사전 예약 식당은 멈블스·Kimchee 2곳 · 나머지 외식은 당일 전화)</span><span class="mrow">🍴 <b>저녁 방침 — 전 일정 외식</b>: 수·목·금·일·월·화·수 저녁은 전부 외식 (숙소 취사는 아침 위주 · 예외: 첫날 화 = 귀가 간단식)</span><span class="mrow">🎁 <b>세미나 점심·저녁 제공 확정</b>: 길웬(9/30 점심)·하노버(10/3 점심)·손힐(10/3 저녁)·런던(10/6·7 점심) — 사론(10/2 저녁)만 제공 불가 통보받아 외식으로 전환 <span style="color:var(--faint)">· 미확인은 10/4 하노버 주일예배 점심 1건뿐</span></span></div>
+      <div class="fx">🍽 범례 — ✈️ 기내식 · 🏠 숙소 취사 · 🍴 외식(자체 부담) · 🎁 세미나·교회 제공 · ❓ 확인 ☐ <span class="sm">(외식 대부분은 현지 도착 후 당일 결정 · 세미나 제공 식사만 확정)</span><span class="mrow">🍴 <b>저녁 방침 — 전 일정 외식</b>: 수·목·금·일·월·화·수 저녁은 전부 외식 (숙소 취사는 아침 위주 · 예외: 첫날 화 = 귀가 간단식)</span><span class="mrow">🎁 <b>세미나 점심·저녁 제공 확정</b>: 길웬(9/30 점심)·하노버(10/3 점심)·손힐(10/3 저녁)·런던(10/6·7 점심) — 사론(10/2 저녁)만 제공 불가 통보받아 외식으로 전환 <span style="color:var(--faint)">· 미확인은 10/4 하노버 주일예배 점심 1건뿐</span></span></div>
       <div class="slot"><span class="t">9/29 화</span><span class="c">
         <span class="mrow"><b class="ml">아침</b> ✈️ 기내식</span>
         <span class="mrow"><b class="ml">점심</b> ✈️ 기내식</span>
@@ -1044,12 +887,12 @@
       <div class="slot"><span class="t">9/30 수</span><span class="c">
         <span class="mrow"><b class="ml">아침</b> 🏠 취사 (전날 밤 장본 것)</span>
         <span class="mrow"><b class="ml">점심</b> 🎁 길웬 세미나 제공</span>
-        <span class="mrow"><b class="ml">저녁</b> 🍴 외식 — 크릭하월 The Bear Hotel 18:00 (저녁 서빙 18시부터 · 당일 오전 전화 · 안 되면 브레콘 시내)</span>
+        <span class="mrow"><b class="ml">저녁</b> 🍴 외식 — 크릭하월 18:00 (당일 오전 전화 예약 · 안 되면 브레콘 시내)</span>
       </span></div>
       <div class="slot"><span class="t">10/1 목</span><span class="c">
         <span class="mrow"><b class="ml">아침</b> 🏠 취사</span>
-        <span class="mrow"><b class="ml">점심</b> 🍴 멈블스 정찬 14:15 — 주안 Bistrot Pierre / 예비 Castellamare (유일한 예약 정찬 · 늦은 점심 가능 여부 확인)</span>
-        <span class="mrow"><b class="ml">저녁</b> 🍴 외식 — 복귀길 란도버리 The Castle Hotel 19:00 (당일 전화 · 안 되면 브레콘 시내)</span>
+        <span class="mrow"><b class="ml">점심</b> 🍴 외식 12:30 — 카마던 방면에서 당일 결정 ☐</span>
+        <span class="mrow"><b class="ml">저녁</b> 🍴 외식 ~19:30 — 복귀길에서 당일 결정 ☐</span>
       </span></div>
       <div class="slot"><span class="t">10/2 금</span><span class="c">
         <span class="mrow"><b class="ml">아침</b> 🏠 취사</span>
@@ -1064,11 +907,11 @@
       <div class="slot"><span class="t">10/4 일</span><span class="c">
         <span class="mrow"><b class="ml">아침</b> 🏠 취사 (재료 소진)</span>
         <span class="mrow"><b class="ml">점심</b> ❓ 확인 ☐ — 하노버 교회 주일예배 후 (제공 여부 미정)</span>
-        <span class="mrow"><b class="ml">저녁</b> 🍴 뉴몰든 한식 18:35 (장보기 필요 시 Seoul Plaza — 일 20시)</span>
+        <span class="mrow"><b class="ml">저녁</b> 🍴 외식 20:45 — 숙소 인근 (도착이 늦어 뉴몰든 이동 없음)</span>
       </span></div>
       <div class="slot"><span class="t">10/5 월</span><span class="c">
         <span class="mrow"><b class="ml">아침</b> 🏠 취사</span>
-        <span class="mrow"><b class="ml">점심</b> 🍴 1안 Kimchee (단체 예약) / 2안 Rock & Sole (분산 각오)</span>
+        <span class="mrow"><b class="ml">점심</b> 🍴 1안 한식당(단체 예약) / 2안 피시앤칩스(분산 각오)</span>
         <span class="mrow"><b class="ml">저녁</b> 🍴 1안 차이나타운 / 2안 뉴몰든 — 당일 결정 가능</span>
       </span></div>
       <div class="slot"><span class="t">10/6 화</span><span class="c">
@@ -1079,7 +922,7 @@
       <div class="slot"><span class="t">10/7 수</span><span class="c">
         <span class="mrow"><b class="ml">아침</b> 🏠 취사</span>
         <span class="mrow"><b class="ml">점심</b> 🎁 런던 세미나 제공</span>
-        <span class="mrow"><b class="ml">저녁</b> 🍴 뉴몰든 이른 저녁 17:00 — Cah Chi 후보 (19:20 크루즈 전 · 17:00 오픈 식당만 가능 · 예약+선주문 필수)</span>
+        <span class="mrow"><b class="ml">저녁</b> 🍴 뉴몰든 이른 저녁 17:00 (19:20 크루즈 전 · 17:00 오픈 식당으로 · 예약+선주문 필수)</span>
       </span></div>
       <div class="slot"><span class="t">10/8 목</span><span class="c">
         <span class="mrow"><b class="ml">아침</b> 🏠 취사 (남은 것 소진)</span>
@@ -1104,10 +947,10 @@
       <div class="note" style="display:block;margin-top:8px;">🛏 <b>방 구성 — 침실 6개 · 침대 21개 · 욕실 3.5 · 최대 24인</b> (에어비앤비 예약 페이지 기준 · 18명 여유)<span class="mrow">· 방1 싱글×6 — 이름: <span class="pk" data-pid="w1_1"></span> · <span class="pk" data-pid="w1_2"></span> · <span class="pk" data-pid="w1_3"></span> · <span class="pk" data-pid="w1_4"></span> · <span class="pk" data-pid="w1_5"></span> · <span class="pk" data-pid="w1_6"></span></span><span class="mrow">· 방2 싱글×6 — 이름: <span class="pk" data-pid="w2_1"></span> · <span class="pk" data-pid="w2_2"></span> · <span class="pk" data-pid="w2_3"></span> · <span class="pk" data-pid="w2_4"></span> · <span class="pk" data-pid="w2_5"></span> · <span class="pk" data-pid="w2_6"></span></span><span class="mrow">· 방3 더블×1 — 이름: <span class="pk" data-pid="w3_1"></span> · <span class="pk" data-pid="w3_2"></span></span><span class="mrow">· 방4 더블×1 — 이름: <span class="pk" data-pid="w4_1"></span> · <span class="pk" data-pid="w4_2"></span></span><span class="mrow">· 방5 싱글×5 — 이름: <span class="pk" data-pid="w5_1"></span> · <span class="pk" data-pid="w5_2"></span> · <span class="pk" data-pid="w5_3"></span> · <span class="pk" data-pid="w5_4"></span> · <span class="pk" data-pid="w5_5"></span></span><span class="mrow">· 방6 킹×1 + 싱글×1 — 이름: <span class="pk" data-pid="w6_1"></span> · <span class="pk" data-pid="w6_2"></span> · <span class="pk" data-pid="w6_3"></span></span></div>
     </div>
     <div class="stay">
-      <div class="period">🧭 <b>가이드(팀) 숙소 · 웨일즈</b> · 같은 기간</div>
+      <div class="period">🧭 <b>박진철 선교사님 숙소 · 웨일즈</b> · 같은 기간</div>
       <div class="name">Coed Owen Bunkhouse <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Coed+Owen+Bunkhouse+Cwm+Taf+Merthyr+Tydfil+CF48+2HY">📍 내비</a></div>
       <div class="addr">Cwm Taf, Merthyr Tydfil CF48 2HY · A470 변</div>
-      <div class="note">우리 웨일즈 메인 숙소에서 A470 남쪽으로 <b>차 13분</b> (실측 9.3마일) — 가이드 합류·픽업 동선 참고</div>
+      <div class="note">우리 웨일즈 메인 숙소에서 A470 남쪽으로 <b>차 13분</b> (실측 9.3마일) — 박진철 선교사님 합류·픽업 동선 참고</div>
     </div>
     <div class="stay">
       <div class="period">🏙 <b>런던 메인 숙소 ①</b> · 10/4(일) — 10/8(목) · 4박 · 14명 · <b>에어비앤비 예약 확정</b></div>
@@ -1124,7 +967,7 @@
       <div class="note" style="display:block;margin-top:8px;">🛏 <b>방 구성 — 확정</b><span class="mrow">· 방1: 디럭스 킹룸 — 킹 더블 ×1 (2명) — 이름: <span class="pk" data-pid="l21_1"></span> · <span class="pk" data-pid="l21_2"></span></span><span class="mrow">· 방2: 더블룸 — 더블 ×1 (2명) — 이름: <span class="pk" data-pid="l22_1"></span> · <span class="pk" data-pid="l22_2"></span></span></div>
     </div>
     <div class="stay">
-      <div class="period">🧭 <b>가이드(팀) 숙소 · 런던</b> · 같은 기간</div>
+      <div class="period">🧭 <b>박진철 선교사님 숙소 · 런던</b> · 같은 기간</div>
       <div class="name">61A Seddon Rd <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=61A+Seddon+Road+Morden+SM4+6ED">📍 내비</a></div>
       <div class="addr">61A Seddon Rd, Morden SM4 6ED</div>
       <div class="note">우리 런던 메인 숙소①과 <b>같은 거리(Seddon Rd)</b> — 사실상 바로 옆이라 합류 매우 편함 (숙소②도 같은 동네)</div>
@@ -1241,8 +1084,8 @@
   <div class="card rows narrow">
     <div class="slots">
       <div class="slot"><span class="t">사역</span><span class="c">3분 브릿지 세미나 (9/30 길웬 10:30~17 · 10/2 사론·크리넌트 19~21 · 10/3 하노버 10:30~15 → 손힐 17~21 · 런던 10/6·7 서튼 10:30~15) · 하노버 교회 주일예배 (10/4 11:00)</span></div>
-      <div class="slot"><span class="t">성지</span><span class="c">⛪ <b>토머스</b> <a class="map bg" href="#s11">📜 11</a> — 하노버 교회 (예배당·아버지 기념비·소년기 목사관 경내 미니 코스 · 10/3 세미나 + 10/4 예배 11:00)<span class="mrow">· <b>이반 로버츠 풀코스</b> <a class="map bg" href="#s13">📜 13</a> — 모리아·오벨리스크·묘역·생가·피스가 + 블라이난네르흐 서원 채플 (10/1 목)</span><span class="mrow">· <b>리즈 하월즈 풀코스</b> <a class="map bg" href="#s12">📜 12</a> — BCW 헤리티지 센터 + 글린더웬·스케티 이사프 + 펜레르가에르 묘소 (10/2 금)</span></span></div>
-      <div class="slot"><span class="t">관광</span><span class="c">확보: ⛏ 빅 핏 탄광 지하 투어 (10/1) <a class="map bg" href="#bg-bigpit">📖</a> · 멈블스 (10/1) <a class="map bg" href="#bg-mumbles">📖</a> · 대영박물관 <a class="map bg" href="#bg-bm">📖</a> · 웨스트민스터 일대 (10/5) <a class="map bg" href="#bg-abbey">📖</a> · 템즈강 야경 크루즈 (10/7) <a class="map bg" href="#bg-cruise">📖</a><span class="mrow">· 가이드안 선택 시: 고워 <a class="map bg" href="#bg-gower">📖</a> · Ffald-y-Brenin <a class="map bg" href="#bg-ffald">📖</a> · 클리프턴 <a class="map bg" href="#bg-clifton">📖</a> · 뮬러 고아원 <a class="map bg" href="#bg-muller">📖</a> · 한햄 마운트 <a class="map bg" href="#bg-hanham">📖</a> · 스톤헨지 조망 <a class="map bg" href="#bg-stonehenge">📖</a></span></span></div>
+      <div class="slot"><span class="t">성지</span><span class="c">⛪ <b>토머스</b> <a class="map bg" href="#s11">📜 11</a> — 하노버 교회 (예배당·아버지 기념비·소년기 목사관 경내 미니 코스 · 10/3 세미나 + 10/4 예배 11:00)<span class="mrow">· <b>이반 로버츠</b> <a class="map bg" href="#s13">📜 13</a> — 모리아 채플(오벨리스크·묘역) + 블라이난네르흐 서원 채플 + Ffald-y-Brenin 기도원 (10/1 목)</span><span class="mrow">· <b>리즈 하월즈</b> <a class="map bg" href="#s12">📜 12</a> — BCW 헤리티지 센터 (10/2 금)</span></span></div>
+      <div class="slot"><span class="t">관광</span><span class="c">확보: ⛏ 빅 핏 탄광 지하 투어 (10/1) <a class="map bg" href="#bg-bigpit">📖</a> · Ffald-y-Brenin (10/1) <a class="map bg" href="#bg-ffald">📖</a> · 고워 반도 (10/2) <a class="map bg" href="#bg-gower">📖</a> · 멈블스 (10/2) <a class="map bg" href="#bg-mumbles">📖</a> · 클리프턴 현수교 (10/4) <a class="map bg" href="#bg-clifton">📖</a> · 뮬러 고아원 (10/4) <a class="map bg" href="#bg-muller">📖</a> · 한햄 마운트 (10/4) <a class="map bg" href="#bg-hanham">📖</a> · 스톤헨지 조망 (10/4) <a class="map bg" href="#bg-stonehenge">📖</a> · 대영박물관 (10/5) <a class="map bg" href="#bg-bm">📖</a> · 웨스트민스터 일대 (10/5) <a class="map bg" href="#bg-abbey">📖</a> · 템즈강 야경 크루즈 (10/7) <a class="map bg" href="#bg-cruise">📖</a></span></div>
       <div class="slot"><span class="t">비용</span><span class="c"><span class="pay">유료 — 20명 기준(가이드측 인원 포함 추정)</span> 빅 핏 지하 투어 £160 ≈ 31만원 (1인 £8) · 템즈 크루즈 £400~500 ≈ 76~96만원 → 합계 약 £560~660 ≈ 107~126만원 · 나머지 방문지는 전부 <span class="free">무료</span> <span class="desc">환산 기준 £1 ≈ 1,910원 (2026.8) — 환율 변동에 따라 달라질 수 있음 · 식사·주차·교통비 별도</span></span></div>
     </div>
   </div>
@@ -1253,12 +1096,12 @@
   <div class="card rows narrow">
     <div class="slots">
       <div class="slot"><span class="t">렌터카</span><span class="c">☐ <b>9인승(Ford Tourneo Custom급) 오토 2대 예약</b> — Enterprise 또는 Sixt 히드로<span class="mrow">· 픽업 9/29(화) 15:30 → 반납 10/8(목) ~13:10</span><span class="mrow">· <b>2대는 각각 별도 예약</b> — 대표 운전자 + 본인 명의 신용카드 각 1명씩</span><span class="mrow">· 교대 운전자는 전원 <b>추가 운전자로 계약 등록</b> (1인당 요금 발생 여부 확인)</span><span class="mrow">· 견적 비교 ☐ — <b>Rentalcars.com · DiscoverCars · Klook</b>(한국어·원화) + Enterprise/Sixt 공식 홈 대조 (풀커버 보험 포함 총액 기준)</span><span class="mrow">· ☐ <b>LWB(롱바디) 확보 시도</b> — 미니버스 전문업체 2곳에 히드로 딜리버리 견적 문의 (영문 템플릿은 03 렌터카 정보 참조) → 성사되면 짐 계획이 렌터카 10~12개로 완화</span><span class="mrow">· 한국 면허는 <b>IDP 동반 필수</b></span></span></div>
-      <div class="slot"><span class="t">진행</span><span class="c">⚠️ <b>10/1·10/2·10/4는 우리안/가이드안 중 어느 쪽인지 먼저 확정</b> — 예약 시각·짐차 시간표가 달라짐 ☐<span class="mrow">· ☐ ⛪ BCW 단체 방문 이메일 — heritage@bcwales.org · 10/2(금) <b>우리안 10:15 / 가이드안 13:15</b> (10인 이상 필수 · 개관 화~금 10~15시)</span><span class="mrow">· ☐ 모리아 채플 방문 양식 제출 (moriahchapel.org.uk Contact Us · <b>2주 전 권장 → 9/17까지</b>) — 10/1(목) <b>우리안 12:25 / 가이드안 17:45</b></span><span class="mrow">· ☐ ⛏ 빅 핏 지하 투어 단체 예약 — bigpit@museumwales.ac.uk · <b>10/1(목) 10:00 회차 20명</b> (가이드측 2명 포함) (양 안 공통 · 10인+ 필수 · 차량 3대 주차 함께 문의)</span><span class="mrow">· ☐ 🏛 <b>대영박물관 단체 예약</b> (10인+ · 최소 7일 전 · 무료 · britishmuseum.org 〉 Group visits) — 10/5(월) 10:00 · 20명</span><span class="mrow">· ☐ 🖼 <b>내셔널갤러리 self-guided group 예약</b> (8인+ · 무료 · nationalgallery.org.uk 〉 Visiting) — 10/5(월) 15:10 · 20명</span><span class="mrow">· ☐ 🙏 Ffald-y-Brenin 단체 방문 연락 — <b>가이드안 선택 시</b> · 01348 881419 · bookings@ffald-y-brenin.org (5인+ 사전 연락 필수 · 10/1 15:10 예정)</span></span></div>
+      <div class="slot"><span class="t">진행</span><span class="c">☐ ⛪ BCW 단체 방문 이메일 — heritage@bcwales.org · 10/2(금) <b>예약 시각 13:15</b> (10인 이상 필수 · 개관 화~금 10~15시)<span class="mrow">· ☐ 모리아 채플 방문 양식 제출 (moriahchapel.org.uk Contact Us · <b>2주 전 권장 → 9/17까지</b>) — 10/1(목) <b>방문 시각 17:45</b></span><span class="mrow">· ☐ ⛏ 빅 핏 지하 투어 단체 예약 — bigpit@museumwales.ac.uk · <b>10/1(목) 10:00 회차 20명</b> (가이드측 2명 포함 · 10인+ 필수 · 차량 3대 주차 함께 문의)</span><span class="mrow">· ☐ 🏛 <b>대영박물관 단체 예약</b> (10인+ · 최소 7일 전 · 무료 · britishmuseum.org 〉 Group visits) — 10/5(월) 10:00 · 20명</span><span class="mrow">· ☐ 🖼 <b>내셔널갤러리 self-guided group 예약</b> (8인+ · 무료 · nationalgallery.org.uk 〉 Visiting) — 10/5(월) 15:10 · 20명</span><span class="mrow">· ☐ 🙏 Ffald-y-Brenin 단체 방문 연락 — 01348 881419 · bookings@ffald-y-brenin.org (5인+ 사전 연락 필수 · 10/1 15:10 예정)</span></span></div>
       <div class="slot"><span class="t">식사 확인</span><span class="c">🎁 세미나 식사 제공 — <b>대부분 확정</b>: 길웬(9/30 점심)·하노버(10/3 점심)·손힐(10/3 저녁)·런던(10/6·7 점심) <span style="color:var(--faint)">(10/2 사론 저녁은 제공 불가 통보 — 외식으로 자체 해결)</span><span class="mrow">· ☐ <b>미확인 1건 — 10/4(일) 하노버 교회 주일예배 후 점심</b> 제공 여부만 확인</span><span class="mrow">· 미제공으로 확인되면 그 끼니만 간편식(샌드위치·에너지바) 준비</span></span></div>
-      <div class="slot"><span class="t">식당</span><span class="c">🍽 식당 예약 — <b>지금 진행 가능</b> (아직 예약한 곳 없음 · <b>투어·식당 예약 인원은 가이드측 2명 포함 20명</b>, 항공·짐·숙소는 우리 팀 18명 기준)<span class="mrow">· ☐ ① 10/1 멈블스 점심 <b>14:15</b> — Bistrot Pierre 프라이빗룸 (주안 · 늦은 점심 가능 여부 확인) → 안 되면 Castellamare(예비)</span><span class="mrow">· ☐ ② 10/5 점심 1안 선택 시 Kimchee 단체 예약 (출발 전 온라인)</span><span class="mrow">· <b>저녁은 전 일정 외식 방침</b> — 웨일즈 저녁 2곳(9/30 크릭하월 Bear · 10/1 란도버리 Castle)은 <b>당일 전화</b>, 런던 저녁은 뉴몰든 당일·전날 처리 (아래 '현지' 참조)</span><span class="mrow">· 나머지 끼니(아침·일부 점심)는 예약 불필요 — 취사·분산·당일 처리</span></span></div>
+      <div class="slot"><span class="t">식당</span><span class="c">🍽 식당 예약 — 대부분 <b>현지 도착 후 당일 전화</b>로 처리 (사전 확정된 곳 없음 · <b>투어·식당 예약 인원은 가이드측 2명 포함 20명</b>, 항공·짐·숙소는 우리 팀 18명 기준)<span class="mrow">· <b>저녁은 전 일정 외식 방침</b> — 웨일즈·런던 모두 현지에서 당일·전날 전화 (아래 '현지' 참조)</span><span class="mrow">· 나머지 끼니(아침·일부 점심)는 예약 불필요 — 취사·분산·당일 처리</span></span></div>
       <div class="slot"><span class="t">연락</span><span class="c">☐ ⛪ 하노버 교회 — 18명 방문·점심 여부 최종 확인<span class="mrow">· ☐ 우버밴 10/4 두 구간 각각 예약 호출 — 숙소→교회 09:00 / 교회→런던 13:40</span><span class="mrow">· ☐ 런던 숙소① — 체크인 시간 · 출발일(10/8) 짐 실은 채 대기 가능 여부 문의 <span style="color:var(--faint)">(숙소② Katolondonhaus는 체크인 16:00 · 체크아웃 11:00 확정)</span></span></span></div>
       <div class="slot"><span class="t">자유</span><span class="c">🚢 템즈강 크루즈 (City Cruises 10월 시간표: 웨스트민스터 출항 10:00~19:20 · 40분 간격 — 20시 이후 정규편 없음 · <b>20인 이상 단체 요금</b> 문의 0207 7400 400) · 한인 가이드 투어(10/5, 선택)</span></div>
-      <div class="slot"><span class="t">현지</span><span class="c">현지에서 하루 전·당일 처리하는 예약<span class="mrow">· 🍽 9/30 저녁 크릭하월 <b>The Bear Hotel</b> — 당일 오전 전화 (20명)</span><span class="mrow">· 🍽 10/1 저녁 란도버리 <b>The Castle Hotel</b> — 당일 전화 (20명)</span><span class="mrow">· 🍽 10/4 뉴몰든 첫 저녁 — 런던 이동 중 전화</span><span class="mrow">· 🍽 10/5 저녁 차이나타운 — 1안 선택 시 당일 오전 전화</span><span class="mrow">· 🍽 10/7 이른 저녁 17:00 Cah Chi — 당일 예약 + <b>메뉴 선주문</b> (19:20 크루즈 전 40분 식사 · 17:30 오픈 식당은 불가)</span></span></div>
+      <div class="slot"><span class="t">현지</span><span class="c">현지에서 하루 전·당일 처리하는 예약<span class="mrow">· 🍽 9/30 저녁 크릭하월 — 당일 오전 전화 (20명)</span><span class="mrow">· 🍽 10/1 점심·저녁 — 카마던 방면·복귀길에서 당일 결정 + 전화 (20명)</span><span class="mrow">· 🍽 10/4 저녁 — 런던 숙소 인근에서 당일 결정</span><span class="mrow">· 🍽 10/5 저녁 차이나타운 — 1안 선택 시 당일 오전 전화</span><span class="mrow">· 🍽 10/7 이른 저녁 17:00 — 당일 예약 + <b>메뉴 선주문</b> (19:20 크루즈 전 40분 식사 · 17:30 오픈 식당은 불가)</span></span></div>
     </div>
   </div>
 
@@ -1507,48 +1350,48 @@
   </div>
 
   <!-- ===== 14 관광지 배경 설명 ===== -->
-  <div class="section-title" id="s14"><span class="no">14</span>관광지 배경 설명 — 빅 핏 · 가이드안 · 런던 시내 · 크루즈</div>
+  <div class="section-title" id="s14"><span class="no">14</span>관광지 배경 설명 — 빅 핏 · 웨일스·브리스톨 탐방 · 런던 시내 · 크루즈</div>
 
   <div class="card rows narrow">
     <div class="slots">
       <div class="fx">🧭 <b>인물 자료(11~13)에 없는 방문지들의 이야기 — 각 장소를 역사(어떤 곳인가) · 현장(가서 보는 것) · 연결(그 뒤 이야기와 우리 여정)로</b> <span class="sm">— 차에서 읽어주는 용도 · 개관시간·예약은 07 체크리스트, 동선은 01 일자별 일정 참조</span></div>
 
-      <div class="slot" id="bg-bigpit"><span class="t">⛏ 빅 핏 (10/1 · 양 안 공통)</span><span class="c"><b>Big Pit National Coal Museum — 전직 광부와 함께 지하 90m 진짜 갱도로 내려가는 국립 석탄박물관 (블라이나본 · 웨일스어 Pwll Mawr)</b>
+      <div class="slot" id="bg-bigpit"><span class="t">⛏ 빅 핏 (10/1)</span><span class="c"><b>Big Pit National Coal Museum — 전직 광부와 함께 지하 90m 진짜 갱도로 내려가는 국립 석탄박물관 (블라이나본 · 웨일스어 Pwll Mawr)</b>
         <span class="mrow">🕰 <b>역사 — 어떤 곳인가</b> · 블라이나본은 1789년 제철소가 서면서 남웨일스 산업혁명의 심장이 된 계곡. 빅 핏은 <b>1860년 수직갱을 파고 1880년부터 본격 채탄</b>, 1920년대 전성기에는 1,300명이 일하며 증기선·철도용 석탄을 캤음. 19세기 남웨일스 석탄은 세계 해운을 움직였고, 광부 마을마다 채플이 서면서 이 계곡들이 <b>1904 부흥의 무대</b>가 됨 — 이반 로버츠(러흐르)와 리즈 하월즈(브리나만) 모두 이런 갱도의 노동자였음. <b>1980년 폐광 → 1983년 박물관</b>으로 다시 열렸고 2000년 블라이나본 일대가 유네스코 세계유산, 2005년 영국 올해의 박물관상</span>
         <span class="mrow">👀 <b>현장 — 가서 보는 것</b> · 헬멧·헤드램프·배터리·비상호흡기를 차고 <b>케이지 엘리베이터로 90m 아래</b>로 내려가 전직 광부의 안내로 약 50분 갱도를 걷는 코스(현역 탄광법 적용 — 배터리 기기·휴대폰 전량 지상 보관, 08 준비물). 갱도 안 조랑말 마구간(1999년까지 실제 사용)에서 "욕설 없는 명령을 못 알아들었다"는 부흥기 일화가 실감남. 지상에는 광부 목욕장(1939)이 전시관으로, 권양기실·대장간, 그리고 광부 식당의 cawl(양고기 스튜)</span>
-        <span class="mrow">🔭 <b>연결 — 그 뒤 이야기와 우리 여정</b> · 갱도에서 올라온 뒤 곧장 러흐르(우리안) 또는 서해안(가이드안)으로 — <b>광부의 세계 → 부흥의 현장</b> 순서가 이 날의 설계. 빅 핏이 문 닫은 1980년대 남웨일스 탄광은 거의 전부 폐광했고(1984~85 광부 파업), 오늘 계곡의 채플 다수가 비어 있음 — "복음이 다시 돌아오다"라는 우리 주제가 가장 실감 나는 풍경</span></span></div>
-      <div class="slot" id="bg-mumbles"><span class="t">🌊 멈블스 (10/1 우리안 · 10/2 가이드안)</span><span class="c"><b>Mumbles — 스완지 만이 끝나는 곶에 자리한 해변 마을 · 세계 최초의 여객 철도가 다니던 곳</b>
+        <span class="mrow">🔭 <b>연결 — 그 뒤 이야기와 우리 여정</b> · 갱도에서 올라온 뒤 곧장 서해안 블라이난네르흐로 — <b>광부의 세계 → 서원의 현장</b> 순서가 이 날의 설계. 빅 핏이 문 닫은 1980년대 남웨일스 탄광은 거의 전부 폐광했고(1984~85 광부 파업), 오늘 계곡의 채플 다수가 비어 있음 — "복음이 다시 돌아오다"라는 우리 주제가 가장 실감 나는 풍경</span></span></div>
+      <div class="slot" id="bg-mumbles"><span class="t">🌊 멈블스 (10/2)</span><span class="c"><b>Mumbles — 스완지 만이 끝나는 곶에 자리한 해변 마을 · 세계 최초의 여객 철도가 다니던 곳</b>
         <span class="mrow">🕰 <b>역사 — 어떤 곳인가</b> · 노르만 시대 고워 영주의 <b>오이스터마우스 성(12세기)</b> 아래 굴 채취 마을로 시작. <b>1807년 스완지~멈블스 철도</b>는 요금을 받고 승객을 태운 세계 최초의 철도(처음엔 말이 끌었음 · 1960년 폐선). 1794년 곶 앞 두 바위섬에 등대, <b>1898년 부두(Mumbles Pier)</b> · 스완지 태생 시인 딜런 토머스가 청년기에 드나든 펍들이 지금도 있음 · 1922년부터 Joe’s 아이스크림</span>
-        <span class="mrow">👀 <b>현장 — 가서 보는 것</b> · 해안 산책로를 따라 부두·구조선 기지·등대 전망 · 우리안은 오이스터 워프의 Bistrot Pierre에서 늦은 점심(Tivoli 프라이빗룸) 뒤 Joe’s에서 10분 · 가이드안은 BCW 관람 뒤 해변 산책 + Joe’s · 시간이 있으면 언덕 위 성 외관(입장은 계절 한정)</span>
-        <span class="mrow">🔭 <b>연결 — 그 뒤 이야기와 우리 여정</b> · 멈블스에서 만 건너편으로 보이는 스완지 서쪽 언덕이 하월즈의 BCW(스케티)가 있는 곳 — 10/2에 그 언덕에서 이 바다를 다시 봄. 멈블스 남쪽 브레이슬릿 베이가 예비 식당 Castellamare 자리</span></span></div>
-      <div class="slot" id="bg-gower"><span class="t">🏖 고워 반도 · 로실리 (10/2 가이드안)</span><span class="c"><b>Gower Peninsula — 1956년 영국 최초로 지정된 AONB(빼어난 자연미 지역) · 로실리 베이는 영국 최고의 해변 순위 단골</b>
+        <span class="mrow">👀 <b>현장 — 가서 보는 것</b> · BCW 관람 뒤 해안 산책로를 따라 부두·구조선 기지·등대 전망 + Joe’s Ice Cream(1922년부터의 웨일스 국민 아이스크림) · 시간이 있으면 언덕 위 성 외관(입장은 계절 한정)</span>
+        <span class="mrow">🔭 <b>연결 — 그 뒤 이야기와 우리 여정</b> · 멈블스에서 만 건너편으로 보이는 스완지 서쪽 언덕이 하월즈의 BCW(스케티)가 있는 곳 — 같은 날 그 언덕에서 이 바다를 먼저 봄</span></span></div>
+      <div class="slot" id="bg-gower"><span class="t">🏖 고워 반도 · 로실리 (10/2)</span><span class="c"><b>Gower Peninsula — 1956년 영국 최초로 지정된 AONB(빼어난 자연미 지역) · 로실리 베이는 영국 최고의 해변 순위 단골</b>
         <span class="mrow">🕰 <b>역사 — 어떤 곳인가</b> · 스완지 서쪽으로 뻗은 25km 반도 · 석회암 절벽·모래 언덕·염습지가 한데 있어 영국 정부가 경관 보호 제도를 만들 때 <b>제1호</b>로 지정. 로실리 서쪽 끝 <b>웜즈 헤드(Worm’s Head)</b>는 바이킹이 "wurm(용)"이라 부른 뱀 모양 바위섬으로, 썰물 때만 걸어 들어감 · 해변 모래 속에 1887년 난파선 Helvetia의 늑골이 썰물마다 드러남</span>
         <span class="mrow">👀 <b>현장 — 가서 보는 것</b> · 내셔널트러스트 주차장(유료)에서 절벽 위 산책로로 5분 — <b>3마일 백사장과 웜즈 헤드가 한눈에</b> 들어오는 전망대에서 단체 사진 · 바람 강한 날 절벽 가장자리 주의 · 웜즈 헤드 도보 횡단은 썰물 전후 2.5시간 규칙과 체력이 필요해 우리는 전망대까지만 · 화장실·카페는 주차장 옆</span>
-        <span class="mrow">🔭 <b>연결 — 그 뒤 이야기와 우리 여정</b> · 고워를 나와 45분이면 BCW — 가이드안은 "창조의 경관 → 기도로 세운 학교" 순서. 로실리 언덕(Rhossili Down)은 청동기 무덤이 있는 곳으로, 웨일스 신앙의 층이 얼마나 오래됐는지 보여주는 배경</span></span></div>
-      <div class="slot" id="bg-ffald"><span class="t">🙏 Ffald-y-Brenin (10/1 가이드안)</span><span class="c"><b>"왕의 양 우리(Ffald y Brenin)" — 펨브록셔 귄 밸리 산비탈, 시편 23편에서 이름을 딴 기도의 집</b>
+        <span class="mrow">🔭 <b>연결 — 그 뒤 이야기와 우리 여정</b> · 고워를 나와 45분이면 BCW — "창조의 경관 → 기도로 세운 학교" 순서. 로실리 언덕(Rhossili Down)은 청동기 무덤이 있는 곳으로, 웨일스 신앙의 층이 얼마나 오래됐는지 보여주는 배경</span></span></div>
+      <div class="slot" id="bg-ffald"><span class="t">🙏 Ffald-y-Brenin (10/1)</span><span class="c"><b>"왕의 양 우리(Ffald y Brenin)" — 펨브록셔 귄 밸리 산비탈, 시편 23편에서 이름을 딴 기도의 집</b>
         <span class="mrow">🕰 <b>역사 — 어떤 곳인가</b> · 1978년 "삶의 소용돌이에서 잠시 쉬어 가는 물가"의 환상을 받은 필리다 몰드가 1984년 이 산비탈 농가를 찾아 4년을 손수 고쳐 <b>1988년 문을 연</b> 기독교 리트릿 센터. 1999년부터 로이·대프니 고드윈 부부가 이끌면서 이곳에서 일어난 기도 응답·치유·회심 이야기가 <b>『The Grace Outpouring(은혜의 쏟아짐)』(2008)</b>으로 출간돼 세계 각지에서 순례객이 찾아오는 "열방을 위한 기도의 집"이 됨</span>
         <span class="mrow">👀 <b>현장 — 가서 보는 것</b> · 산비탈에 박혀 있는 작은 채플과 기도실, 부지를 오르면 계곡을 내려다보는 <b>언덕 위 십자가</b> — 이곳에서 팀 기도회(1시간 배정) · 하루 리듬에 맞춘 공동 기도 시간에 합류 가능 · 데이룸에서 차 한 잔 · 5인 이상은 사전 연락(07 체크리스트 · 01348 881419) · 좁은 시골길이라 9인승은 서행, 두 차는 각자 내비</span>
-        <span class="mrow">🔭 <b>연결 — 그 뒤 이야기와 우리 여정</b> · 하월즈의 "중보"(1920~40년대)가 20세기 후반 웨일스에서 어떤 모습으로 이어졌는지 보여주는 현장 — 다음 날 BCW와 짝을 이룸. 이 지역 프레셀리 언덕은 <b>스톤헨지의 청석(bluestone)이 온 곳</b>(10/4 가이드안에서 스톤헨지를 지나며 다시 만남)</span></span></div>
-      <div class="slot" id="bg-clifton"><span class="t">🌉 클리프턴 현수교 (10/4 가이드안)</span><span class="c"><b>Clifton Suspension Bridge — 에이번 협곡 75m 위에 걸린 브리스톨의 상징 · 브루넬이 24세에 설계, 죽은 뒤 완공</b>
+        <span class="mrow">🔭 <b>연결 — 그 뒤 이야기와 우리 여정</b> · 하월즈의 "중보"(1920~40년대)가 20세기 후반 웨일스에서 어떤 모습으로 이어졌는지 보여주는 현장 — 다음 날 BCW와 짝을 이룸. 이 지역 프레셀리 언덕은 <b>스톤헨지의 청석(bluestone)이 온 곳</b>(10/4 스톤헨지를 지나며 다시 만남)</span></span></div>
+      <div class="slot" id="bg-clifton"><span class="t">🌉 클리프턴 현수교 (10/4)</span><span class="c"><b>Clifton Suspension Bridge — 에이번 협곡 75m 위에 걸린 브리스톨의 상징 · 브루넬이 24세에 설계, 죽은 뒤 완공</b>
         <span class="mrow">🕰 <b>역사 — 어떤 곳인가</b> · 1753년 한 상인이 유산으로 "협곡에 다리를" 남기며 시작 · 1831년 설계 공모에서 <b>24세의 이삼바드 킹덤 브루넬</b>이 당선(심사위원 텔퍼드) · 브리스톨 폭동과 자금난으로 1843년 공사 중단, 브루넬은 1859년 세상을 떠남 · 동료 기술자들이 그를 기념해 헝거포드 다리의 쇠사슬을 옮겨 와 <b>1864년 완공</b> · 경간 214m</span>
-        <span class="mrow">👀 <b>현장 — 가서 보는 것</b> · 보행은 무료(차량 £1) · 다리 중간에서 협곡과 브리스톨 시내 조망, 클리프턴 쪽 방문자센터(무료 전시) · 협곡 건너 리 우즈 쪽 전망 지점에서 다리 전체 사진 · 여기서 <b>가이드 목사님 합류(한인교회 예배 후 오심)</b> — 14:15~15:10 팀 먼저 자유 관람</span>
+        <span class="mrow">👀 <b>현장 — 가서 보는 것</b> · 보행은 무료(차량 £1) · 다리 중간에서 협곡과 브리스톨 시내 조망, 클리프턴 쪽 방문자센터(무료 전시) · 협곡 건너 리 우즈 쪽 전망 지점에서 다리 전체 사진 · 여기서 <b>박진철 선교사님 합류(한인교회 예배 후 오심)</b> — 14:15~15:10 팀 먼저 자유 관람</span>
         <span class="mrow">🔭 <b>연결 — 그 뒤 이야기와 우리 여정</b> · 브루넬은 이 도시에서 SS 그레이트 브리튼호(1843 · 부두에 전시)와 그레이트 웨스턴 철도를 만든 사람 — 웨일스로 들어오는 세번 터널·M4 축의 원형이 그의 철도. 다리 남쪽 15분에 뮬러 고아원</span></span></div>
-      <div class="slot" id="bg-muller"><span class="t">🏛 조지 뮬러 고아원 (10/4 가이드안)</span><span class="c"><b>George Müller(1805–1898) — 한 번도 후원을 요청하지 않고 기도만으로 고아 1만 명을 먹인 사람 · 애슐리 다운의 다섯 채</b>
+      <div class="slot" id="bg-muller"><span class="t">🏛 조지 뮬러 고아원 (10/4)</span><span class="c"><b>George Müller(1805–1898) — 한 번도 후원을 요청하지 않고 기도만으로 고아 1만 명을 먹인 사람 · 애슐리 다운의 다섯 채</b>
         <span class="mrow">🕰 <b>역사 — 어떤 곳인가</b> · 프로이센 세리의 아들로 방탕하게 살다 1825년 회심, 1829년 영국으로 · 1832년 브리스톨에 정착해 헨리 크레이크와 함께 목회 · <b>1836년 윌슨 스트리트의 셋집에서 고아 30명</b>으로 시작 → 기도 응답으로 자금이 들어오자 <b>애슐리 다운에 1849·1857·1862·1868·1870년 다섯 채의 대형 고아원</b>을 지어 한 번에 2,050명을 돌봄 · 평생 돌본 고아 1만여 명, 일기에 기록된 기도 응답 5만 건 · 70세 이후 17년간 세계 전도 여행(1875~92) · 1898년 소천, 장례 행렬에 브리스톨 시민 수만 명</span>
-        <span class="mrow">👀 <b>현장 — 가서 보는 것</b> · 다섯 채 건물은 지금 <b>브리스톨 시립대학(City of Bristol College) 애슐리 다운 캠퍼스</b> — 외관 견학 · 뮬러 박물관(College Rd, 로프트 하우스)은 배관 침수로 무기한 휴관이라 일요일은 건물·부지 중심, 세부 코스는 가이드님 안내 · 아이들이 아침 식탁에 앉아 빈 그릇 앞에서 감사기도를 드리자 빵집 마차가 문을 두드렸다는 유명한 일화의 현장</span>
+        <span class="mrow">👀 <b>현장 — 가서 보는 것</b> · 다섯 채 건물은 지금 <b>브리스톨 시립대학(City of Bristol College) 애슐리 다운 캠퍼스</b> — 외관 견학 · 뮬러 박물관(College Rd, 로프트 하우스)은 배관 침수로 무기한 휴관이라 일요일은 건물·부지 중심, 세부 코스는 박진철 선교사님 안내 · 아이들이 아침 식탁에 앉아 빈 그릇 앞에서 감사기도를 드리자 빵집 마차가 문을 두드렸다는 유명한 일화의 현장</span>
         <span class="mrow">🔭 <b>연결 — 그 뒤 이야기와 우리 여정</b> · 하월즈가 젊은 시절 본받은 모델이 뮬러 — "하나님께만 구한다"는 원칙이 BCW의 재정 방식으로 이어짐(12 참조) · 뮬러 재단(The George Müller Charitable Trust)은 지금도 브리스톨에서 아동·가정 사역 중 · 뮬러의 묘는 아노스 베일 묘지(동선 밖)</span></span></div>
-      <div class="slot" id="bg-hanham"><span class="t">⛪ 한햄 마운트 · 야외 설교지 (10/4 가이드안)</span><span class="c"><b>Hanham Mount — 교회 밖으로 나간 복음이 시작된 언덕 · 휫필드와 웨슬리의 1739년</b>
+      <div class="slot" id="bg-hanham"><span class="t">⛪ 한햄 마운트 · 야외 설교지 (10/4)</span><span class="c"><b>Hanham Mount — 교회 밖으로 나간 복음이 시작된 언덕 · 휫필드와 웨슬리의 1739년</b>
         <span class="mrow">🕰 <b>역사 — 어떤 곳인가</b> · 1739년 2월 17일, 교회 강단을 거부당한 25세의 <b>조지 휫필드</b>가 킹스우드 탄광의 광부 200명 앞 들판에서 설교 — 며칠 만에 청중이 2만 명으로 늘고 광부들의 검은 얼굴에 눈물 자국이 "하얀 도랑"을 냈다는 기록 · 휫필드의 요청으로 <b>4월 2일 존 웨슬리</b>가 브리스톨 벽돌공장 터에서 생애 첫 야외 설교("나는 스스로 낮아져 들판에서 설교하기로 했다") → 이후 웨슬리는 한햄 마운트와 킹스우드에서 반복 설교, 1748년 킹스우드 학교 설립 · 감리교 부흥운동이 대중운동이 된 출발점</span>
-        <span class="mrow">👀 <b>현장 — 가서 보는 것</b> · 언덕 위 <b>1951년 세운 기념 봉화대</b>와 웨슬리 설교 기념비, 브리스톨 동부가 내려다보이는 잔디 언덕(정확한 방문 지점은 가이드님 안내 · 40분 배정) · 야외라 우천 대비</span>
+        <span class="mrow">👀 <b>현장 — 가서 보는 것</b> · 언덕 위 <b>1951년 세운 기념 봉화대</b>와 웨슬리 설교 기념비, 브리스톨 동부가 내려다보이는 잔디 언덕(정확한 방문 지점은 박진철 선교사님 안내 · 40분 배정) · 야외라 우천 대비</span>
         <span class="mrow">🔭 <b>연결 — 그 뒤 이야기와 우리 여정</b> · "교회 밖으로 나간 복음" — 우리가 하는 3분 브릿지 노방전도의 원형이 바로 이 들판 설교 · 브리스톨 시내의 뉴룸(New Room, 1739)은 세계에서 가장 오래된 감리교 예배당(동선 밖) · 여기서 A303을 타고 스톤헨지 방면으로</span></span></div>
-      <div class="slot" id="bg-stonehenge"><span class="t">🗿 스톤헨지 조망 (10/4 가이드안)</span><span class="c"><b>Stonehenge — 기원전 3000~2000년에 걸쳐 세워진 거석 유적 · 1986년 유네스코 세계유산 · 청석은 웨일스에서 왔음</b>
+      <div class="slot" id="bg-stonehenge"><span class="t">🗿 스톤헨지 조망 (10/4)</span><span class="c"><b>Stonehenge — 기원전 3000~2000년에 걸쳐 세워진 거석 유적 · 1986년 유네스코 세계유산 · 청석은 웨일스에서 왔음</b>
         <span class="mrow">🕰 <b>역사 — 어떤 곳인가</b> · 기원전 3000년경 원형 토루와 화장 묘지로 시작 → 기원전 2500년경 30톤급 사르센 돌기둥을 세움 · 안쪽 작은 <b>청석(bluestone)은 펨브록셔 프레셀리 언덕(Ffald-y-Brenin 인근)에서 240km를 운반</b>해 온 것으로 밝혀짐 · 하지·동지 해돋이 축선 · 용도는 지금도 논쟁(장례·천문·치유)</span>
         <span class="mrow">👀 <b>현장 — 가서 보는 것</b> · A303 서쪽에서 동쪽으로 달릴 때 <b>오른편 언덕 위로 바로 보임</b>(약 1~2분) · <b>A303 갓길 정차는 금지</b> — 차창 관람이 원칙, 굳이 서려면 인근 안전한 지점(협의 ☐) · 입장(£30 안팎·예약제)은 하지 않는 코스 · 일몰 18:39 무렵 통과라 실루엣</span>
-        <span class="mrow">🔭 <b>연결 — 그 뒤 이야기와 우리 여정</b> · 여기서 런던까지 약 2시간 — 20:30 숙소 도착. 우리안(D6-1)이면 이 코스 대신 하노버 교제 + 뉴몰든 첫 저녁</span></span></div>
+        <span class="mrow">🔭 <b>연결 — 그 뒤 이야기와 우리 여정</b> · 여기서 런던까지 약 2시간 — 20:30 숙소 도착</span></span></div>
       <div class="slot" id="bg-bm"><span class="t">🏛 대영박물관 (10/5)</span><span class="c"><b>British Museum — 1753년 설립, 세계 최초의 국립 공공 박물관 · 무료 · 성경 고고학의 보고</b>
         <span class="mrow">🕰 <b>역사 — 어떤 곳인가</b> · 의사 한스 슬론이 수집품 7만 점을 국가에 남기며 1753년 의회법으로 설립, 1759년 "모든 배우려는 이에게 무료"로 개관 · 현재 신고전주의 건물은 1852년(스머크) · 1802년 로제타석, 1816년 파르테논 조각이 들어오며 세계 박물관이 됨 · 2000년 유리 지붕의 <b>그레이트 코트</b>(노먼 포스터) · 소장 800만 점</span>
         <span class="mrow">👀 <b>현장 — 가서 보는 것</b> · 입구 → 그레이트 코트에서 지도 챙기고 짐 보관 → <b>📖 성경 고고학 하이라이트 1시간 코스(우리 팀 추천)</b>: 4실 로제타석 지나 10실 <b>라기스 부조</b>(산헤립의 유다 라기스 함락 · 왕하 18장) → 6실 <b>살만에셀 3세의 검은 오벨리스크</b>(이스라엘 왕 예후가 절하는 장면 — 성경 인물의 유일한 동시대 초상) → 55실 <b>테일러 프리즘</b>("히스기야를 새장의 새처럼 가두었다" — 왕하 19장의 앗수르 쪽 증언)과 <b>바벨론 연대기</b>(느부갓네살의 예루살렘 함락 · 왕하 24장) → 52실 <b>고레스 원통</b>(포로 귀환 칙령의 배경 · 스 1장) → 57실 라기스 편지(예레미야 시대) · 그다음 <b>한국관(67실)</b>과 이집트 미라(62~63실) · 전시실 번호는 바뀔 수 있어 안내데스크에서 "Assyrian, Cyrus Cylinder" 확인 · 10인 이상 단체는 7일 전 온라인 예약(07)</span>
-        <span class="mrow">🔭 <b>연결 — 그 뒤 이야기와 우리 여정</b> · 박물관에서 도보 15분 <b>영국도서관(British Library)</b>의 보물 전시실에는 4세기 성경 사본 <b>코덱스 시나이티쿠스</b>가 무료로 상설 전시(동선 밖 · 시간 남으면) · 점심은 도보 8분 Kimchee 또는 코벤트가든 Rock &amp; Sole</span></span></div>
+        <span class="mrow">🔭 <b>연결 — 그 뒤 이야기와 우리 여정</b> · 박물관에서 도보 15분 <b>영국도서관(British Library)</b>의 보물 전시실에는 4세기 성경 사본 <b>코덱스 시나이티쿠스</b>가 무료로 상설 전시(동선 밖 · 시간 남으면) · 점심은 도보 8분 거리의 한식당 또는 코벤트가든의 피시앤칩스 노포</span></span></div>
       <div class="slot" id="bg-abbey"><span class="t">⛪ 웨스트민스터 사원 · 국회 · 빅벤 (10/5)</span><span class="c"><b>Westminster Abbey — 1066년 이래 모든 영국 왕의 대관식 성당 · 선교사 리빙스턴과 윌버포스가 잠든 곳</b>
         <span class="mrow">🕰 <b>역사 — 어떤 곳인가</b> · 960년 베네딕트 수도원 → 1065년 참회왕 에드워드가 봉헌, 이듬해 <b>정복왕 윌리엄의 대관식(1066)</b>부터 2023년 찰스 3세까지 40명의 왕이 여기서 관을 씀 · 현재 고딕 건물은 1245년 헨리 3세 재건, 1519년 헨리 7세 예배당 · 1540년 수도원 해산 뒤 왕실 직속 교회(royal peculiar) · 3,300여 명 안장 — 뉴턴(1727)·다윈(1882)·디킨스, <b>아프리카 선교사 데이비드 리빙스턴(1874)</b>, <b>노예무역 폐지의 윌리엄 윌버포스(1833)</b>, 헨델, 시인의 코너, 무명용사의 묘(1920)</span>
         <span class="mrow">👀 <b>현장 — 가서 보는 것</b> · 우리는 외관 + 사원 앞 광장·웨스트민스터 다리 포토 스팟(14:00~14:40) · 유료 입장(£30 안팎)은 생략하고 <b>17:00 이븐송(무료 · 옵션)</b>으로 내부를 경험 — 성가대의 저녁기도, 약 45분, 16:30까지 입구 · 길 건너 <b>국회의사당</b>(1834 화재 뒤 배리·퓨진이 1840~70 재건)과 <b>엘리자베스 타워 96m</b>(빅벤은 안의 13.7톤 종 이름, 1859) · 사원·국회·세인트 마거릿 교회가 함께 1987 세계유산</span>
@@ -1563,7 +1406,7 @@
         <span class="mrow">🔭 <b>연결 — 그 뒤 이야기와 우리 여정</b> · 갤러리를 나와 웨스트민스터로 되돌아가 이븐송, 또는 바로 차이나타운(도보 10분)</span></span></div>
       <div class="slot" id="bg-chinatown"><span class="t">🥢 차이나타운 · 뉴몰든 (10/5~7)</span><span class="c"><b>Chinatown · New Malden — 런던의 두 이민자 거리, 우리 저녁 식탁</b>
         <span class="mrow">🕰 <b>역사 — 어떤 곳인가</b> · 런던 중국인 거리는 19세기 라임하우스 부두에서 시작해 1970년대 소호 <b>제라드 스트리트</b>로 옮김 · 2016년 세운 대형 패루(문) · 대형 원탁 중식당이 많아 20명 단체가 한 방에 앉기 쉬움 · <b>뉴몰든</b>은 1970년대 주영 한국대사관·삼성 유럽본부가 인근에 자리 잡으며 형성된 <b>유럽 최대 한인타운</b>(한인 약 2만 · 탈북민 공동체도 세계 최대) — 하이스트리트에 한식당 수십 곳, H Mart·Seoul Plaza</span>
-        <span class="mrow">👀 <b>현장 — 가서 보는 것</b> · 차이나타운은 10/5 저녁 1안(당일 오전 전화 예약) · 뉴몰든은 10/4 첫 저녁(진고개), 10/6 저녁, 10/7 크루즈 전 이른 저녁(Cah Chi)과 장보기 거점 — 런던 숙소에서 차 15분(02·04 참조)</span>
+        <span class="mrow">👀 <b>현장 — 가서 보는 것</b> · 차이나타운은 10/5 저녁 1안(당일 오전 전화 예약) · 뉴몰든은 10/6 저녁, 10/7 크루즈 전 이른 저녁과 장보기 거점 — 런던 숙소에서 차 15분(02·04 참조)</span>
         <span class="mrow">🔭 <b>연결 — 그 뒤 이야기와 우리 여정</b> · 뉴몰든에는 한인교회도 여럿 — 10/6~7 서튼 세미나의 호스트 런던목양교회 성도들의 생활권</span></span></div>
       <div class="slot" id="bg-cruise"><span class="t">🚢 템즈강 크루즈 (10/7)</span><span class="c"><b>웨스트민스터 → 런던아이 → 타워 피어 (약 40분) — 2,000년 런던 역사를 강에서 보는 순서대로</b>
         <span class="mrow">🕰 <b>역사 — 어떤 곳인가</b> · 템즈강은 로마 론디니움(43년) 이래 런던의 이유 · 우리가 타는 구간이 런던의 핵심 — 서쪽 웨스트민스터(왕권·의회)에서 동쪽 시티(상업)와 런던탑(요새)까지 · 1894년 타워 브리지가 열리기 전까지 런던 브리지가 유일한 다리였던 시절이 길었음</span>
@@ -1580,15 +1423,8 @@
   var daysAll = Array.prototype.slice.call(document.querySelectorAll('.day')).filter(function(d){
     return d.querySelector('.daycol');
   });
-  var days = daysAll.filter(function(d){ return !d.classList.contains('vb'); });
-  function visDay(i){
-    var d = days[i]; if(!d) return d;
-    if(d.classList.contains('vhide')){
-      var b = document.querySelector('.day.vb[data-vd="'+d.getAttribute('data-vd')+'"]');
-      if(b) return b;
-    }
-    return d;
-  }
+  var days = daysAll;
+  function visDay(i){ return days[i]; }
   var cells = Array.prototype.slice.call(document.querySelectorAll('.cal .cell'));
 
   daysAll.forEach(function(d){
@@ -1650,34 +1486,6 @@
       setLabel(d);
     });
   };
-
-  /* ===== A/B 변형(우리안·가이드안) 전환 ===== */
-  window.btbVariant = function(vd, v){
-    var a = document.querySelector('.day[data-vd="'+vd+'"]:not(.vb)');
-    var b = document.querySelector('.day.vb[data-vd="'+vd+'"]');
-    if(!a || !b) return;
-    a.classList.toggle('vhide', v === 'b');
-    b.classList.toggle('vhide', v !== 'b');
-    [a,b].forEach(function(card){
-      Array.prototype.slice.call(card.querySelectorAll('.vtabs .vt')).forEach(function(btn){
-        btn.classList.toggle('on', btn.getAttribute('data-go') === v);
-      });
-    });
-  };
-  Array.prototype.slice.call(document.querySelectorAll('.vtabs .vt')).forEach(function(btn){
-    btn.addEventListener('click', function(ev){
-      ev.stopPropagation();
-      var card = btn.closest('.day'); if(!card) return;
-      var vd = card.getAttribute('data-vd'), v = btn.getAttribute('data-go');
-      window.btbVariant(vd, v);
-      var shown = document.querySelector('.day[data-vd="'+vd+'"]'+(v==='b'?'.vb':':not(.vb)'));
-      if(shown){
-        if(shown.classList.contains('collapsed')){ shown.classList.remove('collapsed'); setLabel(shown); }
-        shown.scrollIntoView({behavior:'auto', block:'start'});
-        if(window.btbToast) window.btbToast(v==='b' ? '가이드 목사님안으로 전환' : '우리안으로 전환');
-      }
-    });
-  });
 
   window.addEventListener('beforeprint', function(){ window.setAllDays(false); });
 })();
@@ -1911,16 +1719,9 @@
 
   /* ===== 날짜 탭 고정바 ===== */
   var days = Array.prototype.slice.call(document.querySelectorAll('.day')).filter(function(d){
-    return d.querySelector('.daycol') && !d.classList.contains('vb');
+    return d.querySelector('.daycol');
   });
-  function visDay(i){
-    var d = days[i]; if(!d) return d;
-    if(d.classList.contains('vhide')){
-      var b = document.querySelector('.day.vb[data-vd="'+d.getAttribute('data-vd')+'"]');
-      if(b) return b;
-    }
-    return d;
-  }
+  function visDay(i){ return days[i]; }
   var chips = Array.prototype.slice.call(document.querySelectorAll('#daybar .dc'));
   var bar = document.getElementById('daybar');
 
@@ -1981,11 +1782,6 @@
     if(days[idx]){
       days[idx].classList.add('istoday');
       (function(){ var td = visDay(idx); var col = td && td.querySelector('.daycol'); if(td && col && td.classList.contains('collapsed')) col.click(); })(); // 여행 당일엔 그날 일정을 펼친 채로 시작
-      var bvd = days[idx].getAttribute('data-vd');
-      if(bvd){
-        var bcard = document.querySelector('.day.vb[data-vd="'+bvd+'"]');
-        if(bcard) bcard.classList.add('istoday');
-      }
     }
     var cells = document.querySelectorAll('.cal .cell');
     if(cells[idx]) cells[idx].classList.add('tdy');
@@ -2004,27 +1800,18 @@ window.OVBG = {"1": {"z": 8, "ox": 31840.46471111111, "oy": 21410.491475625484, 
   function S(n,t,ll,m,q){ return {n:n,t:t,la:ll[0],lo:ll[1],m:m||'c',q:q||''}; }
   var OVD = [
     {d:1,dt:'9/29 화',s:[S('히드로 T2','14:20',[51.470,-0.454],'c','Heathrow+Airport+Terminal+2'),S('휴게소','17:30',[51.505,-2.190],'c','Leigh+Delamere+Services+Westbound+M4'),S('브레콘 숙소','20:00',FL,'c','Forest+Lodge+Cottages+Libanus+Brecon+LD3+8NW')]},
-    {d:2,dt:'9/30 수',s:[S('숙소 출발','09:20',FL,'c','Forest+Lodge+Cottages+Libanus+Brecon+LD3+8NW'),S('길웬 세미나','10:05',[51.827,-3.096],'c','St+Elli+Parish+Centre+Abergavenny+Road+Gilwern+NP7+0AD'),S('크릭하월 저녁','18:00',[51.884,-3.140],'c','The+Bear+Hotel+Crickhowell'),S('숙소 복귀','19:40',FL,'c','Forest+Lodge+Cottages+Libanus+Brecon+LD3+8NW')]},
-    {d:3,dt:'10/1 목',s:[S('숙소 출발','08:30',FL,'c','Forest+Lodge+Cottages+Libanus+Brecon+LD3+8NW'),S('빅핏 탄광','09:20',[51.770,-3.106],'c','Big+Pit+National+Coal+Museum+NP4+9RL'),S('모리아 채플','12:25',[51.663,-4.068],'c','Moriah+Chapel+Loughor+SA4+6QD'),S('생가·피스가','13:25',[51.672,-4.082],'c','Island+House+Bwlchymynydd+Loughor'),S('멈블스 점심','14:15',[51.571,-3.999],'c','Bistrot+Pierre+Mumbles'),S('서원 채플','17:20',[52.115,-4.535],'c','Blaenannerch+Chapel+Ceredigion'),S('란도버리 저녁','19:00',[51.994,-3.799],'c','The+Castle+Hotel+Llandovery+SA20+0AP'),S('숙소 복귀','20:40',FL,'c','Forest+Lodge+Cottages+Libanus+Brecon+LD3+8NW')]},
-    {d:4,dt:'10/2 금',s:[S('숙소 출발','08:45',FL,'c','Forest+Lodge+Cottages+Libanus+Brecon+LD3+8NW'),S('BCW','10:15',[51.594,-4.005],'c','Bible+College+of+Wales+Derwen+Fawr+Swansea+SA2+8EB'),S('하월즈 묘소','13:30',[51.681,-4.007],'c','St+Davids+Church+Penllergaer+Swansea'),S('니스 저녁','17:50',[51.663,-3.805],'c','Neath+town+centre'),S('사론 세미나','19:00',[51.725,-3.748],'c','Saron+Chapel+Main+Road+Crynant+Neath+SA10+8NT'),S('숙소 복귀','21:55',FL,'c','Forest+Lodge+Cottages+Libanus+Brecon+LD3+8NW')]},
+    {d:2,dt:'9/30 수',s:[S('숙소 출발','09:20',FL,'c','Forest+Lodge+Cottages+Libanus+Brecon+LD3+8NW'),S('길웬 세미나','10:05',[51.827,-3.096],'c','St+Elli+Parish+Centre+Abergavenny+Road+Gilwern+NP7+0AD'),S('크릭하월 저녁','18:00',[51.884,-3.140],'c','Crickhowell+town+centre'),S('숙소 복귀','19:40',FL,'c','Forest+Lodge+Cottages+Libanus+Brecon+LD3+8NW')]},
+    {d:3,bg:'3b',dt:'10/1 목',s:[S('숙소 출발','08:30',FL,'c','Forest+Lodge+Cottages+Libanus+Brecon+LD3+8NW'),S('빅핏 탄광','09:20',[51.770,-3.106],'c','Big+Pit+National+Coal+Museum+NP4+9RL'),S('블라이난네르흐','13:40',[52.115,-4.535],'c','Blaenannerch+Chapel+Ceredigion'),S('팔디브레닌','15:10',[51.972,-4.893],'c','Ffald-y-Brenin+Pontfaen+Fishguard+SA65+9UA'),S('모리아 채플','17:45',[51.663,-4.068],'c','Moriah+Chapel+Loughor+SA4+6QD'),S('숙소 복귀','20:40',FL,'c','Forest+Lodge+Cottages+Libanus+Brecon+LD3+8NW')]},
+    {d:4,bg:'4b',dt:'10/2 금',s:[S('숙소 출발','08:30',FL,'c','Forest+Lodge+Cottages+Libanus+Brecon+LD3+8NW'),S('고워 로실리','10:20',[51.568,-4.289],'c','Rhossili+Bay+Gower'),S('BCW','13:15',[51.594,-4.005],'c','Bible+College+of+Wales+Derwen+Fawr+Swansea+SA2+8EB'),S('멈블스 비치','15:30',[51.571,-3.999],'w','Mumbles+Pier+Swansea'),S('니스 저녁','17:50',[51.663,-3.805],'c','Neath+town+centre'),S('사론 세미나','19:00',[51.725,-3.748],'c','Saron+Chapel+Main+Road+Crynant+Neath+SA10+8NT'),S('숙소 복귀','21:55',FL,'c','Forest+Lodge+Cottages+Libanus+Brecon+LD3+8NW')]},
     {d:5,dt:'10/3 토',s:[S('숙소 출발','08:55',FL,'c','Forest+Lodge+Cottages+Libanus+Brecon+LD3+8NW'),S('하노버 세미나','09:50',[51.767,-2.995],'c','https://maps.app.goo.gl/GrkfyeuSHhCDnbs3A'),S('손힐 세미나','16:05',[51.545,-3.190],'c','Thornhill+Church+Excalibur+Drive+Cardiff+CF14+9GA'),S('숙소 복귀','22:00',FL,'c','Forest+Lodge+Cottages+Libanus+Brecon+LD3+8NW')]},
-    {d:6,dt:'10/4 일',s:[S('숙소 출발','09:20',FL,'c','Forest+Lodge+Cottages+Libanus+Brecon+LD3+8NW'),S('하노버 예배','10:10',[51.767,-2.995],'c','https://maps.app.goo.gl/GrkfyeuSHhCDnbs3A'),S('런던 숙소','17:55',MO,'c','Seddon+Road+Morden+SM4+6ED'),S('뉴몰든 저녁','18:35',[51.401,-0.256],'c','New+Malden+Korean+restaurants'),S('귀가','19:50',MO,'c','Seddon+Road+Morden+SM4+6ED')]},
+    {d:6,bg:'6b',dt:'10/4 일',s:[S('숙소 출발','09:20',FL,'c','Forest+Lodge+Cottages+Libanus+Brecon+LD3+8NW'),S('하노버 예배','10:10',[51.767,-2.995],'c','https://maps.app.goo.gl/GrkfyeuSHhCDnbs3A'),S('클리프턴 현수교','14:15',[51.4549,-2.6278],'w','Clifton+Suspension+Bridge+Bristol'),S('뮬러 고아원','15:30',[51.479,-2.590],'c','Muller+House+College+Road+Bristol+BS7+9FG'),S('야외 설교지','16:30',[51.4308,-2.5104],'c','Hanham+Mount+Bristol'),S('스톤헨지 조망','18:30',[51.1789,-1.8262],'c','Stonehenge'),S('런던 숙소','20:30',MO,'c','Seddon+Road+Morden+SM4+6ED')]},
     {d:7,dt:'10/5 월',s:[S('모던역','09:00',[51.402,-0.195],'c','Morden+Station+London'),S('대영박물관','10:00',[51.519,-0.127],'t','British+Museum+WC1B+3DG'),S('웨스트민스터','14:00',[51.4998,-0.1246],'t','Westminster+Abbey+London'),S('트라팔가·갤러리','15:10',[51.509,-0.128],'w','National+Gallery+Trafalgar+Square+London'),S('이븐송(옵션)','17:00',[51.4993,-0.1273],'w','Westminster+Abbey+London')]},
     {d:8,dt:'10/6 화',s:[S('숙소 출발','09:40',MO,'c','Seddon+Road+Morden+SM4+6ED'),S('서튼 세미나','10:00',[51.362,-0.194],'c','https://maps.app.goo.gl/VfBcTiVjammfZrMb8'),S('뉴몰든 저녁','18:30',[51.401,-0.256],'c','New+Malden+Korean+restaurants'),S('귀가','20:00',MO,'c','Seddon+Road+Morden+SM4+6ED')]},
-    {d:9,dt:'10/7 수',s:[S('숙소 출발','09:40',MO,'c','Seddon+Road+Morden+SM4+6ED'),S('서튼 세미나','10:00',[51.362,-0.194],'c','https://maps.app.goo.gl/VfBcTiVjammfZrMb8'),S('뉴몰든 저녁','17:00',[51.401,-0.256],'c','Cah+Chi+79-81+Kingston+Road+New+Malden'),S('모던역','17:55',[51.402,-0.195],'c','Morden+Station+London'),S('선착장·크루즈','19:20',[51.502,-0.120],'t','Westminster+Pier+London'),S('타워 피어 하선','20:00',[51.5079,-0.0784],'b','Tower+Pier+London')]},
+    {d:9,dt:'10/7 수',s:[S('숙소 출발','09:40',MO,'c','Seddon+Road+Morden+SM4+6ED'),S('서튼 세미나','10:00',[51.362,-0.194],'c','https://maps.app.goo.gl/VfBcTiVjammfZrMb8'),S('뉴몰든 저녁','17:00',[51.401,-0.256],'c','New+Malden+Korean+restaurants'),S('모던역','17:55',[51.402,-0.195],'c','Morden+Station+London'),S('선착장·크루즈','19:20',[51.502,-0.120],'t','Westminster+Pier+London'),S('타워 피어 하선','20:00',[51.5079,-0.0784],'b','Tower+Pier+London')]},
     {d:10,dt:'10/8 목',s:[S('숙소 출발','11:45',MO,'c','Seddon+Road+Morden+SM4+6ED'),S('히드로 · ✈️16:35','13:10',[51.470,-0.454],'c','Heathrow+Airport+Terminal+2')]}
   ];
-  /* 가이드 목사님안 (B) — 두 버전이 있는 날만 */
-  var OVDB = {
-    3:{d:3,bg:'3b',dt:'10/1 목',s:[S('숙소 출발','08:30',FL,'c','Forest+Lodge+Cottages+Libanus+Brecon+LD3+8NW'),S('빅핏 탄광','09:20',[51.770,-3.106],'c','Big+Pit+National+Coal+Museum+NP4+9RL'),S('블라이난네르흐','13:40',[52.115,-4.535],'c','Blaenannerch+Chapel+Ceredigion'),S('팔디브레닌','15:10',[51.972,-4.893],'c','Ffald-y-Brenin+Pontfaen+Fishguard+SA65+9UA'),S('모리아 채플','17:45',[51.663,-4.068],'c','Moriah+Chapel+Loughor+SA4+6QD'),S('숙소 복귀','20:40',FL,'c','Forest+Lodge+Cottages+Libanus+Brecon+LD3+8NW')]},
-    4:{d:4,bg:'4b',dt:'10/2 금',s:[S('숙소 출발','08:30',FL,'c','Forest+Lodge+Cottages+Libanus+Brecon+LD3+8NW'),S('고워 로실리','10:20',[51.568,-4.289],'c','Rhossili+Bay+Gower'),S('BCW','13:15',[51.594,-4.005],'c','Bible+College+of+Wales+Derwen+Fawr+Swansea+SA2+8EB'),S('멈블스 비치','15:30',[51.571,-3.999],'w','Mumbles+Pier+Swansea'),S('니스 저녁','17:50',[51.663,-3.805],'c','Neath+town+centre'),S('사론 세미나','19:00',[51.725,-3.748],'c','Saron+Chapel+Main+Road+Crynant+Neath+SA10+8NT'),S('숙소 복귀','21:55',FL,'c','Forest+Lodge+Cottages+Libanus+Brecon+LD3+8NW')]},
-    6:{d:6,bg:'6b',dt:'10/4 일',s:[S('숙소 출발','09:20',FL,'c','Forest+Lodge+Cottages+Libanus+Brecon+LD3+8NW'),S('하노버 예배','10:10',[51.767,-2.995],'c','https://maps.app.goo.gl/GrkfyeuSHhCDnbs3A'),S('클리프턴 현수교','14:15',[51.4549,-2.6278],'w','Clifton+Suspension+Bridge+Bristol'),S('뮬러 고아원','15:30',[51.479,-2.590],'c','Muller+House+College+Road+Bristol+BS7+9FG'),S('야외 설교지','16:30',[51.4308,-2.5104],'c','Hanham+Mount+Bristol'),S('스톤헨지 조망','18:30',[51.1789,-1.8262],'c','Stonehenge'),S('런던 숙소','20:30',MO,'c','Seddon+Road+Morden+SM4+6ED')]}
-  };
-  var plan = 'a';
   function dayObj(){
-    var d = OVD[sel];
-    if(plan === 'b' && OVDB[d.d]) return OVDB[d.d];
-    return d;
+    return OVD[sel];
   }
   var EMO = {c:'🚗',t:'🚇',w:'🚶',b:'🚢'};
   /* 지역 이름 (우선순위 순 — 겹치면 뒤 순위 생략) */
@@ -2238,23 +2025,11 @@ window.OVBG = {"1": {"z": 8, "ox": 31840.46471111111, "oy": 21410.491475625484, 
     paint();
   });
   document.getElementById('ovgo').addEventListener('click',function(){
-    var days = [].slice.call(document.querySelectorAll('.day')).filter(function(d){ return d.querySelector('.daycol') && !d.classList.contains('vhide'); });
+    var days = [].slice.call(document.querySelectorAll('.day')).filter(function(d){ return d.querySelector('.daycol'); });
     var d = days[sel]; if(!d) return;
     if(d.classList.contains('collapsed')){ var col=d.querySelector('.daycol'); if(col) col.click(); }
     d.scrollIntoView({behavior:'smooth',block:'start'});
   });
-  /* 일정 버전(A/B) 토글 — 오버뷰 + 일자별 카드 동시 전환 */
-  var pA = document.getElementById('ovpA'), pB = document.getElementById('ovpB');
-  function setPlan(v){
-    plan = v;
-    pA.classList.toggle('on', v==='a');
-    pB.classList.toggle('on', v==='b');
-    ['3','4','6','7'].forEach(function(vd){ if(window.btbVariant) window.btbVariant(vd, v); });
-    cur = 0; render();
-  }
-  pA.addEventListener('click',function(){ setPlan('a'); });
-  pB.addEventListener('click',function(){ setPlan('b'); });
-
   var bar = document.getElementById('ovdays');
   OVD.forEach(function(day,i){
     var b = document.createElement('button');
