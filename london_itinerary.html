@@ -126,11 +126,19 @@
     border-radius:6px; padding:2px 7px; letter-spacing:.06em;
   }
   .section-title::after{content:"";flex:1;height:1px;background:var(--line);}
+  .section-title .stgl{
+    margin-left:auto; flex:0 0 auto; order:99;
+    font-family:inherit;font-size:11.5px;font-weight:700;color:var(--navy);
+    background:var(--card);border:1px solid var(--line);border-radius:999px;
+    padding:5px 13px;cursor:pointer;white-space:nowrap;
+  }
+  .section-title .stgl:hover{background:var(--bg);}
 
   .card{
     background:var(--card); border:1px solid var(--line); border-radius:16px;
     padding:18px 22px; margin-bottom:12px;
   }
+  .card.closed{display:none;}
 
   /* pending panel */
   .pending{
@@ -302,6 +310,7 @@
     .dayctl button{padding:9px 15px;font-size:12.5px;}
     .dayfoot{padding:9px 15px;font-size:12px;}
     .day .daycol .tgl{padding:6px 13px;font-size:11.5px;}
+    .section-title .stgl{padding:9px 15px;font-size:12.5px;}
     .ck{padding:6px 12px;font-size:13px;margin:3px 2px;}
     .speakbar button{padding:9px 16px;}
     .speakbar select{padding:7px 10px;}
@@ -1177,7 +1186,7 @@
 
 
   <!-- ===== 10 3분 브릿지 전도 스크립트 ===== -->
-  <div class="section-title" id="s8"><span class="no">10</span>3분 브릿지 전도 스크립트</div>
+  <div class="section-title" id="s8"><span class="no">10</span>3분 브릿지 전도 스크립트<button type="button" class="stgl"></button></div>
 
   <div class="card rows narrow">
     <div class="slots">
@@ -1270,7 +1279,7 @@
   </div>
 
   <!-- ===== 11 인물 자료 · 토머스 ===== -->
-  <div class="section-title" id="s11"><span class="no">11</span>인물 자료 ① 로버트 저메인 토머스 — 선교 (1840–1866)</div>
+  <div class="section-title" id="s11"><span class="no">11</span>인물 자료 ① 로버트 저메인 토머스 — 선교 (1840–1866)<button type="button" class="stgl"></button></div>
 
   <div class="card rows narrow">
     <div class="slots">
@@ -1298,7 +1307,7 @@
   </div>
 
   <!-- ===== 12 인물 자료 · 하월즈 ===== -->
-  <div class="section-title" id="s12"><span class="no">12</span>인물 자료 ② 리즈 하월즈 — 기도 (1879–1950)</div>
+  <div class="section-title" id="s12"><span class="no">12</span>인물 자료 ② 리즈 하월즈 — 기도 (1879–1950)<button type="button" class="stgl"></button></div>
 
   <div class="card rows narrow">
     <div class="slots">
@@ -1327,7 +1336,7 @@
   </div>
 
   <!-- ===== 13 인물 자료 · 로버츠 ===== -->
-  <div class="section-title" id="s13"><span class="no">13</span>인물 자료 ③ 이반 로버츠 — 부흥 (1878–1951)</div>
+  <div class="section-title" id="s13"><span class="no">13</span>인물 자료 ③ 이반 로버츠 — 부흥 (1878–1951)<button type="button" class="stgl"></button></div>
 
   <div class="card rows narrow">
     <div class="slots">
@@ -1355,7 +1364,7 @@
   </div>
 
   <!-- ===== 14 인물 자료 · 뮬러 ===== -->
-  <div class="section-title" id="s14"><span class="no">14</span>인물 자료 ④ 조지 뮬러 — 기도 (1805–1898)</div>
+  <div class="section-title" id="s14"><span class="no">14</span>인물 자료 ④ 조지 뮬러 — 기도 (1805–1898)<button type="button" class="stgl"></button></div>
 
   <div class="card rows narrow">
     <div class="slots">
@@ -1367,7 +1376,7 @@
   </div>
 
   <!-- ===== 15 인물 자료 · 휫필드·웨슬리 ===== -->
-  <div class="section-title" id="s15"><span class="no">15</span>인물 자료 ⑤ 조지 휫필드·존 웨슬리 — 들판의 첫 설교 (1739)</div>
+  <div class="section-title" id="s15"><span class="no">15</span>인물 자료 ⑤ 조지 휫필드·존 웨슬리 — 들판의 첫 설교 (1739)<button type="button" class="stgl"></button></div>
 
   <div class="card rows narrow">
     <div class="slots">
@@ -1379,7 +1388,7 @@
   </div>
 
   <!-- ===== 16 관광지 배경 설명 ===== -->
-  <div class="section-title" id="s16"><span class="no">16</span>관광지 배경 설명 — 빅 핏 · 웨일스·브리스톨 탐방 · 런던 시내 · 크루즈</div>
+  <div class="section-title" id="s16"><span class="no">16</span>관광지 배경 설명 — 빅 핏 · 웨일스·브리스톨 탐방 · 런던 시내 · 크루즈<button type="button" class="stgl"></button></div>
 
   <div class="card rows narrow">
     <div class="slots">
@@ -1527,10 +1536,55 @@
     });
   });
 
+  var refIds = ['s8','s11','s12','s13','s14','s15','s16'];
+  var refCards = {};
+  function setRefLabel(id){
+    var card = refCards[id]; if(!card) return;
+    var titleEl = document.getElementById(id);
+    var btn = titleEl && titleEl.querySelector('.stgl');
+    if(!btn) return;
+    var open = !card.classList.contains('closed');
+    btn.textContent = open ? '▲ 접기' : '▼ 펼치기';
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  refIds.forEach(function(id){
+    var titleEl = document.getElementById(id);
+    if(!titleEl) return;
+    var card = titleEl.nextElementSibling;
+    if(!card || !card.classList.contains('card')) return;
+    refCards[id] = card;
+    card.classList.add('closed');
+    var btn = titleEl.querySelector('.stgl');
+    if(btn){
+      btn.addEventListener('click', function(ev){
+        ev.stopPropagation();
+        card.classList.toggle('closed');
+        setRefLabel(id);
+      });
+    }
+    setRefLabel(id);
+  });
+  function openRefSection(id){
+    if(!refCards[id]) return;
+    refCards[id].classList.remove('closed');
+    setRefLabel(id);
+  }
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a[href^="#s"]'); if(!a) return;
+    var id = a.getAttribute('href').slice(1);
+    if(refCards[id]) openRefSection(id);
+    if(id === 's11'){ ['s12','s13','s14','s15'].forEach(openRefSection); }
+  });
+
   window.setAllDays = function(collapse){
     daysAll.forEach(function(d){
       d.classList.toggle('collapsed', collapse);
       setLabel(d);
+    });
+    refIds.forEach(function(id){
+      var card = refCards[id]; if(!card) return;
+      card.classList.toggle('closed', collapse);
+      setRefLabel(id);
     });
   };
 
