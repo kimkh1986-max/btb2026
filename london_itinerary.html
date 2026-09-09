@@ -1715,7 +1715,7 @@
   stopBtn.addEventListener('click', stopAll);
   document.addEventListener('visibilitychange', function(){ if(document.hidden && playing) stopAll(); });
 
-  ['s11','s12','s13','s14'].forEach(function(id){
+  ['s11','s12','s13','s14','s15','s16'].forEach(function(id){
     var sec = document.getElementById(id); if(!sec) return;
     var card = sec.nextElementSibling; if(!card) return;
     var slots = Array.prototype.slice.call(card.querySelectorAll('.slot')).filter(function(sl){
