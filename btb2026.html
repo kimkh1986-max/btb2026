@@ -278,6 +278,8 @@
   .speakbar select{font-family:inherit;font-size:12px;border:1px solid var(--line);border-radius:8px;padding:3px 6px;background:var(--card);color:var(--ink);}
   button.spk{font-family:inherit;font-size:12px;border:1px solid var(--blue-line);background:var(--blue-bg);border-radius:999px;padding:2px 9px;margin-left:6px;cursor:pointer;vertical-align:1px;}
   .slot.speaking{background:var(--gold-bg);border-radius:10px;}
+  .slot.nowslot{background:var(--blue-bg);border-radius:10px;box-shadow:inset 3px 0 0 var(--blue);}
+  .slot.nowslot .t::after{content:" · 지금";color:var(--blue);font-weight:800;font-size:10px;}
   /* 일정 행 유형 색상 */
   .slot.sMin .t{background:var(--gold-bg);color:var(--gold);border:1px solid var(--gold-line);}
   .slot.sMeal .t{background:var(--green-bg);color:var(--green);border:1px solid var(--green-line);}
@@ -293,6 +295,18 @@
   #korstop{position:fixed;right:14px;bottom:18px;z-index:1200;display:none;font-family:inherit;font-size:13px;font-weight:800;color:#fff;background:var(--navy);border:0;border-radius:999px;padding:10px 16px;box-shadow:0 8px 22px rgba(22,35,63,.35);cursor:pointer;}
   #korstop.show{display:inline-block;}
   @media print{#korstop{display:none!important;}}
+  #fabnav{
+    position:fixed;left:14px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:150;
+    display:flex;flex-direction:column;gap:8px;align-items:flex-start;
+  }
+  #fabnav button{
+    display:none;font-family:inherit;font-size:12px;font-weight:800;color:var(--navy);
+    background:var(--card);border:1px solid var(--line);border-radius:999px;
+    padding:9px 14px;box-shadow:0 6px 16px rgba(22,35,63,.2);cursor:pointer;
+  }
+  #fabnav button.show{display:inline-block;}
+  #fabnav #fabtoday{color:#fff;background:var(--navy);border-color:var(--navy);}
+  @media print{#fabnav{display:none!important;}}
   .mrow b.ml{display:inline-block;min-width:34px;color:var(--sub);font-size:12px;font-weight:700;}
   .pk{display:inline-block;min-width:98px;padding:2px 10px;margin:1px 0;cursor:pointer;color:var(--navy2);font-weight:600;border-radius:4px;line-height:1.5;text-align:center;}
   .pk:empty::before{content:"______";color:var(--faint);font-weight:400;}
@@ -369,6 +383,11 @@
   .day.collapsed .daycol .daydate{font-size:17px;margin-top:0;}
   .day.collapsed .daycol .type{margin-top:0;}
   .day.collapsed .daycol .tgl{margin-top:0;margin-left:auto;}
+  .daysum{
+    display:none;font-size:12px;color:var(--sub);margin-top:8px;line-height:1.5;word-break:keep-all;
+    overflow:hidden;-webkit-box-orient:vertical;-webkit-line-clamp:2;
+  }
+  .day.collapsed .daysum{display:-webkit-box;}
   .dayctl{
     display:flex;align-items:center;gap:8px;flex-wrap:wrap;
     margin:14px 0 12px;font-size:12px;color:var(--sub);
@@ -1627,6 +1646,24 @@
     });
   });
 
+  /* 접힌 날짜 카드 한 줄 미리보기 — 그날의 fx(헤드라인) 문구를 재사용 */
+  daysAll.forEach(function(d){
+    var slots = d.querySelector('.slots');
+    if(!slots) return;
+    var fxEls = slots.querySelectorAll('.fx');
+    if(!fxEls.length) return;
+    var parts = Array.prototype.map.call(fxEls, function(el){
+      var clone = el.cloneNode(true);
+      Array.prototype.forEach.call(clone.querySelectorAll('a, .sm'), function(x){ x.remove(); });
+      return clone.textContent.replace(/\s+/g, ' ').trim();
+    }).filter(Boolean);
+    if(!parts.length) return;
+    var sum = document.createElement('div');
+    sum.className = 'daysum';
+    sum.textContent = parts.join(' · ');
+    d.insertBefore(sum, slots);
+  });
+
   var refIds = ['s8','s11','s12','s13','s14','s15','s16'];
   var refCards = {};
   function setRefLabel(id){
@@ -1774,6 +1811,10 @@
 </script>
 <div id="toast" role="status" aria-live="polite"></div>
 <button type="button" id="korstop">⏹ 읽기 중지</button>
+<div id="fabnav">
+  <button type="button" id="fabtoday">📅 오늘 일정</button>
+  <button type="button" id="fabtop">🔝 맨 위로</button>
+</div>
 <script>
 (function(){
   /* ===== 11~16 한국어 읽어주기 (기기 내장 음성 · 인터넷 불필요) ===== */
@@ -1977,6 +2018,46 @@
     }
     var cells = document.querySelectorAll('.cal .cell');
     if(cells[idx]) cells[idx].classList.add('tdy');
+
+    /* 지금 진행 중인 일정 하이라이트 (같은 날짜의 슬롯 중 현재 시각 이전 가장 최근 시각) */
+    var nowMin = now.getHours() * 60 + now.getMinutes();
+    var slotsToday = days[idx].querySelectorAll('.slot');
+    var bestSlot = null, bestMin = -1;
+    slotsToday.forEach(function(s){
+      var tEl = s.querySelector('.t');
+      if(!tEl) return;
+      var m = tEl.textContent.match(/(\d{1,2}):(\d{2})/);
+      if(!m) return;
+      var mins = parseInt(m[1], 10) * 60 + parseInt(m[2], 10);
+      if(mins <= nowMin && mins > bestMin){ bestMin = mins; bestSlot = s; }
+    });
+    if(bestSlot) bestSlot.classList.add('nowslot');
+  }
+
+  /* ===== 맨 위로 · 오늘 일정 바로가기 플로팅 버튼 ===== */
+  var fabTop = document.getElementById('fabtop');
+  var fabToday = document.getElementById('fabtoday');
+  if(fabTop){
+    fabTop.addEventListener('click', function(){ window.scrollTo({top: 0, behavior: 'smooth'}); });
+    window.addEventListener('scroll', function(){
+      fabTop.classList.toggle('show', window.scrollY > 500);
+    }, {passive:true});
+  }
+  if(fabToday){
+    if(today >= start && today <= end){
+      fabToday.classList.add('show');
+      fabToday.addEventListener('click', function(){
+        var d = days[today - start];
+        if(!d) return;
+        if(d.classList.contains('collapsed')){
+          var col = d.querySelector('.daycol');
+          if(col) col.click();
+        }
+        d.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    } else {
+      fabToday.remove();
+    }
   }
 })();
 </script>
