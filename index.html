@@ -36,6 +36,7 @@
     --card:#ffffff;
   }
   *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-snap-type:y proximity;}
   body{
     font-family:"Apple SD Gothic Neo","Pretendard","Noto Sans KR",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
     background:var(--bg); color:var(--ink); line-height:1.6;
@@ -211,6 +212,7 @@
     padding:18px 22px; margin-bottom:12px;
     display:grid; grid-template-columns:96px 1fr; gap:18px;
     border-left:5px solid var(--line);
+    scroll-snap-align:start;
   }
   .day.move{border-left-color:var(--blue);}
   .day.tour{border-left-color:var(--green);}
@@ -587,7 +589,7 @@
   </div>
 
   <div class="dayctl">
-    <span>📅 <b>날짜를 눌러 하루씩 보기</b> — 상단 고정 날짜 탭·달력의 날짜·일자 머리글을 누르면 펼쳐지고 접힙니다 · 시간 칸 색: <span class="pay" style="background:var(--gold-bg);color:var(--gold);border-color:var(--gold-line);">사역</span> <span class="free">식사·장보기</span> <span class="pay" style="background:var(--blue-bg);color:var(--blue);border-color:var(--blue-line);">방문지</span> <span style="border:1px dashed var(--line);border-radius:999px;padding:1px 9px;font-size:11px;color:var(--sub);">이동</span></span>
+    <span>📅 <b>날짜를 눌러 하루씩 보기</b> — 상단 고정 날짜 탭·달력의 날짜·일자 머리글을 누르면 펼쳐지고 접힙니다 · 스크롤하면 날짜 경계마다 살짝 걸리며 날짜 탭도 자동으로 따라 움직여요 · 시간 칸 색: <span class="pay" style="background:var(--gold-bg);color:var(--gold);border-color:var(--gold-line);">사역</span> <span class="free">식사·장보기</span> <span class="pay" style="background:var(--blue-bg);color:var(--blue);border-color:var(--blue-line);">방문지</span> <span style="border:1px dashed var(--line);border-radius:999px;padding:1px 9px;font-size:11px;color:var(--sub);">이동</span></span>
     <button type="button" onclick="setAllDays(false)">전체 펼치기</button>
     <button type="button" onclick="setAllDays(true)">전체 접기</button>
   </div>
