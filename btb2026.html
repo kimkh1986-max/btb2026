@@ -193,6 +193,18 @@
   .part .sub{font-size:12.5px;color:var(--sub);}
   .part::after{content:"";flex:1;height:1px;background:var(--line);}
 
+  /* ===== 대분류 그룹 배너 (섹션들을 4개 그룹으로 묶는 상위 구분선) ===== */
+  .maingroup{
+    margin:42px 0 2px; padding:13px 20px; border-radius:14px;
+    display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;
+    background:#eef1f9; border:1px solid #dfe4f2;
+  }
+  .maingroup .mgpill{
+    font-size:13.5px; font-weight:800; color:#fff; background:var(--navy);
+    border-radius:999px; padding:6px 14px; white-space:nowrap;
+  }
+  .maingroup .mgsub{font-size:12px; color:#3d4663; word-break:keep-all;}
+
   /* day cards */
   .day{
     background:var(--card); border:1px solid var(--line); border-radius:16px;
@@ -244,8 +256,9 @@
     background:var(--card);border:1px solid var(--line);border-radius:999px;padding:4px 11px;
     white-space:nowrap;flex:0 0 auto;font-family:inherit;cursor:pointer;
   }
+  .toc .tocdiv{flex:0 0 auto;width:1px;align-self:stretch;background:var(--line);margin:0 3px;}
   .toc button{color:var(--gold);border-color:var(--gold-line);background:var(--gold-bg);}
-  .section-title,.day,.part,#ovmap{scroll-margin-top:58px;}
+  .section-title,.day,.part,.maingroup,#ovmap{scroll-margin-top:58px;}
   .slot[id]{scroll-margin-top:64px;}
   a.map.bg{background:#fff7e0;border-color:#e6cf8a;color:#7a5a00;}
   .slot{display:flex;gap:12px;font-size:14.5px;align-items:baseline;}
@@ -446,7 +459,7 @@
     body{background:#fff;padding:0;}
     /* 제목·머리글은 다음 내용과 분리 금지 — 단 새 페이지 강제는 없음 (여백 낭비 방지) */
     .section-title{break-before:auto;break-after:avoid;margin-top:18px;}
-    .part{break-inside:avoid;break-after:avoid;}
+    .part,.maingroup{break-inside:avoid;break-after:avoid;}
     .fx{break-inside:avoid;break-after:avoid;}
     header{break-inside:avoid;}
     /* 큰 카드·하루는 페이지를 넘어 흐르게 하되, 행 단위로만 자름 */
@@ -504,7 +517,7 @@
       <span class="tfa">→</span>
       <div class="tf e" style="cursor:pointer" onclick="location.hash='#s8'" title="자료 보기"><div class="tfe">EVANGELISM</div><div class="tfk">전도</div><div class="tfn">예수의 사람들 — 우리</div><div class="tfd">3분 브릿지 세미나<br>이제 우리가 다리가 된다</div><span class="tft">9/30~10/7 · 세미나 6회</span></div>
     </div>
-    <div class="tfnote">※ 방문 순서가 아니라 여정의 영적 흐름입니다 · 카드를 누르면 인물 자료(10~12)로 이동 — 선교의 씨앗은 기도로 자라고, 기도는 부흥으로 터지며, 부흥은 전도로 흘러갑니다</div>
+    <div class="tfnote">※ 방문 순서가 아니라 여정의 영적 흐름입니다 · 카드를 누르면 인물 자료(11~13)로 이동 — 선교의 씨앗은 기도로 자라고, 기도는 부흥으로 터지며, 부흥은 전도로 흘러갑니다</div>
     이번 여정은 한국 교회의 뿌리를 거슬러 올라가는 길입니다. 1866년 대동강에서 순교한 한국 최초의 개신교 선교사 <b>로버트 저메인 토머스</b> — 그가 자라고 안수받아 떠난 <b>하노버 교회</b>에서 세미나를 열고 주일예배를 드립니다(10/3·4). 1904년 웨일스 대부흥의 물결 속에서 평생 중보기도자의 길을 걸은 <b>리즈 하월즈</b>가 기도로 세운 웨일스 성경대학과 그의 묘소를 찾고(10/2), 26세 광부 청년 <b>이반 로버츠</b>가 "나를 굽히소서" 서원한 블라이난네르흐 채플과 부흥이 폭발한 모리아 채플, 그의 생가와 묘역을 걷습니다(10/1). 웨일스의 부흥은 1907년 <b>평양 대부흥</b>의 불씨가 되었고, 그렇게 건너온 복음이 이제 우리를 다시 이 땅으로 불렀습니다 — 여섯 번의 <b>3분 브릿지 세미나</b>(길웬·크리넌트·하노버·손힐·런던)로 그 복음의 빚을 갚으러 가는 길, 그것이 <b>“복음이 다시 돌아오다”</b>입니다.
   </div>
 
@@ -539,13 +552,15 @@
   </div>
 
   <div class="toc">
-    <a href="#s3">📅 일자별 일정</a><a href="#ovmap">🗺 오버뷰</a><a href="#s9">🍽 식사 계획</a><a href="#s2">🏡 숙소</a><a href="#s5">🚗 운전·실용</a><a href="#s1">✈️ 항공·이동</a><a href="#s6">👀 방문지 총정리</a><a href="#s4">✅ 예약 체크리스트</a><a href="#s10">🎒 준비물</a><a href="#s8">🌉 전도 스크립트</a><a href="#s18">📋 강의 분담표</a><a href="#s11">📜 인물 자료</a><a href="#s16">🧭 관광지 설명</a><a href="#s17">🗣 웨일스어 한마디</a><button type="button" onclick="setAllDays(false)">📖 전체 펼치기</button><button type="button" onclick="setAllDays(true)">📕 전체 접기</button>
+    <a href="#s3">📅 일자별 일정</a><a href="#ovmap">🗺 오버뷰</a><a href="#s9">🍽 식사 계획</a><a href="#s18">📋 강의 분담표</a><span class="tocdiv"></span><a href="#s2">🏡 숙소</a><a href="#s1">✈️ 항공·이동</a><a href="#s5">🚗 운전·실용</a><span class="tocdiv"></span><a href="#s6">👀 방문지 총정리</a><a href="#s4">✅ 예약 체크리스트</a><a href="#s10">🎒 준비물</a><span class="tocdiv"></span><a href="#s8">🌉 전도 스크립트</a><a href="#s11">📜 인물 자료</a><a href="#s16">🧭 관광지 설명</a><a href="#s17">🗣 웨일스어 한마디</a><span class="tocdiv"></span><button type="button" onclick="setAllDays(false)">📖 전체 펼치기</button><button type="button" onclick="setAllDays(true)">📕 전체 접기</button>
   </div>
 
   <!-- ===== 미정 ===== -->
   <div class="pending">
-    <div class="pline"><b>🔖 남은 확인</b> — ☐ 10/4 하노버 주일예배 후 점심 제공 여부 · ☐ 모리아 방문 신청 9/17까지 · ☐ 대영박물관·내셔널갤러리 단체 예약 · ☐ 짐차·식당 예약 다수 (07 체크리스트 참조)</div>
+    <div class="pline"><b>🔖 남은 확인</b> — ☐ 10/4 하노버 주일예배 후 점심 제공 여부 · ☐ 모리아 방문 신청 9/17까지 · ☐ 대영박물관·내셔널갤러리 단체 예약 · ☐ 짐차·식당 예약 다수 (08 체크리스트 참조)</div>
   </div>
+
+  <div class="maingroup daily"><span class="mgpill">📅 매일 확인</span><span class="mgsub">오늘 뭘 하고, 누가 강의하고, 뭘 먹는지 — 여행 중 가장 자주 펼치는 자료</span></div>
 
   <!-- ===== 01 일자별 일정 ===== -->
   <div class="section-title" id="s3"><span class="no">01</span>일자별 일정</div>
@@ -662,18 +677,18 @@
       <div class="fx green">⛪ 부흥 성지 1일차 — ⛏ <b>빅 핏 탄광</b>(광부의 세계) → <b>블라이난네르흐 서원 채플</b>("Bend me down") → 🙏 <b>Ffald-y-Brenin 기도원</b>(비밀정원) → <b>모리아 채플</b>(1904 대부흥 발상지) <span class="sm">(박진철 선교사님 안내 코스 · 아래 시간은 예상치 — 출발 전 최종 협의 ☐)</span></div>
       <div class="slot sMeal"><span class="t">08:00</span><span class="c">🍽 아침 — 숙소 취사 · 08:20 집결 (저녁은 복귀길 외식)</span></div>
       <div class="slot sMove"><span class="t">08:30</span><span class="c">숙소 출발 → 블라이나본 빅 핏 (약 50분 · A40 아버가베니 방면)</span></div>
-      <div class="slot sVisit"><span class="t">09:20</span><span class="c">⛏ <b>빅 핏 국립 석탄박물관</b> 도착 · 단체 체크인 — 지하 투어 10:00 회차 (10인+ 사전 이메일 예약 필수) <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Big+Pit+National+Coal+Museum+NP4+9RL">📍 지도</a> <a class="map bg" href="#bg-bigpit">📖 배경 15</a></span></div>
+      <div class="slot sVisit"><span class="t">09:20</span><span class="c">⛏ <b>빅 핏 국립 석탄박물관</b> 도착 · 단체 체크인 — 지하 투어 10:00 회차 (10인+ 사전 이메일 예약 필수) <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Big+Pit+National+Coal+Museum+NP4+9RL">📍 지도</a> <a class="map bg" href="#bg-bigpit">📖 배경 16</a></span></div>
       <div class="slot"><span class="t">10:00</span><span class="c">지하 갱도 투어 (~11:00) <span class="pay">투어 1인 £8 · 20명 £160 ≈ 31만원 · 주차 £5/대</span>
         <span class="desc">⚠️ 휴대폰·카메라 등 배터리 기기 지하 반입 금지 — 입갱 전 수거·보관 · ⏱ 오늘은 서해안 원정이 있어 <b>출발 마지노선 11:10</b></span></span></div>
       <div class="slot sMove"><span class="t">11:10</span><span class="c">출발 → 블라이난네르흐 (약 2시간 20분 · A40 카마던 경유 → 서해안) · <b>운전자 교대 ①</b></span></div>
       <div class="slot sMeal"><span class="t">12:30</span><span class="c">🍽 점심 (~13:20) — <b>외식 예정</b> · 카마던 방면에서 당일 결정 ☐ (시간만 우선 배치)</span></div>
-      <div class="slot sVisit"><span class="t">13:40</span><span class="c">⛪ <b>블라이난네르흐 채플 — "Bend me down(나를 굽히소서)" 서원의 현장</b> (~14:20 · 예배당·기념 공간 + 기도회) <span class="free">무료 · 헌금</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Blaenannerch+Chapel+Ceredigion">📍 채플</a> <a class="map bg" href="#s13">📜 로버츠 12</a>
+      <div class="slot sVisit"><span class="t">13:40</span><span class="c">⛪ <b>블라이난네르흐 채플 — "Bend me down(나를 굽히소서)" 서원의 현장</b> (~14:20 · 예배당·기념 공간 + 기도회) <span class="free">무료 · 헌금</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Blaenannerch+Chapel+Ceredigion">📍 채플</a> <a class="map bg" href="#s13">📜 로버츠 13</a>
         <span class="desc">1904년 세스 조슈아의 집회에서 26세 이반 로버츠가 부르짖은 헌신의 서원 — 웨일스 대부흥의 도화선 · 서원일 1904년 9월 29일은 우리 출국일과 같은 날짜 · 내부 관람은 사전 연락 권장 ☐ (01239 811538)</span></span></div>
       <div class="slot sMove"><span class="t">14:25</span><span class="c">출발 → Ffald-y-Brenin (약 45분 · 귄 밸리(Cwm Gwaun) 좁은 시골길 — 9인승 서행·각자 내비)</span></div>
-      <div class="slot sVisit"><span class="t">15:10</span><span class="c">🙏 <b>Ffald-y-Brenin 기도원 — '비밀정원'</b> (~16:10 · 부지 산책 · 채플·기도처 · 팀 기도회) <span class="free">무료 · 헌금</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Ffald-y-Brenin+Pontfaen+Fishguard+SA65+9UA">📍 기도원</a> <a class="map bg" href="#bg-ffald">📖 배경 15</a>
+      <div class="slot sVisit"><span class="t">15:10</span><span class="c">🙏 <b>Ffald-y-Brenin 기도원 — '비밀정원'</b> (~16:10 · 부지 산책 · 채플·기도처 · 팀 기도회) <span class="free">무료 · 헌금</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Ffald-y-Brenin+Pontfaen+Fishguard+SA65+9UA">📍 기도원</a> <a class="map bg" href="#bg-ffald">📖 배경 16</a>
         <span class="desc">펨브록셔 귄 밸리 산비탈의 기도처 — 『The Grace Outpouring(은혜의 쏟아짐)』으로 세계에 알려진 축복기도의 집 · 낮 방문 가능하나 <b>5인 이상 단체는 사전 연락 필수 ☐</b> (01348 881419 · bookings@ffald-y-brenin.org)</span></span></div>
       <div class="slot sMove"><span class="t">16:15</span><span class="c">출발 → 러흐르 모리아 채플 (약 1시간 30분 · A40 카마던 경유) · <b>운전자 교대 ②</b></span></div>
-      <div class="slot sVisit"><span class="t">17:45</span><span class="c">⛪ <b>모리아 채플 (러흐르) — 이반 로버츠 · 1904 웨일스 대부흥 발상지</b> (~18:15 · 교회 앞 오벨리스크·묘역 포함) <span class="free">무료 · 헌금</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Moriah+Chapel+Loughor+SA4+6QD">📍 지도</a> <a class="map bg" href="#s13">📜 로버츠 12</a>
+      <div class="slot sVisit"><span class="t">17:45</span><span class="c">⛪ <b>모리아 채플 (러흐르) — 이반 로버츠 · 1904 웨일스 대부흥 발상지</b> (~18:15 · 교회 앞 오벨리스크·묘역 포함) <span class="free">무료 · 헌금</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Moriah+Chapel+Loughor+SA4+6QD">📍 지도</a> <a class="map bg" href="#s13">📜 로버츠 13</a>
         <span class="desc">홈페이지 양식 사전 연락 — 방문 시각 17:45로 기재 ☐</span></span></div>
       <div class="slot sMove"><span class="t">18:20</span><span class="c">숙소로 복귀 출발 (약 1시간 20분 · M4→A4067 or A48→A40) · <b>운전자 교대 ③</b></span></div>
       <div class="slot sMeal"><span class="t">~19:30</span><span class="c">🍴 저녁 (~20:20) — <b>외식 예정</b> — 복귀길에서 당일 결정 ☐ (시간만 우선 배치) → 식사 후 귀가</span></div>
@@ -696,14 +711,14 @@
       <div class="fx gold">📋 <b>K-복음전도 컨퍼런스 — 3분 브릿지 세미나</b> · 웨일스 2회차 · <b>저녁 19:00~21:00 · 사론 채플 (Saron Chapel, Crynant)</b> <span class="sm">(Main Rd, Crynant, Neath SA10 8NT — 니스 둘라이스 밸리의 옛 탄광 마을)</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Saron+Chapel+Main+Road+Crynant+Neath+SA10+8NT">📍 지도</a></div>
       <div class="slot sMeal"><span class="t">08:00</span><span class="c">🍽 아침 — 숙소 취사 · 08:20 집결 (세미나 자료 챙겨서 출발 — 숙소 복귀 없음)</span></div>
       <div class="slot sMove"><span class="t">08:30</span><span class="c">숙소 출발 → 고워 반도 로실리 (약 1시간 50분 · A4067→스완지→고워 서쪽 끝)</span></div>
-      <div class="slot sVisit"><span class="t">10:20</span><span class="c">🏖 <b>고워 반도 — 로실리 베이 &amp; 웜즈 헤드 전망</b> (~11:20 · 절벽 전망대 산책·단체 사진) <span class="free">무료 · 주차비만</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Rhossili+Bay+Gower">📍 지도</a> <a class="map bg" href="#bg-gower">📖 배경 15</a>
+      <div class="slot sVisit"><span class="t">10:20</span><span class="c">🏖 <b>고워 반도 — 로실리 베이 &amp; 웜즈 헤드 전망</b> (~11:20 · 절벽 전망대 산책·단체 사진) <span class="free">무료 · 주차비만</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Rhossili+Bay+Gower">📍 지도</a> <a class="map bg" href="#bg-gower">📖 배경 16</a>
         <span class="desc">1956년 <b>영국 최초로 지정된 AONB</b>(빼어난 자연미 지역) — 3마일 백사장과 웜즈 헤드가 내려다보이는 웨일스 대표 해안 절경 · 바람 강한 날 절벽길 주의</span></span></div>
       <div class="slot sMove"><span class="t">11:30</span><span class="c">출발 → 스완지 BCW (약 45분)</span></div>
       <div class="slot sMeal"><span class="t">12:20</span><span class="c">🍽 점심 (~13:10) — <b>외식 예정</b> — 스완지 방면에서 당일 결정 ☐ (시간만 우선 배치)</span></div>
-      <div class="slot"><span class="t">13:15</span><span class="c">📖 <b>웨일스 성경대학(BCW) 헤리티지 센터 — 리즈 하월즈</b> (~15:00 · ⚠️ <b>15:00 폐관</b>이라 13:15 입장이 사실상 마지막 슬롯 — 고워에서 늦어지면 관람이 잘림) <span class="free">무료</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Bible+College+of+Wales+Derwen+Fawr+Swansea+SA2+8EB">📍 지도</a> <a class="map bg" href="#s12">📜 하월즈 11</a>
+      <div class="slot"><span class="t">13:15</span><span class="c">📖 <b>웨일스 성경대학(BCW) 헤리티지 센터 — 리즈 하월즈</b> (~15:00 · ⚠️ <b>15:00 폐관</b>이라 13:15 입장이 사실상 마지막 슬롯 — 고워에서 늦어지면 관람이 잘림) <span class="free">무료</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Bible+College+of+Wales+Derwen+Fawr+Swansea+SA2+8EB">📍 지도</a> <a class="map bg" href="#s12">📜 하월즈 12</a>
         <span class="desc">10인+ 단체는 heritage@bcwales.org 사전 예약 필수 — ⚠️ <b>예약 시각은 13:15로</b> ☐</span></span></div>
       <div class="slot sMove"><span class="t">15:10</span><span class="c">출발 → 멈블스 (약 15분 · 스완지 만 남쪽)</span></div>
-      <div class="slot sVisit"><span class="t">15:30</span><span class="c">🌊 <b>멈블스 비치</b> — 해변 산책로·부두 산책 + Joe's Ice Cream (1922년부터의 웨일스 국민 아이스크림) (~16:10) <span class="free">무료</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Mumbles+Pier+Swansea">📍 지도</a> <a class="map bg" href="#bg-mumbles">📖 배경 15</a></span></div>
+      <div class="slot sVisit"><span class="t">15:30</span><span class="c">🌊 <b>멈블스 비치</b> — 해변 산책로·부두 산책 + Joe's Ice Cream (1922년부터의 웨일스 국민 아이스크림) (~16:10) <span class="free">무료</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Mumbles+Pier+Swansea">📍 지도</a> <a class="map bg" href="#bg-mumbles">📖 배경 16</a></span></div>
       <div class="slot sMove"><span class="t">17:15</span><span class="c">세미나 방면으로 이동 (약 30분 · 니스 경유)</span></div>
       <div class="slot sMeal"><span class="t">17:50</span><span class="c">🍽 이른 저녁 (~18:30) — <b>외식 예정</b> (사론교회 저녁 제공 없음) · 세미나 전 이동 경로상에서 당일 결정 ☐ (시간만 우선 배치)</span></div>
       <div class="slot sMove"><span class="t">18:35</span><span class="c">사론 채플로 출발 (약 15분 · A4109 둘라이스 밸리) → <b>18:50 도착 · 버퍼 10분</b></span></div>
@@ -723,7 +738,7 @@
       <div class="wx">🌦 15°/8°<br>강수 55% · ~5mm</div>
     </div>
     <div class="slots">
-      <div class="fx gold">📋 <b>K-복음전도 컨퍼런스 — 3분 브릿지 세미나</b> · 웨일스 3·4회차 — ⛪ <b>하노버 교회 10:30~15:00</b> (NP7 9EF) → ⛪ <b>손힐 교회 17:00~21:00</b> (CF14 9GA) <span class="sm">· 사역 약 10시간 30분, 이 여행의 최장 사역일 (밤 10시 귀가)</span> <a class="map" href="https://maps.app.goo.gl/GrkfyeuSHhCDnbs3A">📍 하노버</a> <a class="map bg" href="#s11">📜 토머스 10</a> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Thornhill+Church+Excalibur+Drive+Cardiff+CF14+9GA">📍 손힐</a></div>
+      <div class="fx gold">📋 <b>K-복음전도 컨퍼런스 — 3분 브릿지 세미나</b> · 웨일스 3·4회차 — ⛪ <b>하노버 교회 10:30~15:00</b> (NP7 9EF) → ⛪ <b>손힐 교회 17:00~21:00</b> (CF14 9GA) <span class="sm">· 사역 약 10시간 30분, 이 여행의 최장 사역일 (밤 10시 귀가)</span> <a class="map" href="https://maps.app.goo.gl/GrkfyeuSHhCDnbs3A">📍 하노버</a> <a class="map bg" href="#s11">📜 토머스 11</a> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Thornhill+Church+Excalibur+Drive+Cardiff+CF14+9GA">📍 손힐</a></div>
       <div class="slot sMeal"><span class="t">08:00</span><span class="c">🍽 아침 — 숙소 취사 · ⚠️ <b>일요일 캐리어를 지금 80% 싸두기</b> (오늘 밤 22시 귀가라 저녁에 쌀 여력 없음 · 내일 08:30 우버밴 적재) · 08:40 집결</span></div>
       <div class="slot sMove"><span class="t">08:55</span><span class="c">숙소 출발 → 하노버 교회 (약 55분 · 동쪽 아버가베니 방면)</span></div>
       <div class="slot sMin"><span class="t">09:50</span><span class="c">하노버 교회 도착 · 준비 — 10:30 시작까지 버퍼 40분
@@ -755,18 +770,18 @@
       <div class="slot sMeal"><span class="t">07:45</span><span class="c">🍽 아침 — 숙소 취사 (남은 식재료 소진)</span></div>
       <div class="slot sMove"><span class="t">08:30</span><span class="c">캐리어 18개+ 🚐 우버밴 적재 · 09:00 체크아웃</span></div>
       <div class="slot"><span class="t">09:20</span><span class="c">🚗 렌터카 2대 + 🚐 우버밴 하노버 교회로 이동 (약 55분) → 10:10 도착</span></div>
-      <div class="slot sMin"><span class="t">11:00</span><span class="c">⛪ 하노버 교회 주일예배 (~12:30 · 토머스 선교사 모교회) <a class="map" href="https://maps.app.goo.gl/GrkfyeuSHhCDnbs3A">📍 지도</a> <a class="map bg" href="#s11">📜 토머스 10</a><span class="mrow">· 강사: 이영철 목사님(간증: 김휘정 목사님) · 찬양: 돌아와(21C목회코칭연구소)</span></span></div>
+      <div class="slot sMin"><span class="t">11:00</span><span class="c">⛪ 하노버 교회 주일예배 (~12:30 · 토머스 선교사 모교회) <a class="map" href="https://maps.app.goo.gl/GrkfyeuSHhCDnbs3A">📍 지도</a> <a class="map bg" href="#s11">📜 토머스 11</a><span class="mrow">· 강사: 이영철 목사님(간증: 김휘정 목사님) · 찬양: 돌아와(21C목회코칭연구소)</span></span></div>
       <div class="slot sMeal"><span class="t">12:35</span><span class="c">🍽 점심 — 제공 여부 확인 ☐ · 교제는 짧게 (오늘 브리스톨 경유라 이동이 김)</span></div>
       <div class="slot sMove"><span class="t">13:05</span><span class="c">브리스톨로 출발 (약 1시간 10분 · A4042→M4 세번교 → 클리프턴)</span></div>
-      <div class="slot sVisit"><span class="t">14:15</span><span class="c">🌉 <b>클리프턴 현수교 (Clifton Suspension Bridge)</b> — 팀 먼저 자유 관광 (~15:10) <span class="free">도보 무료</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Clifton+Suspension+Bridge+Bristol">📍 지도</a> <a class="map bg" href="#bg-clifton">📖 배경 15</a>
+      <div class="slot sVisit"><span class="t">14:15</span><span class="c">🌉 <b>클리프턴 현수교 (Clifton Suspension Bridge)</b> — 팀 먼저 자유 관광 (~15:10) <span class="free">도보 무료</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Clifton+Suspension+Bridge+Bristol">📍 지도</a> <a class="map bg" href="#bg-clifton">📖 배경 16</a>
         <span class="desc">이삼바드 킹덤 브루넬 설계 · 1864년 완공 — 에이번 협곡 76m 위에 걸린 빅토리아 공학의 상징 · <b>박진철 선교사님은 한인교회 예배 인도(13:30~14:30)를 마치고 오심 — 현수교에서 합류하기로 확정</b></span></span></div>
       <div class="slot sMove"><span class="t">15:15</span><span class="c">박진철 선교사님 합류 → 조지 뮬러 고아원(애슐리 다운)으로 이동 (차 약 15분 · 이후 박진철 선교사님 안내)</span></div>
-      <div class="slot sVisit"><span class="t">15:30</span><span class="c">🏛 <b>조지 뮬러 고아원 — 애슐리 다운</b> (~16:20) <span class="free">무료</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Muller+House+College+Road+Bristol+BS7+9FG">📍 지도</a> <a class="map bg" href="#bg-muller">📖 배경 15</a>
+      <div class="slot sVisit"><span class="t">15:30</span><span class="c">🏛 <b>조지 뮬러 고아원 — 애슐리 다운</b> (~16:20) <span class="free">무료</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Muller+House+College+Road+Bristol+BS7+9FG">📍 지도</a> <a class="map bg" href="#bg-muller">📖 배경 16</a>
         <span class="desc">기도만으로 고아 1만 명을 먹인 조지 뮬러(1805–1898)의 고아원 단지 — ⚠️ <b>뮬러 박물관(College Rd)은 월~금만 개관 + 현재 임시 휴관</b>: 일요일 방문은 건물 외관·부지 중심, 세부 코스는 박진철 선교사님 안내 ☐</span></span></div>
-      <div class="slot sVisit"><span class="t">16:30</span><span class="c">⛪ <b>야외 설교지</b> (~17:10 · 박진철 선교사님 안내) <span class="free">무료</span> <a class="map bg" href="#bg-hanham">📖 배경 15</a>
+      <div class="slot sVisit"><span class="t">16:30</span><span class="c">⛪ <b>야외 설교지</b> (~17:10 · 박진철 선교사님 안내) <span class="free">무료</span> <a class="map bg" href="#bg-hanham">📖 배경 16</a>
         <span class="desc">1739년 조지 휫필드가 킹스우드 광부들에게 시작하고 존 웨슬리가 이어받은 야외 설교의 현장 — 정확한 방문 지점은 박진철 선교사님 안내 ☐ (한햄 마운트로 추정)</span></span></div>
       <div class="slot sMove"><span class="t">17:15</span><span class="c">런던으로 출발 (배스·워민스터 방면 A36 → A303 — 스톤헨지 경유 루트) · <b>운전자 교대</b></span></div>
-      <div class="slot sMove"><span class="t">~18:30</span><span class="c">🗿 스톤헨지 차창 조망 — <b>정차 없이</b> A303을 지나며 멀리서만 봄 (방문·입장 아님) <span class="free">무료 · 차창</span> <a class="map bg" href="#bg-stonehenge">📖 배경 15</a>
+      <div class="slot sMove"><span class="t">~18:30</span><span class="c">🗿 스톤헨지 차창 조망 — <b>정차 없이</b> A303을 지나며 멀리서만 봄 (방문·입장 아님) <span class="free">무료 · 차창</span> <a class="map bg" href="#bg-stonehenge">📖 배경 16</a>
         <span class="desc">스톤헨지는 A303 도로 바로 옆이라 지나가는 길에 오른편으로 보임 — 내려서 들어가지 않고 차 안에서 멀리 보며 지나가는 구간 (일몰 18:35 무렵이라 실루엣 타이밍)</span></span></div>
       <div class="slot sMove"><span class="t">~20:30</span><span class="c">런던 숙소 도착 · 체크인 (숙소①/② 분산 · ②는 16:00부터 입실 가능이라 무관) → 짐 정리</span></div>
       <div class="slot sMeal"><span class="t">20:45</span><span class="c">🍽 저녁 — <b>외식 예정</b> — 도착이 늦어 뉴몰든 이동 없이 숙소 인근에서 해결, 식당은 당일 결정 ☐ (시간만 우선 배치)</span></div>
@@ -791,23 +806,23 @@
       <div class="slot sMeal"><span class="t">08:00</span><span class="c">🍽 아침 — 숙소에서 간단히 (전날 도착이 늦어 장보기 못함 · 남은 비상식 · 필요하면 이날 저녁 뉴몰든에서 보충)</span></div>
       <div class="slot sMove"><span class="t">08:45</span><span class="c">🚗 차 1대가 숙소 → 모던역 드롭 셔틀 (2회 왕복 · 주차는 다시 숙소에 — 차가 노는 날이 아니라 동네 셔틀로 일하는 날)</span></div>
       <div class="slot sMove"><span class="t">09:00</span><span class="c">모던역에서 지하철 출발 → 토트넘코트로드역 (노던라인 직행 약 45분 · <b>종점이라 전원 앉아서 이동</b> · 각자 컨택리스 카드로 태그 — 1일 요금 상한 자동 적용이라 종일권 필요 없음)</span></div>
-      <div class="slot sVisit"><span class="t">10:00</span><span class="c">🏛 대영박물관 관람 (~12:30 · 개관 10:00~17:00) <span class="free">무료</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=British+Museum+WC1B+3DG">📍 지도</a> <a class="map bg" href="#bg-bm">📖 배경 15 · 성경 고고학 코스</a>
+      <div class="slot sVisit"><span class="t">10:00</span><span class="c">🏛 대영박물관 관람 (~12:30 · 개관 10:00~17:00) <span class="free">무료</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=British+Museum+WC1B+3DG">📍 지도</a> <a class="map bg" href="#bg-bm">📖 배경 16 · 성경 고고학 코스</a>
         <span class="desc">세계 최대급 박물관 — 로제타석, 이집트 미라, 파르테논 조각을 무료로 관람 · 한국어 오디오 앱 지원 · 한국관도 있음 · ⚠️ <b>10인 이상 단체는 최소 7일 전 온라인 단체 예약 필수(무료)</b> — britishmuseum.org 〉 Group visits ☐</span></span></div>
       <div class="slot sMeal"><span class="t">12:30</span><span class="c">🍽 점심 (~13:30) — 아래 1안·2안 중 선택 · ⚠️ 두 안은 성격이 다름: <b>1안만 20명 단체 예약 가능</b> → <b>출발 전까지 결정</b> (1안이면 온라인 단체 예약 필수 · 2안이면 예약 없이 가되 분산 착석 각오)</span></div>
       <div class="slot"><span class="t">1안</span><span class="c"><b>한식당</b> — 박물관 인근 도보권 · 대형 매장이면 20명 단체 예약 가능 (당일 오전까지 결정 후 예약)
         <span class="desc">비빔밥·불고기·찌개 — 여행 7일차, 한식이 그리울 타이밍</span></span></div>
       <div class="slot"><span class="t">2안</span><span class="c"><b>피시앤칩스 전문점</b> — 박물관 인근 도보권 · 예약 없이 가능하나 매장이 작으면 20명 분산 착석 각오 (10월 날씨 변수) — 테이크어웨이로 받아 광장에서 먹는 방법도 있음</span></div>
       <div class="slot sMove"><span class="t">13:45</span><span class="c">웨스트민스터로 이동 (지하철 약 15분)</span></div>
-      <div class="slot sVisit"><span class="t">14:00</span><span class="c">웨스트민스터 사원(외관) · 국회의사당 · 빅벤 (~14:40) <span class="free">무료 · 외관</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Westminster+Abbey+London">📍 지도</a> <a class="map bg" href="#bg-abbey">📖 배경 15</a>
+      <div class="slot sVisit"><span class="t">14:00</span><span class="c">웨스트민스터 사원(외관) · 국회의사당 · 빅벤 (~14:40) <span class="free">무료 · 외관</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Westminster+Abbey+London">📍 지도</a> <a class="map bg" href="#bg-abbey">📖 배경 16</a>
         <span class="desc">사원 앞 광장과 웨스트민스터 다리에서 빅벤 포토 스팟</span></span></div>
-      <div class="slot sVisit"><span class="t">14:40</span><span class="c">화이트홀 거리 따라 도보 — 다우닝가 10번지 · 호스가드 (~15:10) <a class="map bg" href="#bg-whitehall">📖 배경 15</a>
+      <div class="slot sVisit"><span class="t">14:40</span><span class="c">화이트홀 거리 따라 도보 — 다우닝가 10번지 · 호스가드 (~15:10) <a class="map bg" href="#bg-whitehall">📖 배경 16</a>
         <span class="desc">화이트홀: 정부 청사가 늘어선 런던의 관가 — 검은 문의 다우닝가 10번지는 영국 총리 관저, 호스가드에서는 말 탄 근위 기병 앞에서 기념사진</span></span></div>
-      <div class="slot sVisit"><span class="t">15:10</span><span class="c">트라팔가 광장 → 내셔널갤러리 하이라이트 (~16:15 · 반 고흐 해바라기, 렘브란트 · 개관 10:00~18:00) <span class="free">무료</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=National+Gallery+Trafalgar+Square+London">📍 지도</a> <a class="map bg" href="#bg-trafalgar">📖 배경 15</a>
+      <div class="slot sVisit"><span class="t">15:10</span><span class="c">트라팔가 광장 → 내셔널갤러리 하이라이트 (~16:15 · 반 고흐 해바라기, 렘브란트 · 개관 10:00~18:00) <span class="free">무료</span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=National+Gallery+Trafalgar+Square+London">📍 지도</a> <a class="map bg" href="#bg-trafalgar">📖 배경 16</a>
         <span class="desc">유럽 3대 미술관 중 하나 — 시간이 없으면 광장만 보고 통과 가능 · ⚠️ <b>8인 이상 단체는 무료 self-guided group 사전 예약 필수</b> — nationalgallery.org.uk 〉 Visiting ☐</span></span></div>
       <div class="slot sVisit"><span class="t">16:15</span><span class="c">웨스트민스터 사원으로 도보 복귀 (약 15분)</span></div>
       <div class="slot sVisit"><span class="t">17:00</span><span class="c">(옵션 · 결정 대기) 웨스트민스터 사원 이븐송 참석 — 성가대 저녁예배로 사원 내부 경험 (약 45분 · 20명 좌석 확보 위해 <b>16:30까지 입구 도착</b>) <span class="free">무료</span></span></div>
       <div class="slot sMeal"><span class="t">저녁</span><span class="c">🍽 이븐송 종료(17:45) 후 저녁 — 아래 1안·2안 중 선택 (네 끼 중 유일하게 <b>당일 컨디션 보고 결정해도 되는 끼니</b> — 단 점심때까지는 정해서, 1안이면 담당자가 바로 전화 예약) → 이후 자유 일정, 지하철 복귀 (약 45분)</span></div>
-      <div class="slot"><span class="t">1안</span><span class="c">차이나타운 대형 중식당 (트라팔가 광장에서 도보 10분 · 20명 원형 테이블 단체 수용 잘 됨 — <b>당일 오전 전화 예약 권장</b>, 워크인이면 2~3테이블 분산) · 귀가 약 21:00 <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Chinatown+London">📍 지도</a> <a class="map bg" href="#bg-chinatown">📖 배경 15</a></span></div>
+      <div class="slot"><span class="t">1안</span><span class="c">차이나타운 대형 중식당 (트라팔가 광장에서 도보 10분 · 20명 원형 테이블 단체 수용 잘 됨 — <b>당일 오전 전화 예약 권장</b>, 워크인이면 2~3테이블 분산) · 귀가 약 21:00 <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Chinatown+London">📍 지도</a> <a class="map bg" href="#bg-chinatown">📖 배경 16</a></span></div>
       <div class="slot"><span class="t">2안</span><span class="c">지하철로 복귀 후 뉴몰든 한식 (숙소 근처라 편안한 마무리 · <b>다음날 세미나를 고려하면 권장안</b>) — 모던역 도착 시각을 단톡방에 알리면 아침처럼 차 1대가 역으로 픽업</span></div>
     </div>
   </div>
@@ -857,7 +872,7 @@
       <div class="slot sMove"><span class="t">17:45</span><span class="c">차로 숙소 복귀 · 주차 → 모던역으로 (10분)</span></div>
       <div class="slot sVisit"><span class="t">17:55</span><span class="c">모던역 → 웨스트민스터역 지하철 (노던라인 약 45분) — <b>이 밤은 차 대신 지하철</b> (시내 주차장은 대부분 지하라 9인승 높이 제한)<span class="mrow">· <b>18:40 선착장 도착</b> → 19:00 승선 (출발 20분 전 승선 마감이 일반적) · 지하철 지연 대비 <b>버퍼 40분</b></span> <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Westminster+Pier+London">📍 선착장</a></span></div>
       <div class="slot sVisit"><span class="t">19:20</span><span class="c">🚢 템즈강 야경 크루즈 — <b>City Cruises 웨스트민스터 19:20 출항 (10월 시간표 마지막편)</b> → 런던아이 → 타워 피어 하선 약 20:00 (약 40분) <span class="pay">유료 · 1인 약 £20~25 (약 3.8~4.8만원) · 20명 £400~500 ≈ 76~96만원 · 공식 사이트 from £12 · 20인 이상 단체 요금 문의</span><span class="mrow">· 10월 시간표(9/7~10/25): 웨스트민스터 출항 10:00~19:20 · 40분 간격 — <b>20시 이후 정규편 없음</b>, 19:20을 놓치면 우버보트(수상버스 RB1)로 대체</span><span class="mrow">· 일몰 18:28 — 19:20이면 완전한 야경 · 20:00 타워 피어 하선 → 타워힐역에서 지하철 복귀 (약 50분 · 모던역 도착 시각 단톡방 공유 → 차 1대 픽업) · 귀가 약 21:00 후 짐 정리</span>
-        <span class="desc">빅벤 · 런던아이 · 세인트폴 · 타워브리지의 야경을 강 위에서 — 런던을 마무리하는 정석 코스 <a class="map bg" href="#bg-cruise">📖 배에서 보는 순서 14</a></span></span></div>
+        <span class="desc">빅벤 · 런던아이 · 세인트폴 · 타워브리지의 야경을 강 위에서 — 런던을 마무리하는 정석 코스 <a class="map bg" href="#bg-cruise">📖 배에서 보는 순서 16</a></span></span></div>
     </div>
   </div>
 
@@ -961,306 +976,8 @@
     </div>
   </div>
 
-  <!-- ===== 03 숙소 ===== -->
-  <div class="section-title" id="s2"><span class="no">03</span>숙소</div>
-
-  <div class="stays">
-    <div class="stay">
-      <div class="period">🏡 <b>웨일즈 메인 숙소</b> · 9/29(화) — 10/4(일) · 5박 · <b>에어비앤비 예약 확정</b></div>
-      <div class="name">Forest Lodge Cottages <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Forest+Lodge+Cottages+Libanus+Brecon+LD3+8NW">📍 내비</a> <a class="map" href="https://www.airbnb.co.kr/rooms/46672629" target="_blank" rel="noopener">🏠 에어비앤비 페이지</a></div>
-      <div class="addr">Libanus, Brecon LD3 8NW · 웨일스 브레콘 비콘스 국립공원</div>
-      <div class="note">호스트 Anna Elizabeth (에어비앤비 앱 메시지로 연락) · 체크아웃 오전 10시까지 · Pen y Fan 10분 · 9인승 렌터카 2대로 이동</div>
-      <div class="note" style="display:block;margin-top:8px;">🛏 <b>방 구성 — 침실 6개 · 침대 21개 · 욕실 3.5 · 최대 24인</b> (에어비앤비 예약 페이지 기준 · 18명 여유)<span class="mrow">· 방1 싱글×6 — 이름: <span class="pk" data-pid="w1_1"></span> · <span class="pk" data-pid="w1_2"></span> · <span class="pk" data-pid="w1_3"></span> · <span class="pk" data-pid="w1_4"></span> · <span class="pk" data-pid="w1_5"></span> · <span class="pk" data-pid="w1_6"></span></span><span class="mrow">· 방2 싱글×6 — 이름: <span class="pk" data-pid="w2_1"></span> · <span class="pk" data-pid="w2_2"></span> · <span class="pk" data-pid="w2_3"></span> · <span class="pk" data-pid="w2_4"></span> · <span class="pk" data-pid="w2_5"></span> · <span class="pk" data-pid="w2_6"></span></span><span class="mrow">· 방3 더블×1 — 이름: <span class="pk" data-pid="w3_1"></span> · <span class="pk" data-pid="w3_2"></span></span><span class="mrow">· 방4 더블×1 — 이름: <span class="pk" data-pid="w4_1"></span> · <span class="pk" data-pid="w4_2"></span></span><span class="mrow">· 방5 싱글×5 — 이름: <span class="pk" data-pid="w5_1"></span> · <span class="pk" data-pid="w5_2"></span> · <span class="pk" data-pid="w5_3"></span> · <span class="pk" data-pid="w5_4"></span> · <span class="pk" data-pid="w5_5"></span></span><span class="mrow">· 방6 킹×1 + 싱글×1 — 이름: <span class="pk" data-pid="w6_1"></span> · <span class="pk" data-pid="w6_2"></span> · <span class="pk" data-pid="w6_3"></span></span></div>
-    </div>
-    <div class="stay">
-      <div class="period">🧭 <b>박진철 선교사님 숙소 · 웨일즈</b> · 같은 기간</div>
-      <div class="name">Coed Owen Bunkhouse <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Coed+Owen+Bunkhouse+Cwm+Taf+Merthyr+Tydfil+CF48+2HY">📍 내비</a></div>
-      <div class="addr">Cwm Taf, Merthyr Tydfil CF48 2HY · A470 변</div>
-      <div class="note">우리 웨일즈 메인 숙소에서 A470 남쪽으로 <b>차 13분</b> (실측 9.3마일) — 박진철 선교사님 합류·픽업 동선 참고</div>
-    </div>
-    <div class="stay">
-      <div class="period">🏙 <b>런던 메인 숙소 ①</b> · 10/4(일) — 10/8(목) · 4박 · 14명 · <b>에어비앤비 예약 확정</b></div>
-      <div class="name">런던 숙소 (모던) <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Seddon+Road+Morden+SM4+6ED">📍 내비</a> <a class="map" href="https://www.airbnb.co.kr/rooms/1365216491051996982" target="_blank" rel="noopener">🏠 에어비앤비 페이지</a></div>
-      <div class="addr">Seddon Rd, Morden SM4 6ED · 런던 남서부 (상세 호수는 예약 내역 확인) · 호스트 Syed (에어비앤비 앱 메시지로 연락)</div>
-      <div class="note">세미나 장소(서튼) 차 20분 · 모던역(런던 지하철 노던라인의 종점역) → 시내 약 40분 · 히드로 차 약 55분 · 체크인·체크아웃 시간과 9인승 2대 주차 가능 여부는 예약 내역·호스트에게 확인 필요</div>
-      <div class="note" style="display:block;margin-top:8px;">🛏 <b>방 구성 — 침실 6개 · 침대 13개 · 욕실 3.5 · 최대 16인</b> (에어비앤비 예약 페이지 기준 · 14명 배정)<span class="mrow">· 방1 싱글×3 — 이름: <span class="pk" data-pid="l11_1"></span> · <span class="pk" data-pid="l11_2"></span> · <span class="pk" data-pid="l11_3"></span></span><span class="mrow">· 방2 더블×1 + 싱글×1 — 이름: <span class="pk" data-pid="l12_1"></span> · <span class="pk" data-pid="l12_2"></span> · <span class="pk" data-pid="l12_3"></span></span><span class="mrow">· 방3 더블×1 + 싱글×1 — 이름: <span class="pk" data-pid="l13_1"></span> · <span class="pk" data-pid="l13_2"></span> · <span class="pk" data-pid="l13_3"></span></span><span class="mrow">· 방4 싱글×2 — 이름: <span class="pk" data-pid="l14_1"></span> · <span class="pk" data-pid="l14_2"></span></span><span class="mrow">· 방5 더블×1 — 이름: <span class="pk" data-pid="l15_1"></span> · <span class="pk" data-pid="l15_2"></span></span><span class="mrow">· 방6 싱글×3 — 이름: <span class="pk" data-pid="l16_1"></span> · <span class="pk" data-pid="l16_2"></span> · <span class="pk" data-pid="l16_3"></span></span></div>
-    </div>
-    <div class="stay">
-      <div class="period">🏙 <b>런던 메인 숙소 ②</b> · 10/4(일) 16:00 — 10/8(목) 11:00 · 4박 · 4명</div>
-      <div class="name">Katolondonhaus <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=18+Morton+Road+Morden+SM4+6EF">📍 내비</a> <a class="map" href="https://www.agoda.com/katolondonhaus/hotel/london-gb.html" target="_blank" rel="noopener">🏠 아고다 페이지</a></div>
-      <div class="addr">18 Morton Rd, Morden SM4 6EF · 숙소①(Seddon Rd)과 같은 모던 동네 — 도보 수 분 거리</div>
-      <div class="note"><b>체크인 10/4(일) 16:00 · 체크아웃 10/8(목) 11:00 확정</b> (아고다 예약 확정 · 객실 2개)</div>
-      <div class="note" style="display:block;margin-top:8px;">🛏 <b>방 구성 — 확정</b><span class="mrow">· 방1: 디럭스 킹룸 — 킹 더블 ×1 (2명) — 이름: <span class="pk" data-pid="l21_1"></span> · <span class="pk" data-pid="l21_2"></span></span><span class="mrow">· 방2: 더블룸 — 더블 ×1 (2명) — 이름: <span class="pk" data-pid="l22_1"></span> · <span class="pk" data-pid="l22_2"></span></span></div>
-    </div>
-    <div class="stay">
-      <div class="period">🧭 <b>박진철 선교사님 숙소 · 런던</b> · 같은 기간</div>
-      <div class="name">61A Seddon Rd <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=61A+Seddon+Road+Morden+SM4+6ED">📍 내비</a></div>
-      <div class="addr">61A Seddon Rd, Morden SM4 6ED</div>
-      <div class="note">우리 런던 메인 숙소①과 <b>같은 거리(Seddon Rd)</b> — 사실상 바로 옆이라 합류 매우 편함 (숙소②도 같은 동네)</div>
-    </div>
-  </div>
-
-  <!-- ===== 04 운전 · 실용 정보 ===== -->
-  <div class="section-title" id="s5"><span class="no">04</span>운전 · 실용 정보</div>
-
-  <div class="card rows narrow">
-    <div class="slots">
-      <div class="slot"><span class="t">운전</span><span class="c"><b>좌측통행·우측핸들</b> — 9인승은 일반(2종보통) 면허로 운전 가능 (면허·서류는 08 준비물 참조)<span class="mrow">· 라운드어바웃(회전교차로)은 오른쪽에서 회전 중인 차 우선</span><span class="mrow">· 속도 표지판은 mph=마일 — 시내 20–30 / 국도 60 / 고속 70마일(≈113km)</span><span class="mrow">· ⚠️ <b>9인승은 차 높이 약 2m</b> — 실내·지하 주차장(제한 1.9~2m) 불가, 항상 지상 주차장 (일정표의 🅿️ 추천지는 전부 지상)</span><span class="mrow">· 🅿️ 유료 주차장은 <b>앱 결제(RingGo·PayByPhone·JustPark)</b>가 기본이고 현금기가 없는 곳이 많음 — 운전자 4명은 출발 전 RingGo 앱 설치·카드 등록 (차량번호는 픽업 후 입력)</span><span class="mrow">· 🌫 런던 <b>ULEZ(초저배출구역)</b>는 모던·서튼·뉴몰든·히드로까지 그레이터런던 전역 — 최근 연식 렌터카(유로6)는 요금 없음이지만 픽업 후 번호판으로 tfl.gov.uk에서 한 번 확인 (미준수 시 £12.50/일)</span><span class="mrow">· ⛽ 주유 전 <b>차량 연료 종류(Diesel/Petrol) 확인</b> — 영국 9인승은 대부분 디젤(검은 노즐), 혼유 사고 주의</span></span></div>
-      <div class="slot"><span class="t">연료</span><span class="c">웨일스 구간 주행 약 900km(차 1대 기준) — <b>중간 주유 1회 필요</b>: 브레콘 Morrisons 주유소가 마트 동선과 겹쳐 최적 (9/30 또는 10/1 밤)<span class="mrow">· 런던 구간은 주행이 적음 — 10/8 반납 전 히드로 인근 주유소에서 가득 채워 반납 (Full-to-Full 조건 확인)</span></span></div>
-      <div class="slot"><span class="t">정체 변수</span><span class="c">전 구간을 구글맵 <b>요일·시간대별 예측</b>으로 검증해 버퍼 반영 완료<span class="mrow">· 특히 밀리는 3곳 — ① 화(9/29) 저녁 M4 서행(레딩·뉴포트) · ② 일(10/4) 오후 M25 · ③ 목(10/8) 정오 A3/M25</span><span class="mrow">· <b>9/9 National Highways 확인 — 장기 공사 2건 해당</b>: M4 17~18번 출구 구간(리 델라미어 휴게소 지점, 9/29 통과)은 2026년 8월~2027년 3월 24시간 3차로 축소·50mph 제한 중 · A36 배스 인근 던다스~바탬튼 구간(10/4 귀경길)은 4월~11월 초 이동식 임시신호 운영(전면 통제 아님)</span><span class="mrow">· A3·M25(10/8 구간)는 확인 시점 기준 예정된 장기 공사 없음(M25 분기점10 개선공사는 봄 종료 예정) · 단기 주말 공사·사고는 별개이므로 <b>출발 전 주에 National Highways 사이트에서 최종 재확인</b> 권장</span></span></div>
-      <div class="slot"><span class="t">통행료</span><span class="c">런던 혼잡통행료 구역(평일 07–18시, £15/일)은 <b>시내 중심부만</b> — 모던·서튼·히드로 경로는 구역 밖이라 무관 · 잉글랜드→웨일스 넘어가는 세번 대교 통행료도 무료</span></div>
-      <div class="slot"><span class="t">날씨</span><span class="c">10월 초 8–16°C, 비 잦음 — 방수 자켓·우산·겹쳐 입기 필수 · 해가 18:50경 짐 (원거리 복귀일은 일몰 후 야간 운전 — 일정표에 반영됨)</span></div>
-      <div class="slot"><span class="t">생활</span><span class="c">결제는 카드 터치(컨택리스)가 기본 — 현금 거의 불필요 · 팁: 식당 계산서에 서비스차지(12.5%)가 이미 포함된 경우가 많음 — 포함돼 있으면 별도 팁 불필요 (어댑터·eSIM·카드 준비는 08 준비물 참조)</span></div>
-      <div class="slot"><span class="t">식사</span><span class="c">20명(가이드측 포함) 단체는 저녁 식당·펍 <b>사전 예약 필수</b> (시골 펍은 특히 — 하루 전 전화) · 런던 4박 식사·장보기 거점은 <b>뉴몰든</b> (숙소에서 차 10분)</span></div>
-      <div class="slot"><span class="t">외식 예산</span><span class="c">자체 부담 외식 <b>11회</b> 기준(저녁 7 + 점심 4) — 1끼 평균 £15~25/인 · 1인 약 £165~275 ≈ 32~53만원 (20명 전체 약 630~1,050만원 · 가이드측 인원 포함 추정)<span class="mrow">· 세미나·교회 제공 식사(길웬·하노버·손힐·런던 점심 등)는 제외 · 미확인은 10/4 하노버 주일예배 점심 1건뿐 — 미제공 확정 시 최대 12회로 소폭 증가</span><span class="mrow">· 끼니별 상세는 상단 <b>"식사 계획 한눈에"</b> 표 참조</span></span></div>
-      <div class="slot"><span class="t">서류</span><span class="c">여권 (잔여 유효기간 6개월 확인) · 국제운전면허증 · 여행자보험 (18명 단체 가입 권장) · 예약 확인서 일괄 출력 or 담당자 폰에 저장 (숙소·크루즈·BCW 회신·세미나장 안내 등 확정된 것 전부)</span></div>
-      <div class="slot"><span class="t">역할</span><span class="c">출발 전 정해두기 — 운전자 2명+교대 2명 · 🚐 우버밴 동승(짐 담당) 1명 · 예약·입장권 담당 1명 · 회계 1명 · 인원 체크 담당 1명 (18명 단체는 매 승차 때 인원 확인이 안전의 핵심)</span></div>
-      <div class="slot"><span class="t">오프라인 대비</span><span class="c">웨일스 시골길·채플 주변은 <b>통신 신호가 약한 구간이 많음</b> — 출발 전 와이파이에서 준비
-        <span class="mrow">· 🗺 <b>구글맵 오프라인 지도 저장</b>: 구글맵 앱 → 우상단 프로필 → 오프라인 지도 → "나만의 지도 선택" → ① 웨일스 남부(브레콘~스완지~카디건 포함 크게) ② 런던 일대 — 두 구역 저장 (운전자 4명은 필수, 저장해두면 신호 없어도 내비 작동)</span>
-        <span class="mrow">· 📄 이 일정표 HTML 파일도 각자 폰에 저장 — 오버뷰 지도·전도 스크립트 듣기까지 오프라인 작동</span>
-        <span class="mrow">· 📞 국제전화: 영국에서 한국으로 <b>+82 10-…</b> (010의 첫 0 빼기) · 한국에서 영국으로 +44 · 로밍이면 한국 번호 그대로 수발신</span>
-        <span class="mrow">· 🏥 아플 때: 긴급 999 · 비응급 의료 상담 <b>NHS 111</b> (전화 111 · 무료 · 24시간 · 통역 요청 가능) · 가벼운 증상은 Boots 등 약국(Pharmacy) 상담 — 감기약·진통제는 처방 없이 구입</span></span></div>
-      <div class="slot"><span class="t">비상</span><span class="c">긴급전화 <b>999</b> (경찰·구급·소방) · 주영국 한국대사관 020-7227-5500 · 외교부 영사콜센터 +82-2-3210-0404 (24시간) · 일행 단톡방에 이 일정표 링크 공유</span></div>
-    </div>
-  </div>
-
-  <!-- ===== 05 항공 · 이동 ===== -->
-  <div class="section-title" id="s1"><span class="no">05</span>항공 · 이동 수단</div>
-
-  <div class="flights">
-    <div class="flight">
-      <div class="tag"><span>가는 편 · 9/29(화)</span><span class="no">OZ521</span></div>
-      <div class="route">
-        <div class="port"><div class="code">ICN</div><div class="city">인천 <b>T2</b></div><div class="time">07:50</div><div class="day">9/29(화) 출발</div></div>
-        <div class="path"><span class="plane">✈️</span>14시간 30분</div>
-        <div class="port"><div class="code">LHR</div><div class="city">런던 히드로 <b>T2</b></div><div class="time">14:20</div><div class="day">9/29(화) 도착</div></div>
-      </div>
-    </div>
-    <div class="flight">
-      <div class="tag"><span>오는 편 · 10/8(목)</span><span class="no">OZ522</span></div>
-      <div class="route">
-        <div class="port"><div class="code">LHR</div><div class="city">런던 히드로 <b>T2</b></div><div class="time">16:35</div><div class="day">10/8(목) 출발</div></div>
-        <div class="path"><span class="plane">✈️</span>12시간 45분</div>
-        <div class="port"><div class="code">ICN</div><div class="city">인천 <b>T2</b></div><div class="time">13:20</div><div class="day">10/9(금) 도착</div></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="info">
-    <span><b>터미널</b> 인천 <b>제2터미널(T2)</b> — ⚠️ 아시아나가 2026.1.14부터 T2로 이전 (예전 T1 아님, 잘못 가면 셔틀 15~20분) · 히드로 양방향 모두 <b>터미널 2</b>(스타얼라이언스)</span>
-    <span><b>출국일 팁</b> 07:50 출발 → 늦어도 05:30 인천 T2 도착 권장</span>
-    <span><b>시차</b> 런던이 한국보다 8시간 느림 (10월 말까지 서머타임)</span>
-  </div>
-
-  <div class="info">
-    <span><b>🧳 수하물 — 아시아나 유럽 노선 이코노미 기준</b>
-      <span class="mrow">· 위탁: 1인 <b>23kg 1개</b> (세 변 합 158cm) — 18명 최대 18개: 우버밴+트렁크 분산 계획과 일치</span>
-      <span class="mrow">· 기내: <b>10kg 1개</b> (세 변 합 115cm) + 노트북가방 등 개인 소지품 1개</span>
-      <span class="mrow">· ⚠️ <b>보조배터리는 위탁 금지 — 기내 휴대만</b> (100Wh 이하 · 08 준비물에도 표기)</span>
-      <span class="mrow">· ☐ 단체 운임은 수하물 조건이 다를 수 있음 — 예약확인서의 Baggage 표기로 최종 확인</span>
-      <span class="mrow">· 💷 <b>초과 수하물 요금 (아시아나 한국–유럽 · 공식 표 기준)</b>: 추가 1개(23kg·158cm 이내) <b>140,000원</b> · 무게 초과 24~32kg <b>110,000원/개</b>(24~28kg은 90,000원으로 표기된 페이지도 있음 — 결제 시 확인) · 규격 초과 159~203cm 210,000원 · 33kg 이상은 사전 협의 · 개수+무게 동시 초과 시 합산 <span style="color:var(--faint)">(2025년 인상안 보도가 있었으나 공식 표는 위 금액 — "수하물 사전 구매" 화면 금액이 최종)</span></span>
-      <span class="mrow">· 23kg 초과 요금이 큼 — 출발 전 집 저울로 체크, 무거운 것은 기내 가방으로 분산 · 식품 때문에 가방을 추가하는 건 손해(추가 1개 14만원 ≈ 햇반 23kg을 현지 구매할 때 더 드는 돈과 비슷) — 무료 23kg + 기내 10kg 안에서 끝내기</span></span>
-  </div>
-
-  <div class="info">
-    <span><b>🚗 렌터카 — <span style="color:#2e7d32">예약 완료 ✅</span></b>
-      <span class="mrow">· <b>SIXT</b> · 르노 트래픽(Renault Trafic) 또는 동급 9석 표준형 승합차 · 4도어 · 오토 · 2대 예약 = 18석 · 캐리어 5×24인치/대 (제조사 공식 적재 기준 — 실제 인원+수하물 동시 적재 시 여유는 현장 확인 필요 ☐)</span>
-      <span class="mrow">· 🛬 <b>픽업</b> — OZ521편 기준 2026-09-29(화) <b>16:00 현지시간</b> · <b>London Heathrow Airport 터미널 4</b> · 영업시간 07:00~23:00 · ☎ +44 20 7018 8246 · Hounslow TW6 3XE, UK · 제2·4·5터미널 내 카운터 — <b>터미널 건물 밖에서 도보거리 인수</b>(픽업 데스크 안내 따라 도보 이동)</span>
-      <span class="mrow">· 🛫 <b>반납</b> — <b>2026-10-08(목) 12:00 현지시간</b> · <b>London Heathrow Airport 터미널 4</b> (픽업과 동일 지점) · 영업시간 07:00~23:00 · ☎ +44 20 7018 8246 · Hounslow TW6 3XE, UK · 도보 이동 가능</span>
-      <span class="mrow">· ⚠️ <b>공항 터미널 불일치 주의</b> — OZ521/OZ522 항공편은 히드로 <b>터미널 2</b>에서 뜨고 내리는데, SIXT 픽업/반납 지점은 <b>터미널 4</b> — 입국 후 T2→T4 이동(Day 1, 15:20→16:00 픽업)과 출국 전 T4→T2 이동(Day 10, 반납 12:00→터미널 2)이 모두 일정에 반영됨</span>
-      <span class="mrow">· 🧳 트렁크 적재: 캐리어 5개/대(제조사 기준) — 9인승 만석 상태에서는 실질적으로 <b>대형 캐리어 3~4개/대</b>로 보는 게 안전 — <b>2대 합계 6~8개</b>, 나머지는 🚐 우버밴으로 분산</span>
-      <span class="mrow">· ⚠️ <b>오토(자동변속) 예약 확인 완료</b> — 영국은 수동이 기본이라 예약서상 오토 명시 재확인 ☐</span>
-      <span class="mrow">· 🚘 <b>차량 운용 원칙 두 가지</b></span>
-      <span class="mrow">· ① 숙소 도착 후 일상 이동(투어·세미나·식사)은 <b>보통 3대</b> — 렌터카 2대 + 가이드 목사님 차 (좌석 여유 · 주차 문의도 3대 기준)</span>
-      <span class="mrow">· ② <b>짐 이동 4구간은 무조건 렌터카 2대로 계산</b> — 가이드 차는 수송력에 넣지 않고 <b>🚐 짐차(우버 리저브) 1대를 반드시 확보</b>: 공항→숙소(9/29) · 숙소 체크아웃→교회(10/4) · 교회→런던 숙소(10/4) · 숙소 체크아웃→공항(10/8)</span>
-      <span class="mrow">· 🚙 <b>1호차</b> — 차량번호 <b>________</b> · 색상 ______ · 운전(교대 포함) <span class="pk" data-pid="d1a"></span> <span class="pk" data-pid="d1b"></span> <span class="pk" data-pid="d1c"></span></span>
-      <span class="mrow">· 🚙 <b>2호차</b> — 차량번호 <b>________</b> · 색상 ______ · 운전(교대 포함) <span class="pk" data-pid="d2a"></span> <span class="pk" data-pid="d2b"></span> <span class="pk" data-pid="d2c"></span></span>
-      <span class="mrow" style="color:var(--faint);font-size:12px;">(9/29 픽업 때 확정되는 대로 기입 — 단톡방 공지 + 링크판은 알려주시면 바로 갱신 · "내 차가 어느 차인지" 헷갈림 방지용)</span></span>
-    <span><b>🚐 우버밴 (캐리어 운송 전용)</b>
-      <span class="mrow">· 구간 4회 — ① 공항→숙소(9/29) · ② 웨일즈 숙소→교회(10/4) · ③ 교회→런던 숙소(10/4) · ④ 숙소→공항(10/8)</span>
-      <span class="mrow">· 짐만 보내는 무인 운송은 불가 — <b>매 구간 일행 1~2명 동승</b></span>
-      <span class="mrow">· 🙋 <b>구간별 동승자</b> (1~2명) — ① 9/29 공항→숙소: <span class="pk" data-pid="van1"></span> <span class="pk" data-pid="van1b"></span> · ② 10/4 숙소→교회: <span class="pk" data-pid="van2"></span> <span class="pk" data-pid="van2b"></span> · ③ 10/4 교회→런던: <span class="pk" data-pid="van3"></span> <span class="pk" data-pid="van3b"></span> · ④ 10/8 숙소→공항: <span class="pk" data-pid="van4"></span> <span class="pk" data-pid="van4b"></span> <span style="color:var(--faint);font-size:12px;">(같은 사람이 전 구간을 맡아도 되고 구간마다 달라도 됨 · 구간당 1~2명 — 출발 전 확정)</span></span>
-      <span class="mrow">· 🚐 <b>짐차는 1대 확정 — 우버 Exec XXL</b> (벤츠 V클래스·비토 롱바디급 · 우버에서 부를 수 있는 최대 차급): 동승 1명 기준 <b>대형 캐리어 8개 안팎 + 기내백</b>이 현실 한도</span>
-      <span class="mrow">· 밴 1대가 성립하는 조건 = <b>밴 몫을 8개 이하로</b> — 핵심 수단은 <b>캐리어 24~26인치 통일 공지</b> (렌터카 L1 기준 6~8개 + 통일된 중형 위주면 밴 8개 안팎으로 수렴) · 카운터에서 L2가 걸리면 여유가 더 생기는 보너스</span>
-      <span class="mrow">· 짐 분산 결과: 렌터카 2대(L2 기준 10~12개) + Exec XXL 1대(8개 안팎) = <b>18개+ 커버</b></span>
-      <span class="mrow">· 비상용: 당일 짐이 안 들어갈 때만 XL(대형 4~5개) 1대 현장 추가 호출 (£40~60/구간) — <b>계획은 어디까지나 밴 1대</b></span>
-      <span class="mrow">· 💷 <b>예상 비용 — Exec XXL로 4구간 전부 이용 시</b>: ① 히드로→브레콘(175마일) <b>£572 실견적 확인</b> · ② 숙소→하노버(30마일) £90~120 · ③ 하노버→런던(150마일) £450~550(추정 ☐) · ④ 모던→히드로(17마일) £70~90</span>
-      <span class="mrow">· <b>4구간 합계 약 £1,180~1,330 ≈ 225~254만원</b> (£1≈1,910원) — 렌터카 L2 배정 확정 시 장거리 ①③을 XL로 낮추면 <b>£300~400 절감</b> 가능 (합계 £800~950 수준)</span>
-      <span class="mrow">· 예약은 <b>우버 리저브(사전 예약)</b>로 — 장거리도 배차가 확정되고 공항 우선 픽업 제공 · 예약 시 "수하물 다수" 메시지로 기사에게 미리 고지 · 당일 짐이 넘치면 XL 1대 추가 호출</span></span>
-  </div>
-
-  <!-- ===== 06 방문지 총정리 ===== -->
-  <div class="section-title" id="s6"><span class="no">06</span>한눈에 보기 — 방문지 총정리</div>
-
-  <div class="card rows narrow">
-    <div class="slots">
-      <div class="slot"><span class="t">사역</span><span class="c">3분 브릿지 세미나 (9/30 길웬 10:30~17 · 10/2 사론·크리넌트 19~21 · 10/3 하노버 10:30~15 → 손힐 17~21 · 런던 10/6·7 서튼 10:30~15) · 하노버 교회 주일예배 (10/4 11:00)</span></div>
-      <div class="slot"><span class="t">성지</span><span class="c">⛪ <b>토머스</b> <a class="map bg" href="#s11">📜 11</a> — 하노버 교회 (예배당·아버지 기념비·소년기 목사관 경내 미니 코스 · 10/3 세미나 + 10/4 예배 11:00)<span class="mrow">· <b>이반 로버츠</b> <a class="map bg" href="#s13">📜 13</a> — 모리아 채플(오벨리스크·묘역) + 블라이난네르흐 서원 채플 + Ffald-y-Brenin 기도원 (10/1 목)</span><span class="mrow">· <b>리즈 하월즈</b> <a class="map bg" href="#s12">📜 12</a> — BCW 헤리티지 센터 (10/2 금)</span></span></div>
-      <div class="slot"><span class="t">관광</span><span class="c">확보: ⛏ 빅 핏 탄광 지하 투어 (10/1) <a class="map bg" href="#bg-bigpit">📖</a> · Ffald-y-Brenin (10/1) <a class="map bg" href="#bg-ffald">📖</a> · 고워 반도 (10/2) <a class="map bg" href="#bg-gower">📖</a> · 멈블스 (10/2) <a class="map bg" href="#bg-mumbles">📖</a> · 클리프턴 현수교 (10/4) <a class="map bg" href="#bg-clifton">📖</a> · 뮬러 고아원 (10/4) <a class="map bg" href="#bg-muller">📖</a> · 한햄 마운트 (10/4) <a class="map bg" href="#bg-hanham">📖</a> · 스톤헨지 차창 조망 (10/4·정차 없이 경유) <a class="map bg" href="#bg-stonehenge">📖</a> · 대영박물관 (10/5) <a class="map bg" href="#bg-bm">📖</a> · 웨스트민스터 일대 (10/5) <a class="map bg" href="#bg-abbey">📖</a> · 템즈강 야경 크루즈 (10/7) <a class="map bg" href="#bg-cruise">📖</a></span></div>
-      <div class="slot"><span class="t">비용</span><span class="c"><span class="pay">유료 — 20명 기준(가이드측 인원 포함 추정)</span> 빅 핏 지하 투어 £160 ≈ 31만원 (1인 £8) · 템즈 크루즈 £400~500 ≈ 76~96만원 → 합계 약 £560~660 ≈ 107~126만원 · 나머지 방문지는 전부 <span class="free">무료</span> <span class="desc">환산 기준 £1 ≈ 1,910원 (2026.8) — 환율 변동에 따라 달라질 수 있음 · 식사·주차·교통비 별도</span></span></div>
-    </div>
-  </div>
-
-  <!-- ===== 07 예약 체크리스트 ===== -->
-  <div class="section-title" id="s4"><span class="no">07</span>예약 체크리스트</div>
-
-  <div class="card rows narrow">
-    <div class="slots">
-      <div class="slot"><span class="t">렌터카</span><span class="c"><b style="color:#2e7d32">✅ 예약 완료</b> — <b>SIXT</b> 르노 트래픽(또는 동급) 9인승 오토 2대<span class="mrow">· 픽업 9/29(화) 16:00 현지시간 · <b>히드로 터미널 4</b> (☎ +44 20 7018 8246)</span><span class="mrow">· 반납 10/8(목) <b>12:00 현지시간</b> · <b>히드로 터미널 4</b> (픽업과 동일 지점)</span><span class="mrow">· 교대 운전자는 전원 <b>추가 운전자로 계약 등록</b>했는지 확인 ☐ (1인당 요금 발생 여부 확인)</span><span class="mrow">· 한국 면허는 <b>IDP 동반 필수</b> — 픽업 카운터에서 IDP+여권+신용카드(대표 운전자 명의) 제시</span><span class="mrow">· ⚠️ 항공편(OZ521/522)은 <b>터미널 2</b> 착발이라 T2↔T4 이동 필요 — Day 1(입국 후 T2→T4)/Day 10(반납 후 T4→T2) 일정에 반영됨</span></span></div>
-      <div class="slot"><span class="t">진행</span><span class="c">☐ ⛪ BCW 단체 방문 이메일 — heritage@bcwales.org · 10/2(금) <b>예약 시각 13:15</b> (10인 이상 필수 · 개관 화~금 10~15시)<span class="mrow">· ☐ 모리아 채플 방문 양식 제출 (moriahchapel.org.uk Contact Us · <b>2주 전 권장 → 9/17까지</b>) — 10/1(목) <b>방문 시각 17:45</b></span><span class="mrow">· ☐ ⛏ 빅 핏 지하 투어 단체 예약 — bigpit@museumwales.ac.uk · <b>10/1(목) 10:00 회차 20명</b> (가이드측 2명 포함 · 10인+ 필수 · 차량 3대 주차 함께 문의)</span><span class="mrow">· ☐ 🏛 <b>대영박물관 단체 예약</b> (10인+ · 최소 7일 전 · 무료 · britishmuseum.org 〉 Group visits) — 10/5(월) 10:00 · 20명</span><span class="mrow">· ☐ 🖼 <b>내셔널갤러리 self-guided group 예약</b> (8인+ · 무료 · nationalgallery.org.uk 〉 Visiting) — 10/5(월) 15:10 · 20명</span><span class="mrow">· ☐ 🙏 Ffald-y-Brenin 단체 방문 연락 — 01348 881419 · bookings@ffald-y-brenin.org (5인+ 사전 연락 필수 · 10/1 15:10 예정)</span></span></div>
-      <div class="slot"><span class="t">식사 확인</span><span class="c">🎁 세미나 식사 제공 — <b>대부분 확정</b>: 길웬(9/30 점심)·하노버(10/3 점심)·손힐(10/3 저녁)·런던(10/6·7 점심) <span style="color:var(--faint)">(10/2 사론 저녁은 제공 불가 통보 — 외식으로 자체 해결)</span><span class="mrow">· ☐ <b>미확인 1건 — 10/4(일) 하노버 교회 주일예배 후 점심</b> 제공 여부만 확인</span><span class="mrow">· 미제공으로 확인되면 그 끼니만 간편식(샌드위치·에너지바) 준비</span></span></div>
-      <div class="slot"><span class="t">식당</span><span class="c">🍽 식당 예약 — 대부분 <b>현지 도착 후 당일 전화</b>로 처리 (사전 확정된 곳 없음 · <b>투어·식당 예약 인원은 가이드측 2명 포함 20명</b>, 항공·짐·숙소는 우리 팀 18명 기준)<span class="mrow">· <b>저녁은 전 일정 외식 방침</b> — 웨일즈·런던 모두 현지에서 당일·전날 전화 (아래 '현지' 참조)</span><span class="mrow">· 나머지 끼니(아침·일부 점심)는 예약 불필요 — 취사·분산·당일 처리</span></span></div>
-      <div class="slot"><span class="t">연락</span><span class="c">☐ ⛪ 하노버 교회 — 18명 방문·점심 여부 최종 확인<span class="mrow">· ☐ 우버밴 10/4 두 구간 각각 예약 호출 — 숙소→교회 09:20(렌터카와 동시 출발) / 교회→런던 13:40</span><span class="mrow">· ☐ 런던 숙소① — 체크인 시간 · 출발일(10/8) 짐 실은 채 대기 가능 여부 문의 <span style="color:var(--faint)">(숙소② Katolondonhaus는 체크인 16:00 · 체크아웃 11:00 확정)</span></span></span></div>
-      <div class="slot"><span class="t">자유</span><span class="c">🚢 템즈강 크루즈 (City Cruises 10월 시간표: 웨스트민스터 출항 10:00~19:20 · 40분 간격 — 20시 이후 정규편 없음 · <b>20인 이상 단체 요금</b> 문의 0207 7400 400) · 한인 가이드 투어(10/5, 선택)</span></div>
-      <div class="slot"><span class="t">현지</span><span class="c">현지에서 하루 전·당일 처리하는 예약<span class="mrow">· 🍽 9/30 저녁 크릭하월 — 당일 오전 전화 (20명)</span><span class="mrow">· 🍽 10/1 점심·저녁 — 카마던 방면·복귀길에서 당일 결정 + 전화 (20명)</span><span class="mrow">· 🍽 10/4 저녁 — 런던 숙소 인근에서 당일 결정</span><span class="mrow">· 🍽 10/5 저녁 차이나타운 — 1안 선택 시 당일 오전 전화</span><span class="mrow">· 🍽 10/7 이른 저녁 17:00 — 당일 예약 + <b>메뉴 선주문</b> (19:20 크루즈 전 40분 식사 · 17:30 오픈 식당은 불가)</span></span></div>
-    </div>
-  </div>
-
-  <!-- ===== 08 준비물 체크리스트 ===== -->
-  <div class="section-title" id="s10"><span class="no">08</span>가져갈 준비물 체크리스트</div>
-
-  <div class="card rows narrow">
-    <div class="slots">
-      <div class="fx">👤 <b>개인 준비물 — 18명 각자</b> <span class="sm">✨ 항목을 누르면 ☑ 체크됩니다 — 체크 상태는 <b>내 폰/컴퓨터에만</b> 저장되니 각자 링크 열어서 체크하면 됨</span></div>
-      <div class="slot"><span class="t">서류</span><span class="c"><span class="ck" data-k="p1">여권 (유효기간 확인)</span> <span class="ck" data-k="p2">여권 사본·사진 폰에 저장</span> <span class="ck" data-k="p3">영국 ETA 승인 완료 (9/15까지)</span> <span class="ck" data-k="p4">항공 예약확인서</span> <span class="ck" data-k="p5">숙소 주소 캡처 (웨일즈 · 런던①·②)</span>
-        <span class="desc">ETA: 한국 여권 전원 필수 — 없으면 탑승 불가 · 1인 £20 · 2년 유효 · gov.uk 'UK ETA' 앱 신청 (보통 즉시~3근무일 승인)</span></span></div>
-      <div class="slot"><span class="t">돈 · 폰</span><span class="c"><span class="ck" data-k="q1">해외결제 카드 (트래블월렛 등)</span> <span class="ck" data-k="q2">파운드 소액 현금</span> <span class="ck" data-k="q3">로밍 또는 eSIM 신청</span> <span class="ck" data-k="q4">보조배터리 (기내 가방에!)</span> <span class="ck" data-k="q5">구글맵 오프라인 지도 저장 (웨일스·런던)</span>
-        <span class="desc">결제는 거의 전부 카드 터치 · 보조배터리는 위탁수하물 금지 — 반드시 기내 휴대</span></span></div>
-      <div class="slot"><span class="t">전자</span><span class="c"><span class="ck" data-k="r1">영국 G형(3핀) 어댑터 1개</span> <span class="ck" data-k="r2">충전 케이블</span> <span class="ck" data-k="r3">이어폰</span>
-        <span class="desc">영국 230V — 한국 기기 그대로 사용, 플러그만 변환</span></span></div>
-      <div class="slot"><span class="t">의류</span><span class="c"><span class="ck" data-k="s1">방수 자켓</span> <span class="ck" data-k="s2">겹쳐 입을 옷</span> <span class="ck" data-k="s3">방수 되는 편한 운동화</span> <span class="ck" data-k="s4">작은 배낭 (런던 도보용)</span> <span class="ck" data-k="s5">접이식 우산</span>
-        <span class="desc">10월 초 웨일스 8~16°C · 비 잦음 · 세미나 복귀 22시 — 방수 자켓이 우산보다 유용, 운동화는 탄광·묘역·계곡 산책용</span></span></div>
-      <div class="slot"><span class="t">생활</span><span class="c"><span class="ck" data-k="u1">개인 상비약 (매일 먹는 약!)</span> <span class="ck" data-k="u2">세면도구</span> <span class="ck" data-k="u3">슬리퍼</span> <span class="ck" data-k="u4">캐리어 이름표</span> <span class="ck" data-k="u5">성경 · 필기구</span>
-        <span class="desc">숙소 모두 코티지/주택형 · 캐리어는 매 구간 우버밴 위탁이라 이름표 식별 필수</span></span></div>
-      <div class="slot"><span class="t">남자</span><span class="c"><span class="ck" data-k="mm1">세미나 교재 또는 책 (분담 수량은 팀 공지 확인)</span>
-        <span class="desc">교재류는 무게가 나가니 위탁 23kg 확인 — 무거우면 기내 가방으로 분산</span></span></div>
-      <div class="slot"><span class="t">여자</span><span class="c"><span class="ck" data-k="ff1">조식·식사류 (즉석밥·컵국·반찬·라면 등 분담)</span>
-        <span class="desc">현지 마트(브레콘 Morrisons·뉴몰든 H Mart)에서도 구매 가능하니 초반 2~3일치 위주로 — 반입 가능/금지 품목은 바로 아래 <b>🛃 식품 반입 주의</b> 참조</span></span></div>
-      <div class="slot"><span class="t">🛃 식품 반입 주의</span><span class="c">영국 입국 시 캐리어 속 음식 규정 (gov.uk 기준) — 적발 시 전량 폐기·벌금 가능
-        <span class="mrow">· ❌ <b>육류·육류 가공품 전면 금지</b> — 햄·소시지·육포·고기만두·삼계탕 파우치·<b>고기 건더기 든 라면/즉석국</b></span>
-        <span class="mrow">· ❌ <b>우유·유제품 금지</b> (치즈·버터 포함 · 분유는 미개봉 2kg까지 예외)</span>
-        <span class="mrow">· ❌ 신선 과일·채소는 검역증 없으면 금지 — 예외(증명서 불필요): 바나나·파인애플·코코넛·감·키위·감귤류·망고·대추야자·두리안 · 포장된 가공 식물성 식품(김치·건조 채소·냉동)은 가능</span>
-        <span class="mrow">· ✅ 가능: 즉석밥·쌀 · 라면(고기 성분 없는 것) · 김·미역 · 고추장·된장 · 김치 · 참치캔·멸치·젓갈 등 생선류(1인 20kg까지) · 과자·커피믹스 · 꿀 2kg까지</span>
-        <span class="mrow">· 💡 기준은 성분표 — <b>beef/pork/chicken/milk 표기가 있으면 빼기</b> · 애매한 건 챙기지 말고 현지 H Mart에서 구매</span>
-        <span class="mrow">· 🛂 <b>검사 방식</b>: 영국은 호주와 달리 입국신고서가 없고 빨간/초록 채널 자율신고 + 선별(스팟) 검사 — 걸릴 확률은 호주보다 낮지만 <b>규정 자체는 육류·유제품 전면 금지로 호주와 같은 수준</b> · 신고하면 압수·폐기만, <b>미신고 적발 시 잉글랜드 기준 최대 £5,000 벌금 또는 기소</b> 가능 · 동아시아 노선은 압수 통계 상위라 단체 18명이 비슷한 짐을 들고 오면 선별 대상이 되기 쉬움 → 애매한 건 빨간 채널에서 물어보기</span>
-        <span class="mrow">· ✈️ 기내 반입 주의: 고추장·된장·쌈장·참기름·액상 소스는 <b>액체류(100ml 제한)</b>로 취급 — 전부 위탁수하물에 · 김치는 압력에 터지기 쉬우니 밀봉+이중 포장</span></span></div>
-      <div class="slot"><span class="t">🛒 현지 가격 샘플</span><span class="c">가져갈지 현지에서 살지 판단용 (2026.9 온라인 표시가 · 매장가는 다를 수 있음 · £1≈1,910원 · 한국가는 대략치)
-        <span class="mrow">· <b>한국 식품 (뉴몰든 H Mart 계열·한인마트)</b> — 한국의 약 1.5~2배: 신라면 5팩 £3.99 ≈ 7,600원 (한국 약 4,500) · 햇반 210g 6개 £8.79 ≈ 16,800원 = 개당 2,800원 (한국 약 1,300) · 해찬들 고추장 500g £3.95 ≈ 7,500원 · 해찬들 된장 500g £2.65 ≈ 5,100원 · 비비고 김치 1kg £9.80 ≈ 18,700원 · 진라면 낱개 £0.71 ≈ 1,400원</span>
-        <span class="mrow">· <b>기본 식재료 (브레콘 Morrisons)</b> — 한국과 비슷하거나 더 쌈: 우유 2파인트(1.14L) £1.20 ≈ 2,300원 · 계란 12개 £3.25 ≈ 6,200원 · 식빵 800g £0.74 ≈ 1,400원 · 닭가슴살 1kg £6.99 ≈ 13,400원</span>
-        <span class="mrow">· 💡 <b>결론</b>: 무겁고 비싼 건 햇반·라면 — 초반 2~3일치(1인 햇반 3~4개·라면 2~3개)만 캐리어에, 그 뒤는 뉴몰든에서 구매 · 아침용 빵·우유·계란·과일은 처음부터 현지 조달 (한 끼 20명 햇반 기준 현지 구매 시 약 £29 ≈ 5.6만원 — 한국 대비 3만원 차이지만 무게 4kg 절약)</span></span></div>
-      <div class="slot"><span class="t">운전자만</span><span class="c"><span class="ck" data-k="v1">국제운전면허증(IDP) 발급</span> <span class="ck" data-k="v2">한국 면허증</span> <span class="ck" data-k="v3">본인 명의 신용카드 (대표 2명)</span>
-        <span class="desc">렌터카 카운터에서 IDP + 한국 면허증 + 여권 셋 다 제시 · 신용카드는 보증금 홀드용</span></span></div>
-    </div>
-  </div>
-
-  <div class="card rows narrow">
-    <div class="slots">
-      <div class="fx">👥 <b>팀 공용 준비물 — 담당자 지정해서 분담</b> <span class="sm">(개인 짐과 별도 · 담당: <span class="pk" data-pid="teammgr"></span>)</span></div>
-      <div class="slot"><span class="t">사역 · 세미나</span><span class="c"><span class="ck" data-k="t1">세미나 교재·자료 (부수 확인)</span> <span class="ck" data-k="t2">노트북</span> <span class="ck" data-k="t3">HDMI 케이블 + USB-C 변환젠더</span> <span class="ck" data-k="t4">포스터·현수막</span> <span class="ck" data-k="t5">전도 스크립트 인쇄본</span> <span class="ck" data-k="t6">찬양 악보·반주 음원 (오프라인)</span> <span class="ck" data-k="t7">헌금 봉투</span> <span class="ck" data-k="t8">팀 명찰</span>
-        <span class="desc">빔프로젝터·스크린은 각 교회 보유 여부 확인 ☐ (없는 곳만 휴대용 준비) · 스크립트(이 일정표 10 섹션)는 코팅해 두면 우천에도 사용</span></span></div>
-      <div class="slot"><span class="t">식재료</span><span class="c"><span class="ck" data-k="x1">고추장·김·컵반 약간</span> <span class="ck" data-k="x2">세미나 미제공 끼니 대비 에너지바</span>
-        <span class="desc">식사는 대부분 현지 조달 (브레콘 Morrisons · 뉴몰든 H Mart — 한국 라면·쌀 구매 가능) — 부피 작은 것만 최소로 · 에너지바 수량은 07 식사 확인 결과 나온 뒤 결정</span></span></div>
-      <div class="slot"><span class="t">서류 · 보험</span><span class="c"><span class="ck" data-k="y1">여행자보험 (단체 가입 여부 결정)</span> <span class="ck" data-k="y2">예약 확인서 일괄 (폰 + 인쇄 1부)</span>
-        <span class="desc">숙소·렌터카·빅핏·크루즈 확인서 — 담당자 폰 저장 + 인쇄 1부</span></span></div>
-      <div class="slot"><span class="t">⛏ 빅 핏 주의</span><span class="c">지하 투어는 현역 탄광 기준 법 적용 (전원 사전 공지)<span class="mrow">· <b>배터리 전자기기(휴대폰·배터리 시계·카메라·차 키 리모컨) 지하 반입 금지</b> — 입갱 전 전량 수거·보관</span><span class="mrow">· 당일은 귀중품 최소화 · 차 키는 지상에 남는 인원에게</span><span class="mrow">· 지하 사진 촬영 불가 — 단체 사진은 지상에서</span></span></div>
-    </div>
-  </div>
-
-  <!-- ===== 09 3분 브릿지 전도 스크립트 ===== -->
-  <div class="section-title" id="s8"><span class="no">09</span>3분 브릿지 전도 스크립트<button type="button" class="stgl"></button></div>
-
-  <div class="card rows narrow">
-    <div class="slots">
-      <div class="fx gold">🌉 <b>3분 브릿지 전도법</b> — 검은 글씨는 영어 원문, 🔊 파란 줄은 <b>영국식(RP) 발음</b>, 회색은 뜻 <span class="sm">(영국식 포인트: r을 굴리지 않음 "포-·하-트·요-" · t를 또렷하게 "워터" · a를 길게 "아-프터·안-서" · new는 "뉴-" · 하이픈(-)은 길게 끄는 소리)</span></div>
-      <div class="slot"><span class="t">📴 오프라인 듣기 준비</span><span class="c">스피커 모드는 <b>기기에 내장된 음성엔진</b>을 쓰므로 파일(또는 링크로 연 페이지)만 저장돼 있으면 <b>인터넷 없이 재생</b>됩니다 — 단, 영어 음성이 기기에 설치돼 있어야 하니 출발 전 아래대로 준비:
-        <span class="desc">📱 <b>아이폰/아이패드</b> — 기본 내장이라 바로 됨 (더 좋은 목소리 원하면: 설정 → 손쉬운 사용 → 콘텐츠 말하기 → 음성 → English(UK)에서 원하는 음성 다운로드) · 🤖 <b>안드로이드</b> — 설정에서 <b>"텍스트 음성 변환"(TTS)</b> 검색 → 기본 엔진 'Google 음성 서비스(Speech Services by Google)' 옆 ⚙ → <b>음성 데이터 설치</b> → <b>English (United Kingdom)</b> 다운로드 (삼성폰은 삼성 TTS에서도 영어 추가 가능) · 💻 <b>윈도우 PC</b> — 설정 → 시간 및 언어 → 언어 → <b>English (United Kingdom)</b> 언어팩 추가(음성 포함) — 크롬이 오프라인일 땐 이 시스템 음성으로 재생됨 · ✅ <b>공통</b>: 설치 후 비행기모드 켜고 ▶ 전체 듣기 한 번 테스트 — 소리가 나면 현지에서도 상시 사용 가능 · 🇰🇷 <b>11~14 인물·관광지 자료의 "읽어주기"</b>는 한국어 음성을 쓰는데 한국 폰은 기본 내장(아이폰 유나 · 안드로이드 Google/삼성 TTS 한국어)이라 별도 설치 없이 바로 됨 — 안 나오면 같은 TTS 설정에서 "한국어" 음성 데이터 설치</span></span></div>
-      <div class="slot"><span class="t">인사</span><span class="c">Hello. May I have a few minutes of your time? — Thank you.
-        <span class="pron">🔊 헬로우. 메이 아이 해브 어 퓨- 미니츠 오브 요- 타임? — 쌩큐-.</span>
-        <span class="desc">안녕하세요. 잠깐 시간 좀 내주실래요? — 감사합니다.</span></span></div>
-      <div class="slot"><span class="t">창조</span><span class="c">In the beginning, God created the world. He created everything. Most importantly, God created human beings in His own image.
-        <span class="pron">🔊 인 더 비기닝, 고드 크리에이티드 더 월-드. 히- 크리에이티드 에브리씽. 모우스트 임포-턴틀리, 고드 크리에이티드 휴-먼 비-잉스 인 히즈 오운 이미지.</span>
-        <span class="desc">태초에 하나님께서 세상을 만드셨어요. 모든 것을 만드셨지요. 무엇보다도 하나님의 형상대로 사람을 만드셨어요. <b>※ 진행 팁:</b> "개나 돼지의 형상"이라는 표현은 불편하게 느껴질 수 있으니 쓰지 않기</span></span></div>
-      <div class="slot"><span class="t">처음</span><span class="c">In the beginning, we were with God, and we were very happy.
-        <span class="pron">🔊 인 더 비기닝, 위 워- 위드 고드, 앤드 위 워- 베리 해피.</span>
-        <span class="desc">태초에 우리가 하나님과 함께 있었는데 그때는 정말 행복했어요.</span></span></div>
-      <div class="slot"><span class="t">죄</span><span class="c">But sin separated us from God. Because of sin, many problems came into our lives.
-        <span class="pron">🔊 벗 신 세퍼레이티드 어스 프롬 고드. 비코즈 오브 신, 메니 프로블럼즈 케임 인투 아워 라이브즈.</span>
-        <span class="desc">그런데 죄로 인해 하나님을 떠나게 되었지요. 죄 때문에 많은 문제가 생겼어요.</span></span></div>
-      <div class="slot"><span class="t">문제 ①</span><span class="c">First, we experience hardship. We have to work hard to live.
-        <span class="pron">🔊 퍼-스트, 위 익스피어리언스 하-드쉽. 위 해브 투 워-크 하-드 투 리브.</span>
-        <span class="desc">첫째로 우리는 살기 위해 일해야만 하죠.</span></span></div>
-      <div class="slot"><span class="t">문제 ②</span><span class="c">Second, we experience sickness and disease.
-        <span class="pron">🔊 세컨드, 위 익스피어리언스 시크니스 앤드 디지-즈.</span>
-        <span class="desc">둘째, 다양한 질병이 찾아왔어요.</span></span></div>
-      <div class="slot"><span class="t">문제 ③</span><span class="c">Third, unexpected things happen in our lives. Things do not always go the way we want.
-        <span class="pron">🔊 써-드, 언익스펙티드 씽즈 해픈 인 아워 라이브즈. 씽즈 두- 노트 올-웨이즈 고우 더 웨이 위 원트.</span>
-        <span class="desc">셋째, 예기치 않은 일들이 생기죠. 우리 맘대로 인생이 흘러가지 않지요.</span></span></div>
-      <div class="slot"><span class="t">문제 ④</span><span class="c">Fourth, we experience fear, anxiety, loneliness, and emotional pain.
-        <span class="pron">🔊 포-쓰, 위 익스피어리언스 피어, 앵자이어티, 로운리니스, 앤드 이모우셔널 페인.</span>
-        <span class="desc">넷째로 우린 두려움, 근심, 외로움 그리고 정신적인 고통에 살고 있죠.</span></span></div>
-      <div class="slot"><span class="t">문제 ⑤</span><span class="c">Finally, can you guess? We are all destined to die. We are born into this world, we live here, and one day we die.
-        <span class="pron">🔊 파이널리, 캔 유- 게스? 위 아- 올- 데스틴드 투 다이. 위 아- 본- 인투 디스 월-드, 위 리브 히어, 앤드 원 데이 위 다이.</span>
-        <span class="desc">결정적으로 뭐가 더 있을까요? 우린 다 죽을 수밖에 없지요. 이렇게 태어나고 살다가 언젠가 죽게 되죠.</span></span></div>
-      <div class="slot"><span class="t">해결?</span><span class="c">Isn’t there any way to solve these problems? People try many different ways like visiting religious places and going about consulting from fortune tellers or astrology to find answers, but these things cannot completely solve the deepest problem in our lives. All these problems happened because sin separated us from God.
-        <span class="pron">🔊 이즌트 데어 애니 웨이 투 솔브 디-즈 프로블럼즈? 피-플 트라이 메니 디퍼런트 웨이즈 라이크 비지팅 릴리저스 플레이시즈 앤드 고우잉 어바우트 컨설팅 프롬 포-춘 텔러즈 오- 어스트롤러지 투 파인드 안-서즈, 벗 디-즈 씽즈 캐노트 컴플리-틀리 솔브 더 디-피스트 프로블럼 인 아워 라이브즈. 올- 디-즈 프로블럼즈 해픈드 비코즈 신 세퍼레이티드 어스 프롬 고드.</span>
-        <span class="desc">이 문제를 해결할 방법은 없을까요? 다양한 종교도 접하고 점도 쳐보지만 이런 것들이 우리 문제를 해결해 줄 수 없어요. 이 모든 일은 우리가 하나님을 떠나서 생긴 일이기 때문이지요.</span></span></div>
-      <div class="slot"><span class="t">행복?</span><span class="c">Still, people want to live a happy life. How can we be happy? Many people believe that money can make them happy. So they work very hard to become rich. But are they truly happy when they become rich? If not, will honour and success make us happy? If not, will having great power, like a president, make us happy? The answer is absolutely “No.”
-        <span class="pron">🔊 스틸, 피-플 원트 투 리브 어 해피 라이프. 하우 캔 위 비- 해피? 메니 피-플 빌리-브 댓 머니 캔 메이크 뎀 해피. 소우 데이 워-크 베리 하-드 투 비컴 리치. 벗 아- 데이 트룰-리 해피 웬 데이 비컴 리치? 이프 노트, 윌 오너 앤드 석세스 메이크 어스 해피? 이프 노트, 윌 해빙 그레이트 파워, 라이크 어 프레지던트, 메이크 어스 해피? 디 안-서 이즈 앱솔루-틀리 “노우.”</span>
-        <span class="desc">그래도 사람들은 행복하게 살기를 원하죠. 어떻게 행복할 수 있을까요? 대다수가 돈이면 최고라고 생각하고 열심히 일해 부자가 되기도 하지요. 그런데 과연 부자라고 행복할까요? 명예나 성공은요? 대통령 같은 권력은요? 답은…… 당연히 아니죠.</span></span></div>
-      <div class="slot"><span class="t">비유</span><span class="c">Do you know why? There is an important truth in this world. Look at this. Where can a fish be happy and healthy? Yes, in the water. Where can a tree grow well? Yes, in the soil. How can we be happy? God created us and He wants us to live in a good relationship with Him.
-        <span class="pron">🔊 두- 유- 노우 와이? 데어 이즈 언 임포-턴트 트루-쓰 인 디스 월-드. 룩 앳 디스. 웨어 캔 어 피쉬 비- 해피 앤드 헬씨? 예스, 인 더 워-터. 웨어 캔 어 트리- 그로우 웰? 예스, 인 더 소일. 하우 캔 위 비- 해피? 고드 크리에이티드 어스 앤드 히- 원츠 어스 투 리브 인 어 굳 릴레이션쉽 위드 힘.</span>
-        <span class="desc">왜 그런지 아세요? 이 세상에는 아주 중요한 뭔가가 있답니다. 물고기는 어디에 있어야 행복하고 건강할까요? 맞아요, 물속이죠. 나무는 어디에서 잘 자라죠? 맞아요, 땅속이죠. 그럼 우리는 어떻게 행복할 수 있지요? 하나님은 우리와 잘 지내고 싶어하세요.</span></span></div>
-      <div class="slot"><span class="t">다리</span><span class="c">But sin separates us from God. So how can our sins be forgiven? There is a wonderful way for us to come back to God. That way is Jesus Christ. Why is Jesus Christ the way? Jesus said in the Bible: <b>“I am the way and the truth and the life.” — John 14:6</b>. Jesus came into this world. He died for our sins on the cross, and He rose from the dead.
-        <span class="pron">🔊 벗 신 세퍼레이츠 어스 프롬 고드. 소우 하우 캔 아워 신즈 비- 포기븐? 데어 이즈 어 원더풀 웨이 포- 어스 투 컴 백 투 고드. 댓 웨이 이즈 지-저스 크라이스트. 와이 이즈 지-저스 크라이스트 더 웨이? 지-저스 세드 인 더 바이블: “아이 앰 더 웨이 앤드 더 트루-쓰 앤드 더 라이프” — 존 포-틴 식스. 지-저스 케임 인투 디스 월-드. 히- 다이드 포- 아워 신즈 온 더 크로스, 앤드 히- 로우즈 프롬 더 데드.</span>
-        <span class="desc">그런데 죄 때문에 우리가 떠나게 된 거예요. 그럼 우리 죄 문제는 어떻게 해결될까요? 하나님께 돌아갈 놀라운 길이 있어요. 그 길은 바로 예수님이시죠. 성경에 이르시기를 "내가 곧 길이요 진리요 생명이라"(요 14:6). 예수님께서 이 세상에 오셔서 십자가에서 우리 죄를 대신 지셨고 부활하셨답니다.</span></span></div>
-      <div class="slot"><span class="t">영접</span><span class="c">If we believe in Jesus Christ and accept Him as our Savior, He comes into our hearts and lives. Then our sins can be forgiven, and we can become children of God. As children of God, we receive His love, grace, peace, and many blessings. And one of the greatest blessings is the promise of eternal life with God.
-        <span class="pron">🔊 이프 위 빌리-브 인 지-저스 크라이스트 앤드 억셉트 힘 애즈 아워 세이비어, 히- 컴즈 인투 아워 하-츠 앤드 리브즈. 덴 아워 신즈 캔 비- 포기븐, 앤드 위 캔 비컴 칠드런 오브 고드. 애즈 칠드런 오브 고드, 위 리시-브 히즈 러브, 그레이스, 피-스, 앤드 메니 블레싱즈. 앤드 원 오브 더 그레이티스트 블레싱즈 이즈 더 프로미스 오브 이터-널 라이프 위드 고드.</span>
-        <span class="desc">우리가 그를 믿고 구주로 믿으면 그는 우리 마음에 오셔서 살게 되신답니다. 그때 우리 죄가 사해지고 하나님의 자녀가 돼요. 자녀가 되면 사랑·은혜·평화 그리고 많은 축복을 받게 되고, 그중 가장 큰 축복이 바로 영생이랍니다.</span></span></div>
-      <div class="slot"><span class="t">결단</span><span class="c">Now, where do you think you are? Here or here? God created us, sin separated us from Him, but Jesus brings us back to God. If you would like to receive Jesus Christ as your Savior, can you repeat after me?
-        <span class="pron">🔊 나우, 웨어 두- 유- 씽크 유- 아-? 히어 오- 히어? 고드 크리에이티드 어스, 신 세퍼레이티드 어스 프롬 힘, 벗 지-저스 브링즈 어스 백 투 고드. 이프 유- 우드 라이크 투 리시-브 지-저스 크라이스트 애즈 요- 세이비어, 캔 유- 리피-트 아-프터 미-?</span>
-        <span class="desc">자, 이제 선생님은 어디에 계세요? 하나님께서 우리를 만드셨지만 죄로 인해 떠났어요. 그런데 예수님께서 다시 우리를 하나님께로 인도하셨죠. 예수님을 구주로 영접하시기 원하시면, 절 따라 해 주시겠어요?</span></span></div>
-      <div class="fx gold">🙏 <b>영접 기도</b> — 11마디로 끊어 <b>한 마디 선창 → 상대가 따라 하면 다음 마디</b> (마디마다 멈춰서 기다리기 · 스피커 모드도 마디 단위로 재생됨)</div>
-      <div class="slot"><span class="t">①</span><span class="c">God our Father, I am a sinner.
-        <span class="pron">🔊 고드 아워 파-더, 아이 앰 어 시너</span>
-        <span class="desc">하나님 아버지, 저는 죄인입니다</span></span></div>
-      <div class="slot"><span class="t">②</span><span class="c">I have wandered far from You,
-        <span class="pron">🔊 아이 해브 원더드 파- 프롬 유-</span>
-        <span class="desc">오랫동안 하나님을 떠나 방황했지만</span></span></div>
-      <div class="slot"><span class="t">③</span><span class="c">but now I want to return to You.
-        <span class="pron">🔊 벗 나우 아이 원트 투 리턴- 투 유-</span>
-        <span class="desc">이제 하나님께 돌아가기 원합니다</span></span></div>
-      <div class="slot"><span class="t">④</span><span class="c">I believe that Jesus Christ died for my sins
-        <span class="pron">🔊 아이 빌리-브 댓 지-저스 크라이스트 다이드 포- 마이 신즈</span>
-        <span class="desc">예수님이 내 죄를 위해 죽으시고</span></span></div>
-      <div class="slot"><span class="t">⑤</span><span class="c">and rose from the dead.
-        <span class="pron">🔊 앤드 로우즈 프롬 더 데드</span>
-        <span class="desc">부활하신 것을 믿습니다</span></span></div>
-      <div class="slot"><span class="t">⑥</span><span class="c">Please forgive my sins.
-        <span class="pron">🔊 플리-즈 포기브 마이 신즈</span>
-        <span class="desc">내 죄를 용서해 주세요</span></span></div>
-      <div class="slot"><span class="t">⑦</span><span class="c">I invite Jesus Christ into my heart.
-        <span class="pron">🔊 아이 인바이트 지-저스 크라이스트 인투 마이 하-트</span>
-        <span class="desc">예수님을 내 마음에 초대합니다</span></span></div>
-      <div class="slot"><span class="t">⑧</span><span class="c">Jesus, please come and be my Savior and Lord.
-        <span class="pron">🔊 지-저스, 플리-즈 컴 앤드 비- 마이 세이비어 앤드 로-드</span>
-        <span class="desc">예수님, 오셔서 나의 구주와 주님이 되어 주세요</span></span></div>
-      <div class="slot"><span class="t">⑨</span><span class="c">From now on, I want to begin a new life as God’s child.
-        <span class="pron">🔊 프롬 나우 온, 아이 원트 투 비긴 어 뉴- 라이프 애즈 고즈 차일드</span>
-        <span class="desc">이제부터 하나님의 자녀로 새 삶을 살기 원합니다</span></span></div>
-      <div class="slot"><span class="t">⑩</span><span class="c">Please bless me and guide me now and forever.
-        <span class="pron">🔊 플리-즈 블레스 미- 앤드 가이드 미- 나우 앤드 퍼레버</span>
-        <span class="desc">지금부터 영원까지 나를 축복하시고 인도해 주세요</span></span></div>
-      <div class="slot"><span class="t">⑪</span><span class="c">In the name of Jesus Christ, I pray. Amen.
-        <span class="pron">🔊 인 더 네임 오브 지-저스 크라이스트, 아이 프레이. 아-멘</span>
-        <span class="desc">예수님의 이름으로 기도합니다. 아멘</span></span></div>
-      <div class="slot"><span class="t">마무리</span><span class="c">Thank you very much. May God bless you.
-        <span class="pron">🔊 쌩큐- 베리 머치. 메이 고드 블레스 유-.</span>
-        <span class="desc">감사합니다. 하나님의 축복이 함께 하시기를….</span></span></div>
-    </div>
-  </div>
-
-  <!-- ===== 10 전체 강의 분담표 ===== -->
-  <div class="section-title" id="s18"><span class="no">10</span>전체 강의 분담표</div>
+  <!-- ===== 03 전체 강의 분담표 ===== -->
+  <div class="section-title" id="s18"><span class="no">03</span>전체 강의 분담표</div>
 
   <div class="card" style="overflow-x:auto;">
     <div style="font-weight:700;font-size:15px;margin-bottom:10px;">📋 3분 브릿지 세미나 — 전체 강의 분담표</div>
@@ -1346,7 +1063,311 @@
     <div style="margin-top:8px;font-size:11.5px;color:var(--faint);">※ 사역교회 인쇄 일정표 원본 기준 (2026 영국 3분 브릿지 영국 세미나) — 각 날짜 카드의 세미나 슬롯에도 강사명이 함께 표기되어 있음</div>
   </div>
 
-  <!-- ===== 11 인물 자료 · 토머스 ===== -->
+  <div class="maingroup info"><span class="mgpill">🏨 예약 정보 · 실용 가이드</span><span class="mgsub">숙소·항공·렌터카 예약 내역과 운전·통신 등 현지 실용 정보</span></div>
+
+  <!-- ===== 04 숙소 ===== -->
+  <div class="section-title" id="s2"><span class="no">04</span>숙소</div>
+
+  <div class="stays">
+    <div class="stay">
+      <div class="period">🏡 <b>웨일즈 메인 숙소</b> · 9/29(화) — 10/4(일) · 5박 · <b>에어비앤비 예약 확정</b></div>
+      <div class="name">Forest Lodge Cottages <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Forest+Lodge+Cottages+Libanus+Brecon+LD3+8NW">📍 내비</a> <a class="map" href="https://www.airbnb.co.kr/rooms/46672629" target="_blank" rel="noopener">🏠 에어비앤비 페이지</a></div>
+      <div class="addr">Libanus, Brecon LD3 8NW · 웨일스 브레콘 비콘스 국립공원</div>
+      <div class="note">호스트 Anna Elizabeth (에어비앤비 앱 메시지로 연락) · 체크아웃 오전 10시까지 · Pen y Fan 10분 · 9인승 렌터카 2대로 이동</div>
+      <div class="note" style="display:block;margin-top:8px;">🛏 <b>방 구성 — 침실 6개 · 침대 21개 · 욕실 3.5 · 최대 24인</b> (에어비앤비 예약 페이지 기준 · 18명 여유)<span class="mrow">· 방1 싱글×6 — 이름: <span class="pk" data-pid="w1_1"></span> · <span class="pk" data-pid="w1_2"></span> · <span class="pk" data-pid="w1_3"></span> · <span class="pk" data-pid="w1_4"></span> · <span class="pk" data-pid="w1_5"></span> · <span class="pk" data-pid="w1_6"></span></span><span class="mrow">· 방2 싱글×6 — 이름: <span class="pk" data-pid="w2_1"></span> · <span class="pk" data-pid="w2_2"></span> · <span class="pk" data-pid="w2_3"></span> · <span class="pk" data-pid="w2_4"></span> · <span class="pk" data-pid="w2_5"></span> · <span class="pk" data-pid="w2_6"></span></span><span class="mrow">· 방3 더블×1 — 이름: <span class="pk" data-pid="w3_1"></span> · <span class="pk" data-pid="w3_2"></span></span><span class="mrow">· 방4 더블×1 — 이름: <span class="pk" data-pid="w4_1"></span> · <span class="pk" data-pid="w4_2"></span></span><span class="mrow">· 방5 싱글×5 — 이름: <span class="pk" data-pid="w5_1"></span> · <span class="pk" data-pid="w5_2"></span> · <span class="pk" data-pid="w5_3"></span> · <span class="pk" data-pid="w5_4"></span> · <span class="pk" data-pid="w5_5"></span></span><span class="mrow">· 방6 킹×1 + 싱글×1 — 이름: <span class="pk" data-pid="w6_1"></span> · <span class="pk" data-pid="w6_2"></span> · <span class="pk" data-pid="w6_3"></span></span></div>
+    </div>
+    <div class="stay">
+      <div class="period">🧭 <b>박진철 선교사님 숙소 · 웨일즈</b> · 같은 기간</div>
+      <div class="name">Coed Owen Bunkhouse <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Coed+Owen+Bunkhouse+Cwm+Taf+Merthyr+Tydfil+CF48+2HY">📍 내비</a></div>
+      <div class="addr">Cwm Taf, Merthyr Tydfil CF48 2HY · A470 변</div>
+      <div class="note">우리 웨일즈 메인 숙소에서 A470 남쪽으로 <b>차 13분</b> (실측 9.3마일) — 박진철 선교사님 합류·픽업 동선 참고</div>
+    </div>
+    <div class="stay">
+      <div class="period">🏙 <b>런던 메인 숙소 ①</b> · 10/4(일) — 10/8(목) · 4박 · 14명 · <b>에어비앤비 예약 확정</b></div>
+      <div class="name">런던 숙소 (모던) <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Seddon+Road+Morden+SM4+6ED">📍 내비</a> <a class="map" href="https://www.airbnb.co.kr/rooms/1365216491051996982" target="_blank" rel="noopener">🏠 에어비앤비 페이지</a></div>
+      <div class="addr">Seddon Rd, Morden SM4 6ED · 런던 남서부 (상세 호수는 예약 내역 확인) · 호스트 Syed (에어비앤비 앱 메시지로 연락)</div>
+      <div class="note">세미나 장소(서튼) 차 20분 · 모던역(런던 지하철 노던라인의 종점역) → 시내 약 40분 · 히드로 차 약 55분 · 체크인·체크아웃 시간과 9인승 2대 주차 가능 여부는 예약 내역·호스트에게 확인 필요</div>
+      <div class="note" style="display:block;margin-top:8px;">🛏 <b>방 구성 — 침실 6개 · 침대 13개 · 욕실 3.5 · 최대 16인</b> (에어비앤비 예약 페이지 기준 · 14명 배정)<span class="mrow">· 방1 싱글×3 — 이름: <span class="pk" data-pid="l11_1"></span> · <span class="pk" data-pid="l11_2"></span> · <span class="pk" data-pid="l11_3"></span></span><span class="mrow">· 방2 더블×1 + 싱글×1 — 이름: <span class="pk" data-pid="l12_1"></span> · <span class="pk" data-pid="l12_2"></span> · <span class="pk" data-pid="l12_3"></span></span><span class="mrow">· 방3 더블×1 + 싱글×1 — 이름: <span class="pk" data-pid="l13_1"></span> · <span class="pk" data-pid="l13_2"></span> · <span class="pk" data-pid="l13_3"></span></span><span class="mrow">· 방4 싱글×2 — 이름: <span class="pk" data-pid="l14_1"></span> · <span class="pk" data-pid="l14_2"></span></span><span class="mrow">· 방5 더블×1 — 이름: <span class="pk" data-pid="l15_1"></span> · <span class="pk" data-pid="l15_2"></span></span><span class="mrow">· 방6 싱글×3 — 이름: <span class="pk" data-pid="l16_1"></span> · <span class="pk" data-pid="l16_2"></span> · <span class="pk" data-pid="l16_3"></span></span></div>
+    </div>
+    <div class="stay">
+      <div class="period">🏙 <b>런던 메인 숙소 ②</b> · 10/4(일) 16:00 — 10/8(목) 11:00 · 4박 · 4명</div>
+      <div class="name">Katolondonhaus <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=18+Morton+Road+Morden+SM4+6EF">📍 내비</a> <a class="map" href="https://www.agoda.com/katolondonhaus/hotel/london-gb.html" target="_blank" rel="noopener">🏠 아고다 페이지</a></div>
+      <div class="addr">18 Morton Rd, Morden SM4 6EF · 숙소①(Seddon Rd)과 같은 모던 동네 — 도보 수 분 거리</div>
+      <div class="note"><b>체크인 10/4(일) 16:00 · 체크아웃 10/8(목) 11:00 확정</b> (아고다 예약 확정 · 객실 2개)</div>
+      <div class="note" style="display:block;margin-top:8px;">🛏 <b>방 구성 — 확정</b><span class="mrow">· 방1: 디럭스 킹룸 — 킹 더블 ×1 (2명) — 이름: <span class="pk" data-pid="l21_1"></span> · <span class="pk" data-pid="l21_2"></span></span><span class="mrow">· 방2: 더블룸 — 더블 ×1 (2명) — 이름: <span class="pk" data-pid="l22_1"></span> · <span class="pk" data-pid="l22_2"></span></span></div>
+    </div>
+    <div class="stay">
+      <div class="period">🧭 <b>박진철 선교사님 숙소 · 런던</b> · 같은 기간</div>
+      <div class="name">61A Seddon Rd <a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=61A+Seddon+Road+Morden+SM4+6ED">📍 내비</a></div>
+      <div class="addr">61A Seddon Rd, Morden SM4 6ED</div>
+      <div class="note">우리 런던 메인 숙소①과 <b>같은 거리(Seddon Rd)</b> — 사실상 바로 옆이라 합류 매우 편함 (숙소②도 같은 동네)</div>
+    </div>
+  </div>
+
+  <!-- ===== 05 항공 · 이동 수단 ===== -->
+  <div class="section-title" id="s1"><span class="no">05</span>항공 · 이동 수단</div>
+
+  <div class="flights">
+    <div class="flight">
+      <div class="tag"><span>가는 편 · 9/29(화)</span><span class="no">OZ521</span></div>
+      <div class="route">
+        <div class="port"><div class="code">ICN</div><div class="city">인천 <b>T2</b></div><div class="time">07:50</div><div class="day">9/29(화) 출발</div></div>
+        <div class="path"><span class="plane">✈️</span>14시간 30분</div>
+        <div class="port"><div class="code">LHR</div><div class="city">런던 히드로 <b>T2</b></div><div class="time">14:20</div><div class="day">9/29(화) 도착</div></div>
+      </div>
+    </div>
+    <div class="flight">
+      <div class="tag"><span>오는 편 · 10/8(목)</span><span class="no">OZ522</span></div>
+      <div class="route">
+        <div class="port"><div class="code">LHR</div><div class="city">런던 히드로 <b>T2</b></div><div class="time">16:35</div><div class="day">10/8(목) 출발</div></div>
+        <div class="path"><span class="plane">✈️</span>12시간 45분</div>
+        <div class="port"><div class="code">ICN</div><div class="city">인천 <b>T2</b></div><div class="time">13:20</div><div class="day">10/9(금) 도착</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info">
+    <span><b>터미널</b> 인천 <b>제2터미널(T2)</b> — ⚠️ 아시아나가 2026.1.14부터 T2로 이전 (예전 T1 아님, 잘못 가면 셔틀 15~20분) · 히드로 양방향 모두 <b>터미널 2</b>(스타얼라이언스)</span>
+    <span><b>출국일 팁</b> 07:50 출발 → 늦어도 05:30 인천 T2 도착 권장</span>
+    <span><b>시차</b> 런던이 한국보다 8시간 느림 (10월 말까지 서머타임)</span>
+  </div>
+
+  <div class="info">
+    <span><b>🧳 수하물 — 아시아나 유럽 노선 이코노미 기준</b>
+      <span class="mrow">· 위탁: 1인 <b>23kg 1개</b> (세 변 합 158cm) — 18명 최대 18개: 우버밴+트렁크 분산 계획과 일치</span>
+      <span class="mrow">· 기내: <b>10kg 1개</b> (세 변 합 115cm) + 노트북가방 등 개인 소지품 1개</span>
+      <span class="mrow">· ⚠️ <b>보조배터리는 위탁 금지 — 기내 휴대만</b> (100Wh 이하 · 09 준비물에도 표기)</span>
+      <span class="mrow">· ☐ 단체 운임은 수하물 조건이 다를 수 있음 — 예약확인서의 Baggage 표기로 최종 확인</span>
+      <span class="mrow">· 💷 <b>초과 수하물 요금 (아시아나 한국–유럽 · 공식 표 기준)</b>: 추가 1개(23kg·158cm 이내) <b>140,000원</b> · 무게 초과 24~32kg <b>110,000원/개</b>(24~28kg은 90,000원으로 표기된 페이지도 있음 — 결제 시 확인) · 규격 초과 159~203cm 210,000원 · 33kg 이상은 사전 협의 · 개수+무게 동시 초과 시 합산 <span style="color:var(--faint)">(2025년 인상안 보도가 있었으나 공식 표는 위 금액 — "수하물 사전 구매" 화면 금액이 최종)</span></span>
+      <span class="mrow">· 23kg 초과 요금이 큼 — 출발 전 집 저울로 체크, 무거운 것은 기내 가방으로 분산 · 식품 때문에 가방을 추가하는 건 손해(추가 1개 14만원 ≈ 햇반 23kg을 현지 구매할 때 더 드는 돈과 비슷) — 무료 23kg + 기내 10kg 안에서 끝내기</span></span>
+  </div>
+
+  <div class="info">
+    <span><b>🚗 렌터카 — <span style="color:#2e7d32">예약 완료 ✅</span></b>
+      <span class="mrow">· <b>SIXT</b> · 르노 트래픽(Renault Trafic) 또는 동급 9석 표준형 승합차 · 4도어 · 오토 · 2대 예약 = 18석 · 캐리어 5×24인치/대 (제조사 공식 적재 기준 — 실제 인원+수하물 동시 적재 시 여유는 현장 확인 필요 ☐)</span>
+      <span class="mrow">· 🛬 <b>픽업</b> — OZ521편 기준 2026-09-29(화) <b>16:00 현지시간</b> · <b>London Heathrow Airport 터미널 4</b> · 영업시간 07:00~23:00 · ☎ +44 20 7018 8246 · Hounslow TW6 3XE, UK · 제2·4·5터미널 내 카운터 — <b>터미널 건물 밖에서 도보거리 인수</b>(픽업 데스크 안내 따라 도보 이동)</span>
+      <span class="mrow">· 🛫 <b>반납</b> — <b>2026-10-08(목) 12:00 현지시간</b> · <b>London Heathrow Airport 터미널 4</b> (픽업과 동일 지점) · 영업시간 07:00~23:00 · ☎ +44 20 7018 8246 · Hounslow TW6 3XE, UK · 도보 이동 가능</span>
+      <span class="mrow">· ⚠️ <b>공항 터미널 불일치 주의</b> — OZ521/OZ522 항공편은 히드로 <b>터미널 2</b>에서 뜨고 내리는데, SIXT 픽업/반납 지점은 <b>터미널 4</b> — 입국 후 T2→T4 이동(Day 1, 15:20→16:00 픽업)과 출국 전 T4→T2 이동(Day 10, 반납 12:00→터미널 2)이 모두 일정에 반영됨</span>
+      <span class="mrow">· 🧳 트렁크 적재: 캐리어 5개/대(제조사 기준) — 9인승 만석 상태에서는 실질적으로 <b>대형 캐리어 3~4개/대</b>로 보는 게 안전 — <b>2대 합계 6~8개</b>, 나머지는 🚐 우버밴으로 분산</span>
+      <span class="mrow">· ⚠️ <b>오토(자동변속) 예약 확인 완료</b> — 영국은 수동이 기본이라 예약서상 오토 명시 재확인 ☐</span>
+      <span class="mrow">· 🚘 <b>차량 운용 원칙 두 가지</b></span>
+      <span class="mrow">· ① 숙소 도착 후 일상 이동(투어·세미나·식사)은 <b>보통 3대</b> — 렌터카 2대 + 가이드 목사님 차 (좌석 여유 · 주차 문의도 3대 기준)</span>
+      <span class="mrow">· ② <b>짐 이동 4구간은 무조건 렌터카 2대로 계산</b> — 가이드 차는 수송력에 넣지 않고 <b>🚐 짐차(우버 리저브) 1대를 반드시 확보</b>: 공항→숙소(9/29) · 숙소 체크아웃→교회(10/4) · 교회→런던 숙소(10/4) · 숙소 체크아웃→공항(10/8)</span>
+      <span class="mrow">· 🚙 <b>1호차</b> — 차량번호 <b>________</b> · 색상 ______ · 운전(교대 포함) <span class="pk" data-pid="d1a"></span> <span class="pk" data-pid="d1b"></span> <span class="pk" data-pid="d1c"></span></span>
+      <span class="mrow">· 🚙 <b>2호차</b> — 차량번호 <b>________</b> · 색상 ______ · 운전(교대 포함) <span class="pk" data-pid="d2a"></span> <span class="pk" data-pid="d2b"></span> <span class="pk" data-pid="d2c"></span></span>
+      <span class="mrow" style="color:var(--faint);font-size:12px;">(9/29 픽업 때 확정되는 대로 기입 — 단톡방 공지 + 링크판은 알려주시면 바로 갱신 · "내 차가 어느 차인지" 헷갈림 방지용)</span></span>
+    <span><b>🚐 우버밴 (캐리어 운송 전용)</b>
+      <span class="mrow">· 구간 4회 — ① 공항→숙소(9/29) · ② 웨일즈 숙소→교회(10/4) · ③ 교회→런던 숙소(10/4) · ④ 숙소→공항(10/8)</span>
+      <span class="mrow">· 짐만 보내는 무인 운송은 불가 — <b>매 구간 일행 1~2명 동승</b></span>
+      <span class="mrow">· 🙋 <b>구간별 동승자</b> (1~2명) — ① 9/29 공항→숙소: <span class="pk" data-pid="van1"></span> <span class="pk" data-pid="van1b"></span> · ② 10/4 숙소→교회: <span class="pk" data-pid="van2"></span> <span class="pk" data-pid="van2b"></span> · ③ 10/4 교회→런던: <span class="pk" data-pid="van3"></span> <span class="pk" data-pid="van3b"></span> · ④ 10/8 숙소→공항: <span class="pk" data-pid="van4"></span> <span class="pk" data-pid="van4b"></span> <span style="color:var(--faint);font-size:12px;">(같은 사람이 전 구간을 맡아도 되고 구간마다 달라도 됨 · 구간당 1~2명 — 출발 전 확정)</span></span>
+      <span class="mrow">· 🚐 <b>짐차는 1대 확정 — 우버 Exec XXL</b> (벤츠 V클래스·비토 롱바디급 · 우버에서 부를 수 있는 최대 차급): 동승 1명 기준 <b>대형 캐리어 8개 안팎 + 기내백</b>이 현실 한도</span>
+      <span class="mrow">· 밴 1대가 성립하는 조건 = <b>밴 몫을 8개 이하로</b> — 핵심 수단은 <b>캐리어 24~26인치 통일 공지</b> (렌터카 L1 기준 6~8개 + 통일된 중형 위주면 밴 8개 안팎으로 수렴) · 카운터에서 L2가 걸리면 여유가 더 생기는 보너스</span>
+      <span class="mrow">· 짐 분산 결과: 렌터카 2대(L2 기준 10~12개) + Exec XXL 1대(8개 안팎) = <b>18개+ 커버</b></span>
+      <span class="mrow">· 비상용: 당일 짐이 안 들어갈 때만 XL(대형 4~5개) 1대 현장 추가 호출 (£40~60/구간) — <b>계획은 어디까지나 밴 1대</b></span>
+      <span class="mrow">· 💷 <b>예상 비용 — Exec XXL로 4구간 전부 이용 시</b>: ① 히드로→브레콘(175마일) <b>£572 실견적 확인</b> · ② 숙소→하노버(30마일) £90~120 · ③ 하노버→런던(150마일) £450~550(추정 ☐) · ④ 모던→히드로(17마일) £70~90</span>
+      <span class="mrow">· <b>4구간 합계 약 £1,180~1,330 ≈ 225~254만원</b> (£1≈1,910원) — 렌터카 L2 배정 확정 시 장거리 ①③을 XL로 낮추면 <b>£300~400 절감</b> 가능 (합계 £800~950 수준)</span>
+      <span class="mrow">· 예약은 <b>우버 리저브(사전 예약)</b>로 — 장거리도 배차가 확정되고 공항 우선 픽업 제공 · 예약 시 "수하물 다수" 메시지로 기사에게 미리 고지 · 당일 짐이 넘치면 XL 1대 추가 호출</span></span>
+  </div>
+
+  <!-- ===== 06 운전 · 실용 정보 ===== -->
+  <div class="section-title" id="s5"><span class="no">06</span>운전 · 실용 정보</div>
+
+  <div class="card rows narrow">
+    <div class="slots">
+      <div class="slot"><span class="t">운전</span><span class="c"><b>좌측통행·우측핸들</b> — 9인승은 일반(2종보통) 면허로 운전 가능 (면허·서류는 09 준비물 참조)<span class="mrow">· 라운드어바웃(회전교차로)은 오른쪽에서 회전 중인 차 우선</span><span class="mrow">· 속도 표지판은 mph=마일 — 시내 20–30 / 국도 60 / 고속 70마일(≈113km)</span><span class="mrow">· ⚠️ <b>9인승은 차 높이 약 2m</b> — 실내·지하 주차장(제한 1.9~2m) 불가, 항상 지상 주차장 (일정표의 🅿️ 추천지는 전부 지상)</span><span class="mrow">· 🅿️ 유료 주차장은 <b>앱 결제(RingGo·PayByPhone·JustPark)</b>가 기본이고 현금기가 없는 곳이 많음 — 운전자 4명은 출발 전 RingGo 앱 설치·카드 등록 (차량번호는 픽업 후 입력)</span><span class="mrow">· 🌫 런던 <b>ULEZ(초저배출구역)</b>는 모던·서튼·뉴몰든·히드로까지 그레이터런던 전역 — 최근 연식 렌터카(유로6)는 요금 없음이지만 픽업 후 번호판으로 tfl.gov.uk에서 한 번 확인 (미준수 시 £12.50/일)</span><span class="mrow">· ⛽ 주유 전 <b>차량 연료 종류(Diesel/Petrol) 확인</b> — 영국 9인승은 대부분 디젤(검은 노즐), 혼유 사고 주의</span></span></div>
+      <div class="slot"><span class="t">연료</span><span class="c">웨일스 구간 주행 약 900km(차 1대 기준) — <b>중간 주유 1회 필요</b>: 브레콘 Morrisons 주유소가 마트 동선과 겹쳐 최적 (9/30 또는 10/1 밤)<span class="mrow">· 런던 구간은 주행이 적음 — 10/8 반납 전 히드로 인근 주유소에서 가득 채워 반납 (Full-to-Full 조건 확인)</span></span></div>
+      <div class="slot"><span class="t">정체 변수</span><span class="c">전 구간을 구글맵 <b>요일·시간대별 예측</b>으로 검증해 버퍼 반영 완료<span class="mrow">· 특히 밀리는 3곳 — ① 화(9/29) 저녁 M4 서행(레딩·뉴포트) · ② 일(10/4) 오후 M25 · ③ 목(10/8) 정오 A3/M25</span><span class="mrow">· <b>9/9 National Highways 확인 — 장기 공사 2건 해당</b>: M4 17~18번 출구 구간(리 델라미어 휴게소 지점, 9/29 통과)은 2026년 8월~2027년 3월 24시간 3차로 축소·50mph 제한 중 · A36 배스 인근 던다스~바탬튼 구간(10/4 귀경길)은 4월~11월 초 이동식 임시신호 운영(전면 통제 아님)</span><span class="mrow">· A3·M25(10/8 구간)는 확인 시점 기준 예정된 장기 공사 없음(M25 분기점10 개선공사는 봄 종료 예정) · 단기 주말 공사·사고는 별개이므로 <b>출발 전 주에 National Highways 사이트에서 최종 재확인</b> 권장</span></span></div>
+      <div class="slot"><span class="t">통행료</span><span class="c">런던 혼잡통행료 구역(평일 07–18시, £15/일)은 <b>시내 중심부만</b> — 모던·서튼·히드로 경로는 구역 밖이라 무관 · 잉글랜드→웨일스 넘어가는 세번 대교 통행료도 무료</span></div>
+      <div class="slot"><span class="t">날씨</span><span class="c">10월 초 8–16°C, 비 잦음 — 방수 자켓·우산·겹쳐 입기 필수 · 해가 18:50경 짐 (원거리 복귀일은 일몰 후 야간 운전 — 일정표에 반영됨)</span></div>
+      <div class="slot"><span class="t">생활</span><span class="c">결제는 카드 터치(컨택리스)가 기본 — 현금 거의 불필요 · 팁: 식당 계산서에 서비스차지(12.5%)가 이미 포함된 경우가 많음 — 포함돼 있으면 별도 팁 불필요 (어댑터·eSIM·카드 준비는 09 준비물 참조)</span></div>
+      <div class="slot"><span class="t">식사</span><span class="c">20명(가이드측 포함) 단체는 저녁 식당·펍 <b>사전 예약 필수</b> (시골 펍은 특히 — 하루 전 전화) · 런던 4박 식사·장보기 거점은 <b>뉴몰든</b> (숙소에서 차 10분)</span></div>
+      <div class="slot"><span class="t">외식 예산</span><span class="c">자체 부담 외식 <b>11회</b> 기준(저녁 7 + 점심 4) — 1끼 평균 £15~25/인 · 1인 약 £165~275 ≈ 32~53만원 (20명 전체 약 630~1,050만원 · 가이드측 인원 포함 추정)<span class="mrow">· 세미나·교회 제공 식사(길웬·하노버·손힐·런던 점심 등)는 제외 · 미확인은 10/4 하노버 주일예배 점심 1건뿐 — 미제공 확정 시 최대 12회로 소폭 증가</span><span class="mrow">· 끼니별 상세는 상단 <b>"식사 계획 한눈에"</b> 표 참조</span></span></div>
+      <div class="slot"><span class="t">서류</span><span class="c">여권 (잔여 유효기간 6개월 확인) · 국제운전면허증 · 여행자보험 (18명 단체 가입 권장) · 예약 확인서 일괄 출력 or 담당자 폰에 저장 (숙소·크루즈·BCW 회신·세미나장 안내 등 확정된 것 전부)</span></div>
+      <div class="slot"><span class="t">역할</span><span class="c">출발 전 정해두기 — 운전자 2명+교대 2명 · 🚐 우버밴 동승(짐 담당) 1명 · 예약·입장권 담당 1명 · 회계 1명 · 인원 체크 담당 1명 (18명 단체는 매 승차 때 인원 확인이 안전의 핵심)</span></div>
+      <div class="slot"><span class="t">오프라인 대비</span><span class="c">웨일스 시골길·채플 주변은 <b>통신 신호가 약한 구간이 많음</b> — 출발 전 와이파이에서 준비
+        <span class="mrow">· 🗺 <b>구글맵 오프라인 지도 저장</b>: 구글맵 앱 → 우상단 프로필 → 오프라인 지도 → "나만의 지도 선택" → ① 웨일스 남부(브레콘~스완지~카디건 포함 크게) ② 런던 일대 — 두 구역 저장 (운전자 4명은 필수, 저장해두면 신호 없어도 내비 작동)</span>
+        <span class="mrow">· 📄 이 일정표 HTML 파일도 각자 폰에 저장 — 오버뷰 지도·전도 스크립트 듣기까지 오프라인 작동</span>
+        <span class="mrow">· 📞 국제전화: 영국에서 한국으로 <b>+82 10-…</b> (010의 첫 0 빼기) · 한국에서 영국으로 +44 · 로밍이면 한국 번호 그대로 수발신</span>
+        <span class="mrow">· 🏥 아플 때: 긴급 999 · 비응급 의료 상담 <b>NHS 111</b> (전화 111 · 무료 · 24시간 · 통역 요청 가능) · 가벼운 증상은 Boots 등 약국(Pharmacy) 상담 — 감기약·진통제는 처방 없이 구입</span></span></div>
+      <div class="slot"><span class="t">비상</span><span class="c">긴급전화 <b>999</b> (경찰·구급·소방) · 주영국 한국대사관 020-7227-5500 · 외교부 영사콜센터 +82-2-3210-0404 (24시간) · 일행 단톡방에 이 일정표 링크 공유</span></div>
+    </div>
+  </div>
+
+  <div class="maingroup prep"><span class="mgpill">✅ 출발 전 준비</span><span class="mgsub">떠나기 전 훑어볼 전체 요약과 두 가지 체크리스트</span></div>
+
+  <!-- ===== 07 한눈에 보기 — 방문지 총정리 ===== -->
+  <div class="section-title" id="s6"><span class="no">07</span>한눈에 보기 — 방문지 총정리</div>
+
+  <div class="card rows narrow">
+    <div class="slots">
+      <div class="slot"><span class="t">사역</span><span class="c">3분 브릿지 세미나 (9/30 길웬 10:30~17 · 10/2 사론·크리넌트 19~21 · 10/3 하노버 10:30~15 → 손힐 17~21 · 런던 10/6·7 서튼 10:30~15) · 하노버 교회 주일예배 (10/4 11:00)</span></div>
+      <div class="slot"><span class="t">성지</span><span class="c">⛪ <b>토머스</b> <a class="map bg" href="#s11">📜 11</a> — 하노버 교회 (예배당·아버지 기념비·소년기 목사관 경내 미니 코스 · 10/3 세미나 + 10/4 예배 11:00)<span class="mrow">· <b>이반 로버츠</b> <a class="map bg" href="#s13">📜 13</a> — 모리아 채플(오벨리스크·묘역) + 블라이난네르흐 서원 채플 + Ffald-y-Brenin 기도원 (10/1 목)</span><span class="mrow">· <b>리즈 하월즈</b> <a class="map bg" href="#s12">📜 12</a> — BCW 헤리티지 센터 (10/2 금)</span></span></div>
+      <div class="slot"><span class="t">관광</span><span class="c">확보: ⛏ 빅 핏 탄광 지하 투어 (10/1) <a class="map bg" href="#bg-bigpit">📖</a> · Ffald-y-Brenin (10/1) <a class="map bg" href="#bg-ffald">📖</a> · 고워 반도 (10/2) <a class="map bg" href="#bg-gower">📖</a> · 멈블스 (10/2) <a class="map bg" href="#bg-mumbles">📖</a> · 클리프턴 현수교 (10/4) <a class="map bg" href="#bg-clifton">📖</a> · 뮬러 고아원 (10/4) <a class="map bg" href="#bg-muller">📖</a> · 한햄 마운트 (10/4) <a class="map bg" href="#bg-hanham">📖</a> · 스톤헨지 차창 조망 (10/4·정차 없이 경유) <a class="map bg" href="#bg-stonehenge">📖</a> · 대영박물관 (10/5) <a class="map bg" href="#bg-bm">📖</a> · 웨스트민스터 일대 (10/5) <a class="map bg" href="#bg-abbey">📖</a> · 템즈강 야경 크루즈 (10/7) <a class="map bg" href="#bg-cruise">📖</a></span></div>
+      <div class="slot"><span class="t">비용</span><span class="c"><span class="pay">유료 — 20명 기준(가이드측 인원 포함 추정)</span> 빅 핏 지하 투어 £160 ≈ 31만원 (1인 £8) · 템즈 크루즈 £400~500 ≈ 76~96만원 → 합계 약 £560~660 ≈ 107~126만원 · 나머지 방문지는 전부 <span class="free">무료</span> <span class="desc">환산 기준 £1 ≈ 1,910원 (2026.8) — 환율 변동에 따라 달라질 수 있음 · 식사·주차·교통비 별도</span></span></div>
+    </div>
+  </div>
+
+  <!-- ===== 08 예약 체크리스트 ===== -->
+  <div class="section-title" id="s4"><span class="no">08</span>예약 체크리스트</div>
+
+  <div class="card rows narrow">
+    <div class="slots">
+      <div class="slot"><span class="t">렌터카</span><span class="c"><b style="color:#2e7d32">✅ 예약 완료</b> — <b>SIXT</b> 르노 트래픽(또는 동급) 9인승 오토 2대<span class="mrow">· 픽업 9/29(화) 16:00 현지시간 · <b>히드로 터미널 4</b> (☎ +44 20 7018 8246)</span><span class="mrow">· 반납 10/8(목) <b>12:00 현지시간</b> · <b>히드로 터미널 4</b> (픽업과 동일 지점)</span><span class="mrow">· 교대 운전자는 전원 <b>추가 운전자로 계약 등록</b>했는지 확인 ☐ (1인당 요금 발생 여부 확인)</span><span class="mrow">· 한국 면허는 <b>IDP 동반 필수</b> — 픽업 카운터에서 IDP+여권+신용카드(대표 운전자 명의) 제시</span><span class="mrow">· ⚠️ 항공편(OZ521/522)은 <b>터미널 2</b> 착발이라 T2↔T4 이동 필요 — Day 1(입국 후 T2→T4)/Day 10(반납 후 T4→T2) 일정에 반영됨</span></span></div>
+      <div class="slot"><span class="t">진행</span><span class="c">☐ ⛪ BCW 단체 방문 이메일 — heritage@bcwales.org · 10/2(금) <b>예약 시각 13:15</b> (10인 이상 필수 · 개관 화~금 10~15시)<span class="mrow">· ☐ 모리아 채플 방문 양식 제출 (moriahchapel.org.uk Contact Us · <b>2주 전 권장 → 9/17까지</b>) — 10/1(목) <b>방문 시각 17:45</b></span><span class="mrow">· ☐ ⛏ 빅 핏 지하 투어 단체 예약 — bigpit@museumwales.ac.uk · <b>10/1(목) 10:00 회차 20명</b> (가이드측 2명 포함 · 10인+ 필수 · 차량 3대 주차 함께 문의)</span><span class="mrow">· ☐ 🏛 <b>대영박물관 단체 예약</b> (10인+ · 최소 7일 전 · 무료 · britishmuseum.org 〉 Group visits) — 10/5(월) 10:00 · 20명</span><span class="mrow">· ☐ 🖼 <b>내셔널갤러리 self-guided group 예약</b> (8인+ · 무료 · nationalgallery.org.uk 〉 Visiting) — 10/5(월) 15:10 · 20명</span><span class="mrow">· ☐ 🙏 Ffald-y-Brenin 단체 방문 연락 — 01348 881419 · bookings@ffald-y-brenin.org (5인+ 사전 연락 필수 · 10/1 15:10 예정)</span></span></div>
+      <div class="slot"><span class="t">식사 확인</span><span class="c">🎁 세미나 식사 제공 — <b>대부분 확정</b>: 길웬(9/30 점심)·하노버(10/3 점심)·손힐(10/3 저녁)·런던(10/6·7 점심) <span style="color:var(--faint)">(10/2 사론 저녁은 제공 불가 통보 — 외식으로 자체 해결)</span><span class="mrow">· ☐ <b>미확인 1건 — 10/4(일) 하노버 교회 주일예배 후 점심</b> 제공 여부만 확인</span><span class="mrow">· 미제공으로 확인되면 그 끼니만 간편식(샌드위치·에너지바) 준비</span></span></div>
+      <div class="slot"><span class="t">식당</span><span class="c">🍽 식당 예약 — 대부분 <b>현지 도착 후 당일 전화</b>로 처리 (사전 확정된 곳 없음 · <b>투어·식당 예약 인원은 가이드측 2명 포함 20명</b>, 항공·짐·숙소는 우리 팀 18명 기준)<span class="mrow">· <b>저녁은 전 일정 외식 방침</b> — 웨일즈·런던 모두 현지에서 당일·전날 전화 (아래 '현지' 참조)</span><span class="mrow">· 나머지 끼니(아침·일부 점심)는 예약 불필요 — 취사·분산·당일 처리</span></span></div>
+      <div class="slot"><span class="t">연락</span><span class="c">☐ ⛪ 하노버 교회 — 18명 방문·점심 여부 최종 확인<span class="mrow">· ☐ 우버밴 10/4 두 구간 각각 예약 호출 — 숙소→교회 09:20(렌터카와 동시 출발) / 교회→런던 13:40</span><span class="mrow">· ☐ 런던 숙소① — 체크인 시간 · 출발일(10/8) 짐 실은 채 대기 가능 여부 문의 <span style="color:var(--faint)">(숙소② Katolondonhaus는 체크인 16:00 · 체크아웃 11:00 확정)</span></span></span></div>
+      <div class="slot"><span class="t">자유</span><span class="c">🚢 템즈강 크루즈 (City Cruises 10월 시간표: 웨스트민스터 출항 10:00~19:20 · 40분 간격 — 20시 이후 정규편 없음 · <b>20인 이상 단체 요금</b> 문의 0207 7400 400) · 한인 가이드 투어(10/5, 선택)</span></div>
+      <div class="slot"><span class="t">현지</span><span class="c">현지에서 하루 전·당일 처리하는 예약<span class="mrow">· 🍽 9/30 저녁 크릭하월 — 당일 오전 전화 (20명)</span><span class="mrow">· 🍽 10/1 점심·저녁 — 카마던 방면·복귀길에서 당일 결정 + 전화 (20명)</span><span class="mrow">· 🍽 10/4 저녁 — 런던 숙소 인근에서 당일 결정</span><span class="mrow">· 🍽 10/5 저녁 차이나타운 — 1안 선택 시 당일 오전 전화</span><span class="mrow">· 🍽 10/7 이른 저녁 17:00 — 당일 예약 + <b>메뉴 선주문</b> (19:20 크루즈 전 40분 식사 · 17:30 오픈 식당은 불가)</span></span></div>
+    </div>
+  </div>
+
+  <!-- ===== 09 가져갈 준비물 체크리스트 ===== -->
+  <div class="section-title" id="s10"><span class="no">09</span>가져갈 준비물 체크리스트</div>
+
+  <div class="card rows narrow">
+    <div class="slots">
+      <div class="fx">👤 <b>개인 준비물 — 18명 각자</b> <span class="sm">✨ 항목을 누르면 ☑ 체크됩니다 — 체크 상태는 <b>내 폰/컴퓨터에만</b> 저장되니 각자 링크 열어서 체크하면 됨</span></div>
+      <div class="slot"><span class="t">서류</span><span class="c"><span class="ck" data-k="p1">여권 (유효기간 확인)</span> <span class="ck" data-k="p2">여권 사본·사진 폰에 저장</span> <span class="ck" data-k="p3">영국 ETA 승인 완료 (9/15까지)</span> <span class="ck" data-k="p4">항공 예약확인서</span> <span class="ck" data-k="p5">숙소 주소 캡처 (웨일즈 · 런던①·②)</span>
+        <span class="desc">ETA: 한국 여권 전원 필수 — 없으면 탑승 불가 · 1인 £20 · 2년 유효 · gov.uk 'UK ETA' 앱 신청 (보통 즉시~3근무일 승인)</span></span></div>
+      <div class="slot"><span class="t">돈 · 폰</span><span class="c"><span class="ck" data-k="q1">해외결제 카드 (트래블월렛 등)</span> <span class="ck" data-k="q2">파운드 소액 현금</span> <span class="ck" data-k="q3">로밍 또는 eSIM 신청</span> <span class="ck" data-k="q4">보조배터리 (기내 가방에!)</span> <span class="ck" data-k="q5">구글맵 오프라인 지도 저장 (웨일스·런던)</span>
+        <span class="desc">결제는 거의 전부 카드 터치 · 보조배터리는 위탁수하물 금지 — 반드시 기내 휴대</span></span></div>
+      <div class="slot"><span class="t">전자</span><span class="c"><span class="ck" data-k="r1">영국 G형(3핀) 어댑터 1개</span> <span class="ck" data-k="r2">충전 케이블</span> <span class="ck" data-k="r3">이어폰</span>
+        <span class="desc">영국 230V — 한국 기기 그대로 사용, 플러그만 변환</span></span></div>
+      <div class="slot"><span class="t">의류</span><span class="c"><span class="ck" data-k="s1">방수 자켓</span> <span class="ck" data-k="s2">겹쳐 입을 옷</span> <span class="ck" data-k="s3">방수 되는 편한 운동화</span> <span class="ck" data-k="s4">작은 배낭 (런던 도보용)</span> <span class="ck" data-k="s5">접이식 우산</span>
+        <span class="desc">10월 초 웨일스 8~16°C · 비 잦음 · 세미나 복귀 22시 — 방수 자켓이 우산보다 유용, 운동화는 탄광·묘역·계곡 산책용</span></span></div>
+      <div class="slot"><span class="t">생활</span><span class="c"><span class="ck" data-k="u1">개인 상비약 (매일 먹는 약!)</span> <span class="ck" data-k="u2">세면도구</span> <span class="ck" data-k="u3">슬리퍼</span> <span class="ck" data-k="u4">캐리어 이름표</span> <span class="ck" data-k="u5">성경 · 필기구</span>
+        <span class="desc">숙소 모두 코티지/주택형 · 캐리어는 매 구간 우버밴 위탁이라 이름표 식별 필수</span></span></div>
+      <div class="slot"><span class="t">남자</span><span class="c"><span class="ck" data-k="mm1">세미나 교재 또는 책 (분담 수량은 팀 공지 확인)</span>
+        <span class="desc">교재류는 무게가 나가니 위탁 23kg 확인 — 무거우면 기내 가방으로 분산</span></span></div>
+      <div class="slot"><span class="t">여자</span><span class="c"><span class="ck" data-k="ff1">조식·식사류 (즉석밥·컵국·반찬·라면 등 분담)</span>
+        <span class="desc">현지 마트(브레콘 Morrisons·뉴몰든 H Mart)에서도 구매 가능하니 초반 2~3일치 위주로 — 반입 가능/금지 품목은 바로 아래 <b>🛃 식품 반입 주의</b> 참조</span></span></div>
+      <div class="slot"><span class="t">🛃 식품 반입 주의</span><span class="c">영국 입국 시 캐리어 속 음식 규정 (gov.uk 기준) — 적발 시 전량 폐기·벌금 가능
+        <span class="mrow">· ❌ <b>육류·육류 가공품 전면 금지</b> — 햄·소시지·육포·고기만두·삼계탕 파우치·<b>고기 건더기 든 라면/즉석국</b></span>
+        <span class="mrow">· ❌ <b>우유·유제품 금지</b> (치즈·버터 포함 · 분유는 미개봉 2kg까지 예외)</span>
+        <span class="mrow">· ❌ 신선 과일·채소는 검역증 없으면 금지 — 예외(증명서 불필요): 바나나·파인애플·코코넛·감·키위·감귤류·망고·대추야자·두리안 · 포장된 가공 식물성 식품(김치·건조 채소·냉동)은 가능</span>
+        <span class="mrow">· ✅ 가능: 즉석밥·쌀 · 라면(고기 성분 없는 것) · 김·미역 · 고추장·된장 · 김치 · 참치캔·멸치·젓갈 등 생선류(1인 20kg까지) · 과자·커피믹스 · 꿀 2kg까지</span>
+        <span class="mrow">· 💡 기준은 성분표 — <b>beef/pork/chicken/milk 표기가 있으면 빼기</b> · 애매한 건 챙기지 말고 현지 H Mart에서 구매</span>
+        <span class="mrow">· 🛂 <b>검사 방식</b>: 영국은 호주와 달리 입국신고서가 없고 빨간/초록 채널 자율신고 + 선별(스팟) 검사 — 걸릴 확률은 호주보다 낮지만 <b>규정 자체는 육류·유제품 전면 금지로 호주와 같은 수준</b> · 신고하면 압수·폐기만, <b>미신고 적발 시 잉글랜드 기준 최대 £5,000 벌금 또는 기소</b> 가능 · 동아시아 노선은 압수 통계 상위라 단체 18명이 비슷한 짐을 들고 오면 선별 대상이 되기 쉬움 → 애매한 건 빨간 채널에서 물어보기</span>
+        <span class="mrow">· ✈️ 기내 반입 주의: 고추장·된장·쌈장·참기름·액상 소스는 <b>액체류(100ml 제한)</b>로 취급 — 전부 위탁수하물에 · 김치는 압력에 터지기 쉬우니 밀봉+이중 포장</span></span></div>
+      <div class="slot"><span class="t">🛒 현지 가격 샘플</span><span class="c">가져갈지 현지에서 살지 판단용 (2026.9 온라인 표시가 · 매장가는 다를 수 있음 · £1≈1,910원 · 한국가는 대략치)
+        <span class="mrow">· <b>한국 식품 (뉴몰든 H Mart 계열·한인마트)</b> — 한국의 약 1.5~2배: 신라면 5팩 £3.99 ≈ 7,600원 (한국 약 4,500) · 햇반 210g 6개 £8.79 ≈ 16,800원 = 개당 2,800원 (한국 약 1,300) · 해찬들 고추장 500g £3.95 ≈ 7,500원 · 해찬들 된장 500g £2.65 ≈ 5,100원 · 비비고 김치 1kg £9.80 ≈ 18,700원 · 진라면 낱개 £0.71 ≈ 1,400원</span>
+        <span class="mrow">· <b>기본 식재료 (브레콘 Morrisons)</b> — 한국과 비슷하거나 더 쌈: 우유 2파인트(1.14L) £1.20 ≈ 2,300원 · 계란 12개 £3.25 ≈ 6,200원 · 식빵 800g £0.74 ≈ 1,400원 · 닭가슴살 1kg £6.99 ≈ 13,400원</span>
+        <span class="mrow">· 💡 <b>결론</b>: 무겁고 비싼 건 햇반·라면 — 초반 2~3일치(1인 햇반 3~4개·라면 2~3개)만 캐리어에, 그 뒤는 뉴몰든에서 구매 · 아침용 빵·우유·계란·과일은 처음부터 현지 조달 (한 끼 20명 햇반 기준 현지 구매 시 약 £29 ≈ 5.6만원 — 한국 대비 3만원 차이지만 무게 4kg 절약)</span></span></div>
+      <div class="slot"><span class="t">운전자만</span><span class="c"><span class="ck" data-k="v1">국제운전면허증(IDP) 발급</span> <span class="ck" data-k="v2">한국 면허증</span> <span class="ck" data-k="v3">본인 명의 신용카드 (대표 2명)</span>
+        <span class="desc">렌터카 카운터에서 IDP + 한국 면허증 + 여권 셋 다 제시 · 신용카드는 보증금 홀드용</span></span></div>
+    </div>
+  </div>
+
+  <div class="card rows narrow">
+    <div class="slots">
+      <div class="fx">👥 <b>팀 공용 준비물 — 담당자 지정해서 분담</b> <span class="sm">(개인 짐과 별도 · 담당: <span class="pk" data-pid="teammgr"></span>)</span></div>
+      <div class="slot"><span class="t">사역 · 세미나</span><span class="c"><span class="ck" data-k="t1">세미나 교재·자료 (부수 확인)</span> <span class="ck" data-k="t2">노트북</span> <span class="ck" data-k="t3">HDMI 케이블 + USB-C 변환젠더</span> <span class="ck" data-k="t4">포스터·현수막</span> <span class="ck" data-k="t5">전도 스크립트 인쇄본</span> <span class="ck" data-k="t6">찬양 악보·반주 음원 (오프라인)</span> <span class="ck" data-k="t7">헌금 봉투</span> <span class="ck" data-k="t8">팀 명찰</span>
+        <span class="desc">빔프로젝터·스크린은 각 교회 보유 여부 확인 ☐ (없는 곳만 휴대용 준비) · 스크립트(이 일정표 10 섹션)는 코팅해 두면 우천에도 사용</span></span></div>
+      <div class="slot"><span class="t">식재료</span><span class="c"><span class="ck" data-k="x1">고추장·김·컵반 약간</span> <span class="ck" data-k="x2">세미나 미제공 끼니 대비 에너지바</span>
+        <span class="desc">식사는 대부분 현지 조달 (브레콘 Morrisons · 뉴몰든 H Mart — 한국 라면·쌀 구매 가능) — 부피 작은 것만 최소로 · 에너지바 수량은 08 식사 확인 결과 나온 뒤 결정</span></span></div>
+      <div class="slot"><span class="t">서류 · 보험</span><span class="c"><span class="ck" data-k="y1">여행자보험 (단체 가입 여부 결정)</span> <span class="ck" data-k="y2">예약 확인서 일괄 (폰 + 인쇄 1부)</span>
+        <span class="desc">숙소·렌터카·빅핏·크루즈 확인서 — 담당자 폰 저장 + 인쇄 1부</span></span></div>
+      <div class="slot"><span class="t">⛏ 빅 핏 주의</span><span class="c">지하 투어는 현역 탄광 기준 법 적용 (전원 사전 공지)<span class="mrow">· <b>배터리 전자기기(휴대폰·배터리 시계·카메라·차 키 리모컨) 지하 반입 금지</b> — 입갱 전 전량 수거·보관</span><span class="mrow">· 당일은 귀중품 최소화 · 차 키는 지상에 남는 인원에게</span><span class="mrow">· 지하 사진 촬영 불가 — 단체 사진은 지상에서</span></span></div>
+    </div>
+  </div>
+
+  <div class="maingroup ref"><span class="mgpill">📚 배경 자료 · 참고</span><span class="mgsub">전도 스크립트 · 인물 이야기 · 관광지 배경 — 필요할 때만 펼쳐보기 (기본은 접힘)</span></div>
+
+  <!-- ===== 10 3분 브릿지 전도 스크립트 ===== -->
+  <div class="section-title" id="s8"><span class="no">10</span>3분 브릿지 전도 스크립트<button type="button" class="stgl"></button></div>
+
+  <div class="card rows narrow">
+    <div class="slots">
+      <div class="fx gold">🌉 <b>3분 브릿지 전도법</b> — 검은 글씨는 영어 원문, 🔊 파란 줄은 <b>영국식(RP) 발음</b>, 회색은 뜻 <span class="sm">(영국식 포인트: r을 굴리지 않음 "포-·하-트·요-" · t를 또렷하게 "워터" · a를 길게 "아-프터·안-서" · new는 "뉴-" · 하이픈(-)은 길게 끄는 소리)</span></div>
+      <div class="slot"><span class="t">📴 오프라인 듣기 준비</span><span class="c">스피커 모드는 <b>기기에 내장된 음성엔진</b>을 쓰므로 파일(또는 링크로 연 페이지)만 저장돼 있으면 <b>인터넷 없이 재생</b>됩니다 — 단, 영어 음성이 기기에 설치돼 있어야 하니 출발 전 아래대로 준비:
+        <span class="desc">📱 <b>아이폰/아이패드</b> — 기본 내장이라 바로 됨 (더 좋은 목소리 원하면: 설정 → 손쉬운 사용 → 콘텐츠 말하기 → 음성 → English(UK)에서 원하는 음성 다운로드) · 🤖 <b>안드로이드</b> — 설정에서 <b>"텍스트 음성 변환"(TTS)</b> 검색 → 기본 엔진 'Google 음성 서비스(Speech Services by Google)' 옆 ⚙ → <b>음성 데이터 설치</b> → <b>English (United Kingdom)</b> 다운로드 (삼성폰은 삼성 TTS에서도 영어 추가 가능) · 💻 <b>윈도우 PC</b> — 설정 → 시간 및 언어 → 언어 → <b>English (United Kingdom)</b> 언어팩 추가(음성 포함) — 크롬이 오프라인일 땐 이 시스템 음성으로 재생됨 · ✅ <b>공통</b>: 설치 후 비행기모드 켜고 ▶ 전체 듣기 한 번 테스트 — 소리가 나면 현지에서도 상시 사용 가능 · 🇰🇷 <b>11~16 인물·관광지 자료의 "읽어주기"</b>는 한국어 음성을 쓰는데 한국 폰은 기본 내장(아이폰 유나 · 안드로이드 Google/삼성 TTS 한국어)이라 별도 설치 없이 바로 됨 — 안 나오면 같은 TTS 설정에서 "한국어" 음성 데이터 설치</span></span></div>
+      <div class="slot"><span class="t">인사</span><span class="c">Hello. May I have a few minutes of your time? — Thank you.
+        <span class="pron">🔊 헬로우. 메이 아이 해브 어 퓨- 미니츠 오브 요- 타임? — 쌩큐-.</span>
+        <span class="desc">안녕하세요. 잠깐 시간 좀 내주실래요? — 감사합니다.</span></span></div>
+      <div class="slot"><span class="t">창조</span><span class="c">In the beginning, God created the world. He created everything. Most importantly, God created human beings in His own image.
+        <span class="pron">🔊 인 더 비기닝, 고드 크리에이티드 더 월-드. 히- 크리에이티드 에브리씽. 모우스트 임포-턴틀리, 고드 크리에이티드 휴-먼 비-잉스 인 히즈 오운 이미지.</span>
+        <span class="desc">태초에 하나님께서 세상을 만드셨어요. 모든 것을 만드셨지요. 무엇보다도 하나님의 형상대로 사람을 만드셨어요. <b>※ 진행 팁:</b> "개나 돼지의 형상"이라는 표현은 불편하게 느껴질 수 있으니 쓰지 않기</span></span></div>
+      <div class="slot"><span class="t">처음</span><span class="c">In the beginning, we were with God, and we were very happy.
+        <span class="pron">🔊 인 더 비기닝, 위 워- 위드 고드, 앤드 위 워- 베리 해피.</span>
+        <span class="desc">태초에 우리가 하나님과 함께 있었는데 그때는 정말 행복했어요.</span></span></div>
+      <div class="slot"><span class="t">죄</span><span class="c">But sin separated us from God. Because of sin, many problems came into our lives.
+        <span class="pron">🔊 벗 신 세퍼레이티드 어스 프롬 고드. 비코즈 오브 신, 메니 프로블럼즈 케임 인투 아워 라이브즈.</span>
+        <span class="desc">그런데 죄로 인해 하나님을 떠나게 되었지요. 죄 때문에 많은 문제가 생겼어요.</span></span></div>
+      <div class="slot"><span class="t">문제 ①</span><span class="c">First, we experience hardship. We have to work hard to live.
+        <span class="pron">🔊 퍼-스트, 위 익스피어리언스 하-드쉽. 위 해브 투 워-크 하-드 투 리브.</span>
+        <span class="desc">첫째로 우리는 살기 위해 일해야만 하죠.</span></span></div>
+      <div class="slot"><span class="t">문제 ②</span><span class="c">Second, we experience sickness and disease.
+        <span class="pron">🔊 세컨드, 위 익스피어리언스 시크니스 앤드 디지-즈.</span>
+        <span class="desc">둘째, 다양한 질병이 찾아왔어요.</span></span></div>
+      <div class="slot"><span class="t">문제 ③</span><span class="c">Third, unexpected things happen in our lives. Things do not always go the way we want.
+        <span class="pron">🔊 써-드, 언익스펙티드 씽즈 해픈 인 아워 라이브즈. 씽즈 두- 노트 올-웨이즈 고우 더 웨이 위 원트.</span>
+        <span class="desc">셋째, 예기치 않은 일들이 생기죠. 우리 맘대로 인생이 흘러가지 않지요.</span></span></div>
+      <div class="slot"><span class="t">문제 ④</span><span class="c">Fourth, we experience fear, anxiety, loneliness, and emotional pain.
+        <span class="pron">🔊 포-쓰, 위 익스피어리언스 피어, 앵자이어티, 로운리니스, 앤드 이모우셔널 페인.</span>
+        <span class="desc">넷째로 우린 두려움, 근심, 외로움 그리고 정신적인 고통에 살고 있죠.</span></span></div>
+      <div class="slot"><span class="t">문제 ⑤</span><span class="c">Finally, can you guess? We are all destined to die. We are born into this world, we live here, and one day we die.
+        <span class="pron">🔊 파이널리, 캔 유- 게스? 위 아- 올- 데스틴드 투 다이. 위 아- 본- 인투 디스 월-드, 위 리브 히어, 앤드 원 데이 위 다이.</span>
+        <span class="desc">결정적으로 뭐가 더 있을까요? 우린 다 죽을 수밖에 없지요. 이렇게 태어나고 살다가 언젠가 죽게 되죠.</span></span></div>
+      <div class="slot"><span class="t">해결?</span><span class="c">Isn’t there any way to solve these problems? People try many different ways like visiting religious places and going about consulting from fortune tellers or astrology to find answers, but these things cannot completely solve the deepest problem in our lives. All these problems happened because sin separated us from God.
+        <span class="pron">🔊 이즌트 데어 애니 웨이 투 솔브 디-즈 프로블럼즈? 피-플 트라이 메니 디퍼런트 웨이즈 라이크 비지팅 릴리저스 플레이시즈 앤드 고우잉 어바우트 컨설팅 프롬 포-춘 텔러즈 오- 어스트롤러지 투 파인드 안-서즈, 벗 디-즈 씽즈 캐노트 컴플리-틀리 솔브 더 디-피스트 프로블럼 인 아워 라이브즈. 올- 디-즈 프로블럼즈 해픈드 비코즈 신 세퍼레이티드 어스 프롬 고드.</span>
+        <span class="desc">이 문제를 해결할 방법은 없을까요? 다양한 종교도 접하고 점도 쳐보지만 이런 것들이 우리 문제를 해결해 줄 수 없어요. 이 모든 일은 우리가 하나님을 떠나서 생긴 일이기 때문이지요.</span></span></div>
+      <div class="slot"><span class="t">행복?</span><span class="c">Still, people want to live a happy life. How can we be happy? Many people believe that money can make them happy. So they work very hard to become rich. But are they truly happy when they become rich? If not, will honour and success make us happy? If not, will having great power, like a president, make us happy? The answer is absolutely “No.”
+        <span class="pron">🔊 스틸, 피-플 원트 투 리브 어 해피 라이프. 하우 캔 위 비- 해피? 메니 피-플 빌리-브 댓 머니 캔 메이크 뎀 해피. 소우 데이 워-크 베리 하-드 투 비컴 리치. 벗 아- 데이 트룰-리 해피 웬 데이 비컴 리치? 이프 노트, 윌 오너 앤드 석세스 메이크 어스 해피? 이프 노트, 윌 해빙 그레이트 파워, 라이크 어 프레지던트, 메이크 어스 해피? 디 안-서 이즈 앱솔루-틀리 “노우.”</span>
+        <span class="desc">그래도 사람들은 행복하게 살기를 원하죠. 어떻게 행복할 수 있을까요? 대다수가 돈이면 최고라고 생각하고 열심히 일해 부자가 되기도 하지요. 그런데 과연 부자라고 행복할까요? 명예나 성공은요? 대통령 같은 권력은요? 답은…… 당연히 아니죠.</span></span></div>
+      <div class="slot"><span class="t">비유</span><span class="c">Do you know why? There is an important truth in this world. Look at this. Where can a fish be happy and healthy? Yes, in the water. Where can a tree grow well? Yes, in the soil. How can we be happy? God created us and He wants us to live in a good relationship with Him.
+        <span class="pron">🔊 두- 유- 노우 와이? 데어 이즈 언 임포-턴트 트루-쓰 인 디스 월-드. 룩 앳 디스. 웨어 캔 어 피쉬 비- 해피 앤드 헬씨? 예스, 인 더 워-터. 웨어 캔 어 트리- 그로우 웰? 예스, 인 더 소일. 하우 캔 위 비- 해피? 고드 크리에이티드 어스 앤드 히- 원츠 어스 투 리브 인 어 굳 릴레이션쉽 위드 힘.</span>
+        <span class="desc">왜 그런지 아세요? 이 세상에는 아주 중요한 뭔가가 있답니다. 물고기는 어디에 있어야 행복하고 건강할까요? 맞아요, 물속이죠. 나무는 어디에서 잘 자라죠? 맞아요, 땅속이죠. 그럼 우리는 어떻게 행복할 수 있지요? 하나님은 우리와 잘 지내고 싶어하세요.</span></span></div>
+      <div class="slot"><span class="t">다리</span><span class="c">But sin separates us from God. So how can our sins be forgiven? There is a wonderful way for us to come back to God. That way is Jesus Christ. Why is Jesus Christ the way? Jesus said in the Bible: <b>“I am the way and the truth and the life.” — John 14:6</b>. Jesus came into this world. He died for our sins on the cross, and He rose from the dead.
+        <span class="pron">🔊 벗 신 세퍼레이츠 어스 프롬 고드. 소우 하우 캔 아워 신즈 비- 포기븐? 데어 이즈 어 원더풀 웨이 포- 어스 투 컴 백 투 고드. 댓 웨이 이즈 지-저스 크라이스트. 와이 이즈 지-저스 크라이스트 더 웨이? 지-저스 세드 인 더 바이블: “아이 앰 더 웨이 앤드 더 트루-쓰 앤드 더 라이프” — 존 포-틴 식스. 지-저스 케임 인투 디스 월-드. 히- 다이드 포- 아워 신즈 온 더 크로스, 앤드 히- 로우즈 프롬 더 데드.</span>
+        <span class="desc">그런데 죄 때문에 우리가 떠나게 된 거예요. 그럼 우리 죄 문제는 어떻게 해결될까요? 하나님께 돌아갈 놀라운 길이 있어요. 그 길은 바로 예수님이시죠. 성경에 이르시기를 "내가 곧 길이요 진리요 생명이라"(요 14:6). 예수님께서 이 세상에 오셔서 십자가에서 우리 죄를 대신 지셨고 부활하셨답니다.</span></span></div>
+      <div class="slot"><span class="t">영접</span><span class="c">If we believe in Jesus Christ and accept Him as our Savior, He comes into our hearts and lives. Then our sins can be forgiven, and we can become children of God. As children of God, we receive His love, grace, peace, and many blessings. And one of the greatest blessings is the promise of eternal life with God.
+        <span class="pron">🔊 이프 위 빌리-브 인 지-저스 크라이스트 앤드 억셉트 힘 애즈 아워 세이비어, 히- 컴즈 인투 아워 하-츠 앤드 리브즈. 덴 아워 신즈 캔 비- 포기븐, 앤드 위 캔 비컴 칠드런 오브 고드. 애즈 칠드런 오브 고드, 위 리시-브 히즈 러브, 그레이스, 피-스, 앤드 메니 블레싱즈. 앤드 원 오브 더 그레이티스트 블레싱즈 이즈 더 프로미스 오브 이터-널 라이프 위드 고드.</span>
+        <span class="desc">우리가 그를 믿고 구주로 믿으면 그는 우리 마음에 오셔서 살게 되신답니다. 그때 우리 죄가 사해지고 하나님의 자녀가 돼요. 자녀가 되면 사랑·은혜·평화 그리고 많은 축복을 받게 되고, 그중 가장 큰 축복이 바로 영생이랍니다.</span></span></div>
+      <div class="slot"><span class="t">결단</span><span class="c">Now, where do you think you are? Here or here? God created us, sin separated us from Him, but Jesus brings us back to God. If you would like to receive Jesus Christ as your Savior, can you repeat after me?
+        <span class="pron">🔊 나우, 웨어 두- 유- 씽크 유- 아-? 히어 오- 히어? 고드 크리에이티드 어스, 신 세퍼레이티드 어스 프롬 힘, 벗 지-저스 브링즈 어스 백 투 고드. 이프 유- 우드 라이크 투 리시-브 지-저스 크라이스트 애즈 요- 세이비어, 캔 유- 리피-트 아-프터 미-?</span>
+        <span class="desc">자, 이제 선생님은 어디에 계세요? 하나님께서 우리를 만드셨지만 죄로 인해 떠났어요. 그런데 예수님께서 다시 우리를 하나님께로 인도하셨죠. 예수님을 구주로 영접하시기 원하시면, 절 따라 해 주시겠어요?</span></span></div>
+      <div class="fx gold">🙏 <b>영접 기도</b> — 11마디로 끊어 <b>한 마디 선창 → 상대가 따라 하면 다음 마디</b> (마디마다 멈춰서 기다리기 · 스피커 모드도 마디 단위로 재생됨)</div>
+      <div class="slot"><span class="t">①</span><span class="c">God our Father, I am a sinner.
+        <span class="pron">🔊 고드 아워 파-더, 아이 앰 어 시너</span>
+        <span class="desc">하나님 아버지, 저는 죄인입니다</span></span></div>
+      <div class="slot"><span class="t">②</span><span class="c">I have wandered far from You,
+        <span class="pron">🔊 아이 해브 원더드 파- 프롬 유-</span>
+        <span class="desc">오랫동안 하나님을 떠나 방황했지만</span></span></div>
+      <div class="slot"><span class="t">③</span><span class="c">but now I want to return to You.
+        <span class="pron">🔊 벗 나우 아이 원트 투 리턴- 투 유-</span>
+        <span class="desc">이제 하나님께 돌아가기 원합니다</span></span></div>
+      <div class="slot"><span class="t">④</span><span class="c">I believe that Jesus Christ died for my sins
+        <span class="pron">🔊 아이 빌리-브 댓 지-저스 크라이스트 다이드 포- 마이 신즈</span>
+        <span class="desc">예수님이 내 죄를 위해 죽으시고</span></span></div>
+      <div class="slot"><span class="t">⑤</span><span class="c">and rose from the dead.
+        <span class="pron">🔊 앤드 로우즈 프롬 더 데드</span>
+        <span class="desc">부활하신 것을 믿습니다</span></span></div>
+      <div class="slot"><span class="t">⑥</span><span class="c">Please forgive my sins.
+        <span class="pron">🔊 플리-즈 포기브 마이 신즈</span>
+        <span class="desc">내 죄를 용서해 주세요</span></span></div>
+      <div class="slot"><span class="t">⑦</span><span class="c">I invite Jesus Christ into my heart.
+        <span class="pron">🔊 아이 인바이트 지-저스 크라이스트 인투 마이 하-트</span>
+        <span class="desc">예수님을 내 마음에 초대합니다</span></span></div>
+      <div class="slot"><span class="t">⑧</span><span class="c">Jesus, please come and be my Savior and Lord.
+        <span class="pron">🔊 지-저스, 플리-즈 컴 앤드 비- 마이 세이비어 앤드 로-드</span>
+        <span class="desc">예수님, 오셔서 나의 구주와 주님이 되어 주세요</span></span></div>
+      <div class="slot"><span class="t">⑨</span><span class="c">From now on, I want to begin a new life as God’s child.
+        <span class="pron">🔊 프롬 나우 온, 아이 원트 투 비긴 어 뉴- 라이프 애즈 고즈 차일드</span>
+        <span class="desc">이제부터 하나님의 자녀로 새 삶을 살기 원합니다</span></span></div>
+      <div class="slot"><span class="t">⑩</span><span class="c">Please bless me and guide me now and forever.
+        <span class="pron">🔊 플리-즈 블레스 미- 앤드 가이드 미- 나우 앤드 퍼레버</span>
+        <span class="desc">지금부터 영원까지 나를 축복하시고 인도해 주세요</span></span></div>
+      <div class="slot"><span class="t">⑪</span><span class="c">In the name of Jesus Christ, I pray. Amen.
+        <span class="pron">🔊 인 더 네임 오브 지-저스 크라이스트, 아이 프레이. 아-멘</span>
+        <span class="desc">예수님의 이름으로 기도합니다. 아멘</span></span></div>
+      <div class="slot"><span class="t">마무리</span><span class="c">Thank you very much. May God bless you.
+        <span class="pron">🔊 쌩큐- 베리 머치. 메이 고드 블레스 유-.</span>
+        <span class="desc">감사합니다. 하나님의 축복이 함께 하시기를….</span></span></div>
+    </div>
+  </div>
+
+  <!-- ===== 11 인물 자료 ① 로버트 저메인 토머스 — 선교 (1840–1866) ===== -->
   <div class="section-title" id="s11"><span class="no">11</span>인물 자료 ① 로버트 저메인 토머스 — 선교 (1840–1866)<button type="button" class="stgl"></button></div>
 
   <div class="card rows narrow">
@@ -1374,7 +1395,7 @@
     </div>
   </div>
 
-  <!-- ===== 11 인물 자료 · 하월즈 ===== -->
+  <!-- ===== 12 인물 자료 ② 리즈 하월즈 — 기도 (1879–1950) ===== -->
   <div class="section-title" id="s12"><span class="no">12</span>인물 자료 ② 리즈 하월즈 — 기도 (1879–1950)<button type="button" class="stgl"></button></div>
 
   <div class="card rows narrow">
@@ -1403,7 +1424,7 @@
     </div>
   </div>
 
-  <!-- ===== 12 인물 자료 · 로버츠 ===== -->
+  <!-- ===== 13 인물 자료 ③ 이반 로버츠 — 부흥 (1878–1951) ===== -->
   <div class="section-title" id="s13"><span class="no">13</span>인물 자료 ③ 이반 로버츠 — 부흥 (1878–1951)<button type="button" class="stgl"></button></div>
 
   <div class="card rows narrow">
@@ -1423,7 +1444,7 @@
         <span class="mrow">· <b>1906</b> 탈진 — 레스터 제시 펜루이스의 집에서 요양 · <b>1912</b> 『성도들의 전쟁(War on the Saints)』 공저</span>
         <span class="mrow">· <b>1906.9</b> 하워드 애그뉴 존스턴 박사가 웨일스·인도 부흥 소식을 평양 선교사들에게 전함 → <b>1907.1 평양 대부흥</b></span>
         <span class="mrow">· 말년은 카디프 리우비나(Rhiwbina) · <b>1951.1.29</b> 소천(72세) — 모리아 채플 뒤 가족 묘역 · 채플 앞 기념비 (현 모리아 본당은 1898년 건립)</span></span></div>
-      <div class="slot"><span class="t">10/1 동선의 의미</span><span class="c">빅 핏의 갱도(광부 로버츠의 일터) → 블라이난네르흐(서원의 현장) → 모리아(부흥이 터진 예배당·잠든 묘역) <span class="desc">— 갱도에서 서원까지, 한 청년의 길을 하루에 되짚는 코스 · 모리아 채플 방문은 사전 신청 필수(07 체크리스트)</span></span></div>
+      <div class="slot"><span class="t">10/1 동선의 의미</span><span class="c">빅 핏의 갱도(광부 로버츠의 일터) → 블라이난네르흐(서원의 현장) → 모리아(부흥이 터진 예배당·잠든 묘역) <span class="desc">— 갱도에서 서원까지, 한 청년의 길을 하루에 되짚는 코스 · 모리아 채플 방문은 사전 신청 필수(08 체크리스트)</span></span></div>
       <div class="slot"><span class="t">🎵 부흥의 찬송</span><span class="c"><b>"Dyma gariad fel y moroedd" — Here Is Love, Vast as the Ocean</b> (윌리엄 리스 작사 · 1904 집회마다 불려 <b>"웨일스 부흥의 사랑 노래"</b>로 불림) — 모리아·블라이난네르흐에서 한 절 부르면 현지 성도들이 바로 알아듣는 곡 · 그 밖에 Calon Lân(순결한 마음), Cwm Rhondda(영어 찬송 "Guide Me, O Thou Great Jehovah"의 곡조 · 존 휴즈 작곡, 1907)<span class="mrow">· <b>1절 (영어 · 저작권 만료 · 모리아에서 함께 부르기)</b>: Here is love, vast as the ocean, / loving-kindness as the flood, / when the Prince of Life, our Ransom, / shed for us His precious blood. / Who His love will not remember? / Who can cease to sing His praise? / He can never be forgotten / throughout heaven's eternal days. — <span style="color:var(--faint)">뜻: 바다처럼 넓은 사랑, 홍수 같은 자비 — 생명의 왕, 우리의 속전이신 분이 우리를 위해 보혈을 흘리셨네. 누가 그 사랑을 잊으랴, 누가 찬양을 그치랴 · 곡조 "Dim ond Iesu"(로버트 로우리)</span></span><span class="mrow">· 부흥의 동역자: 세스 조슈아(블라이난네르흐 집회 인도자) · 시드니 에번스(뉴캐슬 에믈린 동급생, 훗날 로버츠의 여동생 메리와 결혼) · 애니 데이비스 등 집회에서 찬양을 이끈 청년 가수들</span></span></div>
       <div class="slot"><span class="t">🙏 묵상 · 나눔</span><span class="c">함께 읽을 말씀: 행 2:17–18 "말세에 내가 내 영을 모든 육체에 부어 주리니… 너희의 젊은이들은 환상을 보고" — 26세 광부 청년에게서 시작된 부흥<span class="mrow">· 나눔 질문 ① 로버츠의 네 가지 요점(죄 고백·의심스러운 것 제거·즉시 순종·공개 고백) 중 지금 나에게 가장 어려운 것은? ② 10/31 밤 모리아에 모인 청년은 18명 — 우리 18명에게 이 숫자가 말하는 것은? ③ 부흥 뒤 로버츠는 탈진하고 40년을 조용히 살았다 — 부흥의 "그 후"를 어떻게 준비할 것인가?</span></span></div>
       <div class="slot"><span class="t">📖 공개 자료 (무료)</span><span class="c"><a class="map" href="https://www.moriahchapel.org.uk/" target="_blank" rel="noopener">⛪ 모리아 공식</a> <a class="map" href="https://archive.org/details/MN41536ucmf_1" target="_blank" rel="noopener">📕 Stead 1905</a> <a class="map" href="https://archive.org/details/TheAwakeningInWales-WelshRevivals-1905-ByMrs.JessiePenn-lewis" target="_blank" rel="noopener">📕 Penn-Lewis 1905</a> <a class="map" href="https://archive.org/details/lessons-of-the-welsh-revival-g-campbell-morgan" target="_blank" rel="noopener">📕 Campbell Morgan 1905</a> <a class="map" href="https://archive.org/details/storyofwelshrevi0000unse" target="_blank" rel="noopener">📕 Story of the Revival 1905 (대출)</a> <a class="map" href="https://walesawakening.org/fire/When-The-Fire-Fell.pdf" target="_blank" rel="noopener">📄 When the Fire Fell PDF</a> <a class="map" href="https://newspapers.library.wales/" target="_blank" rel="noopener">📰 웨일스 신문 아카이브</a> <a class="map" href="https://www.peoplescollection.wales/search?query=Moriah+Chapel+Loughor" target="_blank" rel="noopener">🖼 People's Collection</a> <a class="map" href="https://biography.wales/article/s2-ROBE-JOH-1878.html" target="_blank" rel="noopener">📖 웨일스 인명사전</a><span class="desc">— W.T. 스테드 『The Welsh Revival』·제시 펜루이스 『The Awakening in Wales』·캠벨 모건 『Lessons of the Welsh Revival』·『The Story of the Welsh Revival(목격자 증언 + 로버츠의 메시지)』 — 1905년 당시 기록 4권 모두 저작권 만료, Internet Archive 무료 원문(영어) · 웨일스 신문 아카이브(newspapers.library.wales)는 국립웨일스도서관이 1904~05 당시 신문을 무료 공개 — "Evan Roberts"로 검색 · People's Collection Wales는 모리아·로버츠 사진 아카이브 · <b>이 섹션의 날짜는 웨일스 인명사전·모리아 채플 공식 기록·1905년 당시 기록으로 교차 확인 — 위키백과는 쓰지 않음</b></span></span></div>
@@ -1431,40 +1452,40 @@
     </div>
   </div>
 
-  <!-- ===== 13 인물 자료 · 뮬러 ===== -->
+  <!-- ===== 14 인물 자료 ④ 조지 뮬러 — 기도 (1805–1898) ===== -->
   <div class="section-title" id="s14"><span class="no">14</span>인물 자료 ④ 조지 뮬러 — 기도 (1805–1898)<button type="button" class="stgl"></button></div>
 
   <div class="card rows narrow">
     <div class="slots">
-      <div class="fx gold">🙏 <b>한 번도 후원을 요청하지 않고 기도만으로 고아 1만 명을 먹인 사람</b> <span class="sm">· 우리 동선: 10/4(일) 브리스톨 애슐리 다운 고아원 — 01 일자별 일정 참조 <span style="color:var(--faint)">(메인 3명(토머스·하월즈·로버츠)만큼 깊이 다루진 않지만, 하월즈가 본받은 모델이라 함께 소개 — 방문 배경은 15 참조)</span></span></div>
+      <div class="fx gold">🙏 <b>한 번도 후원을 요청하지 않고 기도만으로 고아 1만 명을 먹인 사람</b> <span class="sm">· 우리 동선: 10/4(일) 브리스톨 애슐리 다운 고아원 — 01 일자별 일정 참조 <span style="color:var(--faint)">(메인 3명(토머스·하월즈·로버츠)만큼 깊이 다루진 않지만, 하월즈가 본받은 모델이라 함께 소개 — 방문 배경은 16 참조)</span></span></div>
       <div class="slot"><span class="t">🚌 1분 소개</span><span class="c">프로이센 세리의 아들로 방탕하게 살다 1825년 회심, 1829년 영국으로 건너와 1832년 브리스톨에 정착합니다. 1836년 윌슨 스트리트의 셋집에서 고아 30명으로 시작한 사역이, 오직 기도로만 후원을 구한다는 원칙 아래 <b>애슐리 다운에 다섯 채(1849·57·62·68·70년)</b>의 대형 고아원으로 자라 한 번에 2,050명을 돌봤습니다. 평생 돌본 고아 1만여 명, 일기에 남긴 기도 응답만 5만 건. 70세 이후에도 17년간 세계를 돌며 전도하다 1898년 소천했고, 장례 행렬에 브리스톨 시민 수만 명이 나왔습니다.</span></div>
       <div class="slot"><span class="t">👀 현장 · 연결</span><span class="c">다섯 채 건물은 지금 브리스톨 시립대학 애슐리 다운 캠퍼스로 쓰여 외관 견학 위주 (뮬러 박물관은 배관 침수로 무기한 휴관) · 아이들이 빈 그릇 앞에서 감사기도를 드리자 마침 빵집 마차가 문을 두드렸다는 일화가 유명합니다.<span class="mrow">· <b>리즈 하월즈가 젊은 시절 본받은 모델이 바로 뮬러</b> — "사람에게 구하지 않고 하나님께만 구한다"는 원칙이 그대로 BCW(웨일스 성경대학)의 신앙으로 이어집니다. 12 인물 자료(하월즈)와 함께 보면 좋은 연결점</span></span></div>
       <div class="slot"><span class="t">🙏 묵상 한 줄</span><span class="c">사람에게 구하지 않고 하나님께만 구한 뮬러의 원칙 — 내가 "필요"를 느낄 때 가장 먼저 향하는 곳은 어디인가?</span></div>
     </div>
   </div>
 
-  <!-- ===== 14 인물 자료 · 휫필드·웨슬리 ===== -->
+  <!-- ===== 15 인물 자료 ⑤ 조지 휫필드·존 웨슬리 — 들판의 첫 설교 (1739) ===== -->
   <div class="section-title" id="s15"><span class="no">15</span>인물 자료 ⑤ 조지 휫필드·존 웨슬리 — 들판의 첫 설교 (1739)<button type="button" class="stgl"></button></div>
 
   <div class="card rows narrow">
     <div class="slots">
-      <div class="fx gold">🌾 <b>교회 강단 밖으로 나간 복음 — 감리교 부흥운동이 대중운동이 된 출발점</b> <span class="sm">· 우리 동선: 10/4(일) 한햄 마운트(야외 설교지) — 01 일자별 일정 참조 <span style="color:var(--faint)">(메인 3명만큼 깊이 다루진 않지만, 우리 노방전도의 원형이라 함께 소개 — 방문 배경은 15 참조)</span></span></div>
+      <div class="fx gold">🌾 <b>교회 강단 밖으로 나간 복음 — 감리교 부흥운동이 대중운동이 된 출발점</b> <span class="sm">· 우리 동선: 10/4(일) 한햄 마운트(야외 설교지) — 01 일자별 일정 참조 <span style="color:var(--faint)">(메인 3명만큼 깊이 다루진 않지만, 우리 노방전도의 원형이라 함께 소개 — 방문 배경은 16 참조)</span></span></div>
       <div class="slot"><span class="t">🚌 1분 소개</span><span class="c">1739년 2월 17일, 25세의 <b>조지 휫필드</b>가 교회 강단을 거부당하자 브리스톨 킹스우드 탄광의 광부 200명 앞 들판에서 설교했습니다. 며칠 만에 청중이 2만 명으로 늘었고, 광부들의 검은 얼굴에 눈물 자국이 "하얀 도랑"을 냈다는 기록이 남아 있습니다. 휫필드의 요청으로 그해 4월 2일 <b>존 웨슬리</b>도 브리스톨에서 생애 첫 야외 설교를 하며("나는 스스로 낮아져 들판에서 설교하기로 했다") 이후 한햄 마운트와 킹스우드에서 반복 설교, 1748년 킹스우드 학교를 세웠습니다. 교회 강단 밖에서 시작된 이 설교들이 감리교 부흥운동을 대중운동으로 키웠습니다.</span></div>
       <div class="slot"><span class="t">👀 현장 · 연결</span><span class="c">언덕 위 1951년 세운 기념 봉화대와 웨슬리 설교 기념비가 남아 있고, 브리스톨 동부가 내려다보이는 잔디 언덕입니다 (야외라 우천 대비).<span class="mrow">· <b>"교회 밖으로 나간 복음"</b> — 우리가 하는 3분 브릿지 노방전도의 원형이 바로 이 들판 설교입니다. 브리스톨 시내의 뉴룸(New Room, 1739)은 세계에서 가장 오래된 감리교 예배당이지만 이번 동선 밖입니다</span></span></div>
       <div class="slot"><span class="t">🙏 묵상 한 줄</span><span class="c">강단이 아닌 들판에서 시작된 부흥 — 우리의 3분 브릿지도 "교회 밖"에서 하는 전도입니다. 오늘 우리는 어디서 복음을 전할 준비가 되어 있는가?</span></div>
     </div>
   </div>
 
-  <!-- ===== 15 관광지 배경 설명 ===== -->
+  <!-- ===== 16 관광지 배경 설명 — 빅 핏 · 웨일스·브리스톨 탐방 · 런던 시내 · 크루즈 ===== -->
   <div class="section-title" id="s16"><span class="no">16</span>관광지 배경 설명 — 빅 핏 · 웨일스·브리스톨 탐방 · 런던 시내 · 크루즈<button type="button" class="stgl"></button></div>
 
   <div class="card rows narrow">
     <div class="slots">
-      <div class="fx">🧭 <b>인물 자료(10~12)에 없는 방문지들의 이야기 — 각 장소를 역사(어떤 곳인가) · 현장(가서 보는 것) · 연결(그 뒤 이야기와 우리 여정)로</b> <span class="sm">— 차에서 읽어주는 용도 · 개관시간·예약은 07 체크리스트, 동선은 01 일자별 일정 참조</span></div>
+      <div class="fx">🧭 <b>인물 자료(11~15)에 없는 방문지들의 이야기 — 각 장소를 역사(어떤 곳인가) · 현장(가서 보는 것) · 연결(그 뒤 이야기와 우리 여정)로</b> <span class="sm">— 차에서 읽어주는 용도 · 개관시간·예약은 08 체크리스트, 동선은 01 일자별 일정 참조</span></div>
 
       <div class="slot" id="bg-bigpit"><span class="t">⛏ 빅 핏 (10/1)</span><span class="c"><b>Big Pit National Coal Museum — 전직 광부와 함께 지하 90m 진짜 갱도로 내려가는 국립 석탄박물관 (블라이나본 · 웨일스어 Pwll Mawr)</b>
         <span class="mrow">🕰 <b>역사 — 어떤 곳인가</b> · 블라이나본은 1789년 제철소가 서면서 남웨일스 산업혁명의 심장이 된 계곡. 빅 핏은 <b>1860년 수직갱을 파고 1880년부터 본격 채탄</b>, 1920년대 전성기에는 1,300명이 일하며 증기선·철도용 석탄을 캤음. 19세기 남웨일스 석탄은 세계 해운을 움직였고, 광부 마을마다 채플이 서면서 이 계곡들이 <b>1904 부흥의 무대</b>가 됨 — 이반 로버츠(러흐르)와 리즈 하월즈(브리나만) 모두 이런 갱도의 노동자였음. <b>1980년 폐광 → 1983년 박물관</b>으로 다시 열렸고 2000년 블라이나본 일대가 유네스코 세계유산, 2005년 영국 올해의 박물관상</span>
-        <span class="mrow">👀 <b>현장 — 가서 보는 것</b> · 헬멧·헤드램프·배터리·비상호흡기를 차고 <b>케이지 엘리베이터로 90m 아래</b>로 내려가 전직 광부의 안내로 약 50분 갱도를 걷는 코스(현역 탄광법 적용 — 배터리 기기·휴대폰 전량 지상 보관, 08 준비물). 갱도 안 조랑말 마구간(1999년까지 실제 사용)에서 "욕설 없는 명령을 못 알아들었다"는 부흥기 일화가 실감남. 지상에는 광부 목욕장(1939)이 전시관으로, 권양기실·대장간, 그리고 광부 식당의 cawl(양고기 스튜)</span>
+        <span class="mrow">👀 <b>현장 — 가서 보는 것</b> · 헬멧·헤드램프·배터리·비상호흡기를 차고 <b>케이지 엘리베이터로 90m 아래</b>로 내려가 전직 광부의 안내로 약 50분 갱도를 걷는 코스(현역 탄광법 적용 — 배터리 기기·휴대폰 전량 지상 보관, 09 준비물). 갱도 안 조랑말 마구간(1999년까지 실제 사용)에서 "욕설 없는 명령을 못 알아들었다"는 부흥기 일화가 실감남. 지상에는 광부 목욕장(1939)이 전시관으로, 권양기실·대장간, 그리고 광부 식당의 cawl(양고기 스튜)</span>
         <span class="mrow">🔭 <b>연결 — 그 뒤 이야기와 우리 여정</b> · 갱도에서 올라온 뒤 곧장 서해안 블라이난네르흐로 — <b>광부의 세계 → 서원의 현장</b> 순서가 이 날의 설계. 빅 핏이 문 닫은 1980년대 남웨일스 탄광은 거의 전부 폐광했고(1984~85 광부 파업), 오늘 계곡의 채플 다수가 비어 있음 — "복음이 다시 돌아오다"라는 우리 주제가 가장 실감 나는 풍경</span></span></div>
       <div class="slot" id="bg-mumbles"><span class="t">🌊 멈블스 (10/2)</span><span class="c"><b>Mumbles — 스완지 만이 끝나는 곶에 자리한 해변 마을 · 세계 최초의 여객 철도가 다니던 곳</b>
         <span class="mrow">🕰 <b>역사 — 어떤 곳인가</b> · 노르만 시대 고워 영주의 <b>오이스터마우스 성(12세기)</b> 아래 굴 채취 마을로 시작. <b>1807년 스완지~멈블스 철도</b>는 요금을 받고 승객을 태운 세계 최초의 철도(처음엔 말이 끌었음 · 1960년 폐선). 1794년 곶 앞 두 바위섬에 등대, <b>1898년 부두(Mumbles Pier)</b> · 스완지 태생 시인 딜런 토머스가 청년기에 드나든 펍들이 지금도 있음 · 1922년부터 Joe’s 아이스크림</span>
@@ -1476,7 +1497,7 @@
         <span class="mrow">🔭 <b>연결 — 그 뒤 이야기와 우리 여정</b> · 고워를 나와 45분이면 BCW — "창조의 경관 → 기도로 세운 학교" 순서. 로실리 언덕(Rhossili Down)은 청동기 무덤이 있는 곳으로, 웨일스 신앙의 층이 얼마나 오래됐는지 보여주는 배경</span></span></div>
       <div class="slot" id="bg-ffald"><span class="t">🙏 Ffald-y-Brenin (10/1)</span><span class="c"><b>"왕의 양 우리(Ffald y Brenin)" — 펨브록셔 귄 밸리 산비탈, 시편 23편에서 이름을 딴 기도의 집</b>
         <span class="mrow">🕰 <b>역사 — 어떤 곳인가</b> · 1978년 "삶의 소용돌이에서 잠시 쉬어 가는 물가"의 환상을 받은 필리다 몰드가 1984년 이 산비탈 농가를 찾아 4년을 손수 고쳐 <b>1988년 문을 연</b> 기독교 리트릿 센터. 1999년부터 로이·대프니 고드윈 부부가 이끌면서 이곳에서 일어난 기도 응답·치유·회심 이야기가 <b>『The Grace Outpouring(은혜의 쏟아짐)』(2008)</b>으로 출간돼 세계 각지에서 순례객이 찾아오는 "열방을 위한 기도의 집"이 됨</span>
-        <span class="mrow">👀 <b>현장 — 가서 보는 것</b> · 산비탈에 박혀 있는 작은 채플과 기도실, 부지를 오르면 계곡을 내려다보는 <b>언덕 위 십자가</b> — 이곳에서 팀 기도회(1시간 배정) · 하루 리듬에 맞춘 공동 기도 시간에 합류 가능 · 데이룸에서 차 한 잔 · 5인 이상은 사전 연락(07 체크리스트 · 01348 881419) · 좁은 시골길이라 9인승은 서행, 두 차는 각자 내비</span>
+        <span class="mrow">👀 <b>현장 — 가서 보는 것</b> · 산비탈에 박혀 있는 작은 채플과 기도실, 부지를 오르면 계곡을 내려다보는 <b>언덕 위 십자가</b> — 이곳에서 팀 기도회(1시간 배정) · 하루 리듬에 맞춘 공동 기도 시간에 합류 가능 · 데이룸에서 차 한 잔 · 5인 이상은 사전 연락(08 체크리스트 · 01348 881419) · 좁은 시골길이라 9인승은 서행, 두 차는 각자 내비</span>
         <span class="mrow">🔭 <b>연결 — 그 뒤 이야기와 우리 여정</b> · 하월즈의 "중보"(1920~40년대)가 20세기 후반 웨일스에서 어떤 모습으로 이어졌는지 보여주는 현장 — 다음 날 BCW와 짝을 이룸. 이 지역 프레셀리 언덕은 <b>스톤헨지의 청석(bluestone)이 온 곳</b>(10/4 스톤헨지를 지나며 다시 만남)</span></span></div>
       <div class="slot" id="bg-clifton"><span class="t">🌉 클리프턴 현수교 (10/4)</span><span class="c"><b>Clifton Suspension Bridge — 에이번 협곡 75m 위에 걸린 브리스톨의 상징 · 브루넬이 24세에 설계, 죽은 뒤 완공</b>
         <span class="mrow">🕰 <b>역사 — 어떤 곳인가</b> · 1753년 한 상인이 유산으로 "협곡에 다리를" 남기며 시작 · 1831년 설계 공모에서 <b>24세의 이삼바드 킹덤 브루넬</b>이 당선(심사위원 텔퍼드) · 브리스톨 폭동과 자금난으로 1843년 공사 중단, 브루넬은 1859년 세상을 떠남 · 동료 기술자들이 그를 기념해 헝거포드 다리의 쇠사슬을 옮겨 와 <b>1864년 완공</b> · 경간 214m</span>
@@ -1485,11 +1506,11 @@
       <div class="slot" id="bg-muller"><span class="t">🏛 조지 뮬러 고아원 (10/4)</span><span class="c"><b>George Müller(1805–1898) — 한 번도 후원을 요청하지 않고 기도만으로 고아 1만 명을 먹인 사람 · 애슐리 다운의 다섯 채</b>
         <span class="mrow">🕰 <b>역사 — 어떤 곳인가</b> · 프로이센 세리의 아들로 방탕하게 살다 1825년 회심, 1829년 영국으로 · 1832년 브리스톨에 정착해 헨리 크레이크와 함께 목회 · <b>1836년 윌슨 스트리트의 셋집에서 고아 30명</b>으로 시작 → 기도 응답으로 자금이 들어오자 <b>애슐리 다운에 1849·1857·1862·1868·1870년 다섯 채의 대형 고아원</b>을 지어 한 번에 2,050명을 돌봄 · 평생 돌본 고아 1만여 명, 일기에 기록된 기도 응답 5만 건 · 70세 이후 17년간 세계 전도 여행(1875~92) · 1898년 소천, 장례 행렬에 브리스톨 시민 수만 명</span>
         <span class="mrow">👀 <b>현장 — 가서 보는 것</b> · 다섯 채 건물은 지금 <b>브리스톨 시립대학(City of Bristol College) 애슐리 다운 캠퍼스</b> — 외관 견학 · 뮬러 박물관(College Rd, 로프트 하우스)은 배관 침수로 무기한 휴관이라 일요일은 건물·부지 중심, 세부 코스는 박진철 선교사님 안내 · 아이들이 아침 식탁에 앉아 빈 그릇 앞에서 감사기도를 드리자 빵집 마차가 문을 두드렸다는 유명한 일화의 현장</span>
-        <span class="mrow">🔭 <b>연결 — 그 뒤 이야기와 우리 여정</b> · 하월즈가 젊은 시절 본받은 모델이 뮬러 — "하나님께만 구한다"는 원칙이 BCW의 재정 방식으로 이어짐(11 참조) · 뮬러 이야기를 조금 더 보려면 13 참조 · 뮬러 재단(The George Müller Charitable Trust)은 지금도 브리스톨에서 아동·가정 사역 중 · 뮬러의 묘는 아노스 베일 묘지(동선 밖)</span></span></div>
+        <span class="mrow">🔭 <b>연결 — 그 뒤 이야기와 우리 여정</b> · 하월즈가 젊은 시절 본받은 모델이 뮬러 — "하나님께만 구한다"는 원칙이 BCW의 재정 방식으로 이어짐(12 참조) · 뮬러 이야기를 조금 더 보려면 14 참조 · 뮬러 재단(The George Müller Charitable Trust)은 지금도 브리스톨에서 아동·가정 사역 중 · 뮬러의 묘는 아노스 베일 묘지(동선 밖)</span></span></div>
       <div class="slot" id="bg-hanham"><span class="t">⛪ 한햄 마운트 · 야외 설교지 (10/4)</span><span class="c"><b>Hanham Mount — 교회 밖으로 나간 복음이 시작된 언덕 · 휫필드와 웨슬리의 1739년</b>
         <span class="mrow">🕰 <b>역사 — 어떤 곳인가</b> · 1739년 2월 17일, 교회 강단을 거부당한 25세의 <b>조지 휫필드</b>가 킹스우드 탄광의 광부 200명 앞 들판에서 설교 — 며칠 만에 청중이 2만 명으로 늘고 광부들의 검은 얼굴에 눈물 자국이 "하얀 도랑"을 냈다는 기록 · 휫필드의 요청으로 <b>4월 2일 존 웨슬리</b>가 브리스톨 벽돌공장 터에서 생애 첫 야외 설교("나는 스스로 낮아져 들판에서 설교하기로 했다") → 이후 웨슬리는 한햄 마운트와 킹스우드에서 반복 설교, 1748년 킹스우드 학교 설립 · 감리교 부흥운동이 대중운동이 된 출발점</span>
         <span class="mrow">👀 <b>현장 — 가서 보는 것</b> · 언덕 위 <b>1951년 세운 기념 봉화대</b>와 웨슬리 설교 기념비, 브리스톨 동부가 내려다보이는 잔디 언덕(정확한 방문 지점은 박진철 선교사님 안내 · 40분 배정) · 야외라 우천 대비</span>
-        <span class="mrow">🔭 <b>연결 — 그 뒤 이야기와 우리 여정</b> · "교회 밖으로 나간 복음" — 우리가 하는 3분 브릿지 노방전도의 원형이 바로 이 들판 설교 · 브리스톨 시내의 뉴룸(New Room, 1739)은 세계에서 가장 오래된 감리교 예배당(동선 밖) · 휫필드·웨슬리 이야기를 조금 더 보려면 14 참조 · 여기서 A303을 타고 스톤헨지 방면으로</span></span></div>
+        <span class="mrow">🔭 <b>연결 — 그 뒤 이야기와 우리 여정</b> · "교회 밖으로 나간 복음" — 우리가 하는 3분 브릿지 노방전도의 원형이 바로 이 들판 설교 · 브리스톨 시내의 뉴룸(New Room, 1739)은 세계에서 가장 오래된 감리교 예배당(동선 밖) · 휫필드·웨슬리 이야기를 조금 더 보려면 15 참조 · 여기서 A303을 타고 스톤헨지 방면으로</span></span></div>
       <div class="slot" id="bg-stonehenge"><span class="t">🗿 스톤헨지 차창 조망 (10/4)</span><span class="c"><b>Stonehenge — 기원전 3000~2000년에 걸쳐 세워진 거석 유적 · 1986년 유네스코 세계유산 · 청석은 웨일스에서 왔음</b>
         <span class="mrow">🕰 <b>역사 — 어떤 곳인가</b> · 기원전 3000년경 원형 토루와 화장 묘지로 시작 → 기원전 2500년경 30톤급 사르센 돌기둥을 세움 · 안쪽 작은 <b>청석(bluestone)은 펨브록셔 프레셀리 언덕(Ffald-y-Brenin 인근)에서 240km를 운반</b>해 온 것으로 밝혀짐 · 하지·동지 해돋이 축선 · 용도는 지금도 논쟁(장례·천문·치유)</span>
         <span class="mrow">👀 <b>현장 — 가서 보는 것</b> · A303 서쪽에서 동쪽으로 달릴 때 <b>오른편 언덕 위로 바로 보임</b>(약 1~2분) · <b>A303 갓길 정차는 금지 — 내리거나 서지 않고 차창으로만</b> 지나가며 봄 · 입장(£30 안팎·예약제)은 하지 않는 코스 · 일몰 18:39 무렵 통과라 실루엣</span>
@@ -1522,7 +1543,7 @@
     </div>
   </div>
 
-  <!-- ===== 16 웨일스어 한마디 ===== -->
+  <!-- ===== 17 웨일스어 한마디 ===== -->
   <div class="section-title" id="s17"><span class="no">17</span>웨일스어 한마디</div>
 
   <div class="card rows narrow">
@@ -1753,7 +1774,7 @@
 <button type="button" id="korstop">⏹ 읽기 중지</button>
 <script>
 (function(){
-  /* ===== 11~14 한국어 읽어주기 (기기 내장 음성 · 인터넷 불필요) ===== */
+  /* ===== 11~16 한국어 읽어주기 (기기 내장 음성 · 인터넷 불필요) ===== */
   if(!('speechSynthesis' in window)) return;
   var synth = window.speechSynthesis;
   var koVoice = null, rate = 1.0, playing = false, curSlot = null, queue = [];
